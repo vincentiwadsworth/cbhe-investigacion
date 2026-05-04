@@ -1,0 +1,177 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Quiénes Somos"
+  description="Sobre la Cámara Boliviana de Hidrocarburos y Energía — Representamos la fuerza impulsora del sector energético en Bolivia."
+>
+  <Navbar active="quienes-somos" />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative bg-linear-to-br from-primary to-primary-container pt-32 pb-48 px-8 overflow-hidden">
+      <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-16">
+        <div class="flex-1 space-y-8">
+          <span class="text-primary-fixed-dim font-bold tracking-widest uppercase text-sm">Institucional</span>
+          <h1 class="text-5xl md:text-6xl font-headline font-extrabold text-on-primary leading-tight tracking-tight">
+            Sobre la Cámara Boliviana de Hidrocarburos y Energía
+          </h1>
+          <p class="text-lg md:text-xl text-on-primary-container font-body leading-relaxed max-w-2xl">
+            Representamos la fuerza impulsora del sector energético en Bolivia. Unimos a las
+            principales empresas para garantizar un desarrollo sostenible, riguroso y transparente
+            de nuestros recursos estratégicos.
+          </p>
+        </div>
+        <!-- Decorative element -->
+        <div class="flex-1 hidden md:block">
+          <div class="relative w-full aspect-square max-w-md ml-auto">
+            <div class="absolute inset-0 bg-surface/10 backdrop-blur-md rounded-xl border border-surface/20 rotate-3"></div>
+            <div class="absolute inset-4 bg-surface/20 backdrop-blur-xl rounded-xl border border-surface/30 -rotate-2"></div>
+            <div class="absolute inset-8 bg-[url('https://images.unsplash.com/photo-1541888053-1563f1396a92?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center rounded-lg shadow-2xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Misión & Visión -->
+    <section class="max-w-7xl mx-auto px-8 -mt-24 relative z-20 mb-32">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Misión -->
+        <div class="bg-surface p-12 rounded-xl shadow-lg hover:bg-surface-container-lowest transition-colors duration-300">
+          <div class="w-16 h-16 bg-surface-container-low rounded-lg flex items-center justify-center mb-8">
+            <Icon name="material-symbols:flag" class="text-primary size-8" />
+          </div>
+          <h2 class="text-3xl font-headline font-bold text-on-surface mb-6">Nuestra Misión</h2>
+          <p class="font-body text-on-surface-variant leading-relaxed text-lg">
+            Promover el desarrollo eficiente, competitivo y sostenible del sector de
+            hidrocarburos y energía en Bolivia. Representamos y defendemos los intereses de
+            nuestros afiliados a través de la excelencia técnica, el diálogo constructivo y la
+            proposición de políticas públicas basadas en el rigor científico y económico.
+          </p>
+        </div>
+
+        <!-- Visión -->
+        <div class="bg-surface-container-low p-12 rounded-xl hover:bg-surface-container-highest transition-colors duration-300 md:mt-16 shadow-lg">
+          <div class="w-16 h-16 bg-surface-container-lowest rounded-lg flex items-center justify-center mb-8">
+            <Icon name="material-symbols:visibility" class="text-primary size-8" />
+          </div>
+          <h2 class="text-3xl font-headline font-bold text-on-surface mb-6">Nuestra Visión</h2>
+          <p class="font-body text-on-surface-variant leading-relaxed text-lg">
+            Ser el referente institucional indiscutible del sector energético boliviano a nivel
+            nacional e internacional. Aspiramos a liderar la transición hacia una matriz
+            energética moderna, consolidando a Bolivia como un actor clave mediante la innovación
+            tecnológica y las mejores prácticas operativas globales.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estructura Sectorial -->
+    <section class="py-24 bg-surface-container-lowest">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="mb-20 max-w-3xl">
+          <h2 class="text-4xl font-headline font-extrabold text-on-surface mb-6 tracking-tight">
+            Estructura Sectorial
+          </h2>
+          <p class="text-xl text-on-surface-variant leading-relaxed">
+            Nuestra membresía se articula en cinco grupos industriales especializados, reflejando
+            la complejidad y profundidad técnica de la cadena de valor energética.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <!-- Sidebar navigation -->
+          <div class="md:col-span-4 hidden md:block">
+            <div class="sticky top-32 bg-surface p-8 rounded-xl">
+              <h3 class="text-sm font-bold text-outline uppercase tracking-wider mb-6">
+                Grupos Industriales
+              </h3>
+              <ul class="space-y-4">
+                <li class="text-primary font-bold border-l-2 border-primary pl-4 py-1">
+                  Exploración y Producción
+                </li>
+                <li class="text-on-surface-variant border-l-2 border-transparent pl-4 py-1">
+                  Servicios en Pozo
+                </li>
+                <li class="text-on-surface-variant border-l-2 border-transparent pl-4 py-1">
+                  Servicios en Superficie
+                </li>
+                <li class="text-on-surface-variant border-l-2 border-transparent pl-4 py-1">
+                  Industria y Transporte
+                </li>
+                <li class="text-on-surface-variant border-l-2 border-transparent pl-4 py-1">
+                  Servicios Auxiliares
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Main content -->
+          <div class="md:col-span-8 space-y-12">
+            {
+              [
+                {
+                  icon: "landscape",
+                  bgClass: "bg-primary-container",
+                  textClass: "text-on-primary",
+                  title: "Exploración y Producción (Upstream)",
+                  desc: "Empresas operadoras dedicadas a la búsqueda de nuevos yacimientos y la extracción eficiente de hidrocarburos. Aplicando tecnología sísmica avanzada y técnicas de perforación de vanguardia para asegurar la reposición de reservas y maximizar la recuperación."
+                },
+                {
+                  icon: "precision-manufacturing",
+                  bgClass: "bg-secondary-container",
+                  textClass: "text-on-secondary-container",
+                  title: "Servicios Especializados en Pozo",
+                  desc: "Proveedores de servicios críticos durante las fases de perforación, terminación e intervención de pozos. Incluye perfilaje, cementación, estimulación y fluidos de perforación, garantizando la integridad estructural y operativa bajo estándares internacionales."
+                },
+                {
+                  icon: "factory",
+                  bgClass: "bg-tertiary-container",
+                  textClass: "text-on-tertiary-container",
+                  title: "Servicios Especializados en Superficie",
+                  desc: "Compañías enfocadas en el diseño, construcción, operación y mantenimiento de facilidades de producción (facilities). Desde plantas separadoras hasta sistemas de compresión, asegurando el procesamiento inicial seguro del gas y líquidos."
+                },
+                {
+                  icon: "route",
+                  bgClass: "bg-surface-variant",
+                  textClass: "text-on-surface-variant",
+                  title: "Industria y Transporte (Midstream/Downstream)",
+                  desc: "Gestión de la red de ductos (gasoductos, oleoductos), logística de distribución y procesos de industrialización o refinación. Vitales para conectar la producción primaria con los mercados de consumo y exportación de manera continua."
+                },
+                {
+                  icon: "support-agent",
+                  bgClass: "bg-surface-dim",
+                  textClass: "text-on-surface",
+                  title: "Servicios Auxiliares y Soporte Técnico",
+                  desc: "Entidades que proveen consultoría técnica, legal, ambiental, auditoría, logística de campamentos y tecnología de la información. Este grupo es fundamental para el soporte integral y el cumplimiento regulatorio de la industria."
+                }
+              ].map((group) => (
+                <article class="group bg-surface-container-low rounded-xl p-8 hover:bg-surface-container-highest transition-all duration-300 shadow-sm hover:shadow-lg">
+                  <div class="flex items-start gap-6">
+                    <div class={`w-12 h-12 shrink-0 ${group.bgClass} rounded-lg flex items-center justify-center`}>
+                      <Icon name={`material-symbols:${group.icon}`} class={`${group.textClass} size-6`} />
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold text-on-surface mb-4 group-hover:text-primary transition-colors">
+                        {group.title}
+                      </h3>
+                      <p class="text-on-surface-variant leading-relaxed text-lg">
+                        {group.desc}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,197 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Novedades"
+  description="Novedades y publicaciones — Un espacio para noticias, eventos y análisis del sector energético boliviano."
+>
+  <Navbar active="novedades" />
+
+  <!-- Header -->
+  <header class="py-16 px-8 max-w-7xl mx-auto">
+    <h1 class="text-5xl md:text-6xl leading-tight font-bold text-on-surface font-headline tracking-tight max-w-3xl">
+      Novedades y publicaciones
+    </h1>
+    <p class="text-xl text-on-surface-variant mt-6 max-w-2xl leading-relaxed font-body">
+      Un espacio para noticias, eventos y análisis del sector energético.
+    </p>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-8 pb-24 grid grid-cols-1 lg:grid-cols-4 gap-12">
+    <!-- Contenido Principal -->
+    <div class="lg:col-span-3 space-y-12">
+      <!-- Noticia Destacada -->
+      <article class="bg-surface-container-low rounded-lg overflow-hidden flex flex-col md:flex-row group transition-all duration-300 hover:bg-surface-container-highest">
+        <div class="md:w-1/2 min-h-[300px] bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBxn9mHxIu574H-DprYh_hJLxw2HV-NtbIn3IvRrSeEZzUKlOxnT4GTobwJ-N4vbPK1Msi5qZzKBKDL8-IuXhueAVcTU60A2xdgLhc33AzFlNMrvxplOPyvKw_N5Vy7GU6MF9NHu93v7VoBQSxP8CVvyZ9tkulob4maSJ216LRwVuquqfu3hZMg7bEtdw3HFPKj-js2gmEaVSe1lvNLXUbWkJEv6m3Q2ycf7tauJFRp8tJlVSXzr0tSXS5qu2XNTWOMpSY3ROO4NHY')">
+        </div>
+        <div class="p-8 md:w-1/2 flex flex-col justify-center">
+          <span class="text-xs font-semibold text-primary uppercase tracking-wider font-label mb-4">Análisis Sectorial</span>
+          <h2 class="text-3xl leading-snug font-bold text-on-surface mb-4 font-headline group-hover:text-primary transition-colors">
+            Perspectivas Energéticas 2024: Transición y Estabilidad
+          </h2>
+          <p class="text-base text-on-surface-variant leading-relaxed font-body mb-6">
+            Un análisis profundo sobre los retos inmediatos en la matriz energética nacional y
+            las oportunidades de inversión en energías renovables para la próxima década.
+          </p>
+          <div class="mt-auto flex items-center justify-between text-sm text-on-surface-variant">
+            <span class="flex items-center gap-2">
+              <Icon name="material-symbols:calendar-today" class="size-4" />
+              15 Oct 2023
+            </span>
+            <a href="#" class="text-primary font-medium hover:underline inline-flex items-center gap-1">
+              Leer más
+              <Icon name="material-symbols:arrow-forward" class="size-4" />
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Grid de Noticias -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          [
+            {
+              category: "Institucional",
+              title: "Nueva Mesa Directiva de la CBHE asume funciones",
+              excerpt: "Compromiso renovado con la transparencia técnica y el desarrollo sostenible del sector hidrocarburífero en Bolivia.",
+              date: "12 Oct 2023",
+              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC-oQdsqBrj8P7S_u3Z6o96d5MbwiE_Vep_ZEj5TPg3-JIRXBkhezU1cDZhLjuf7_Z7OBGMRhfb47ozFj1ZDUBMB7qfehxgMhk0fpvXsi4ONshw9OW34cxioklyqkEBbmTyBL6QRMRqWcRZ1NWZmiDua1gIIunyhwBynDjljk-EGybplUWCzmSEDakRxlIO1brOXJMXEYK4WBnNl5dBysL0BzKAYFfBtbaZL6EbbmLDeZdTXbZCYbv1Nio9niD6-oxBZIKKA6Afygk"
+            },
+            {
+              category: "Energías Alternativas",
+              title: "Foro de Energías Renovables atrae a expertos internacionales",
+              excerpt: "Debate técnico sobre la viabilidad de proyectos eólicos y solares en el contexto geográfico y regulatorio actual.",
+              date: "08 Oct 2023",
+              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCE6j_o9lzvIoA4iFZDNEpPd-DBJRK67lugxKE9FLXKt7El3fq4IboJSBevUXSrM1PfTdNQD1yy97dbCzDIDP3CoE_YzmNknafpfyHarDxsjoCbV5BIv7AtWF0jAkmT5_zUw6GhAvEBE2eVNvh_lV-tpCHrYNPwclE8_-8qCdMy2JISjhTHYLARoWzOZd8iPQqY5qgRkhMcPfR7GHARY-W1SnfYD2cvILCR6q9Tq0GwoqoHNvruGRAQTR5u8zIpJCokOkeVcWgU1Wg"
+            },
+            {
+              category: "Regulación",
+              title: "Actualización de Normativas de Seguridad Operativa",
+              excerpt: "Revisión exhaustiva de los nuevos protocolos técnicos exigidos para operaciones de campo a partir del próximo trimestre.",
+              date: "05 Oct 2023",
+              img: null
+            },
+            {
+              category: "Capacitación",
+              title: "Apertura de inscripciones: Diplomado en Gestión Energética",
+              excerpt: "Programa académico diseñado para formar a la próxima generación de líderes técnicos del sector.",
+              date: "01 Oct 2023",
+              img: null
+            }
+          ].map((article) => (
+            <article class="bg-surface-container-low p-6 rounded-lg transition-all duration-300 hover:bg-surface-container-highest flex flex-col">
+              {article.img && (
+                <div
+                  class="h-48 rounded bg-cover bg-center mb-6"
+                  style={`background-image: url('${article.img}')`}
+                ></div>
+              )}
+              <span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider font-label mb-3">
+                {article.category}
+              </span>
+              <h3 class="text-xl font-semibold text-on-surface mb-3 font-headline leading-snug">
+                {article.title}
+              </h3>
+              <p class="text-base text-on-surface-variant leading-relaxed font-body flex-grow">
+                {article.excerpt}
+              </p>
+              <div class="mt-6 flex items-center justify-between text-sm text-on-surface-variant border-t border-outline-variant/15 pt-4">
+                <span>{article.date}</span>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="text-center pt-8">
+        <button class="bg-surface-container-high text-primary px-6 py-3 rounded-sm text-sm font-medium hover:bg-surface-variant transition-colors font-headline inline-flex items-center gap-2">
+          Cargar más noticias
+          <Icon name="material-symbols:expand-more" class="size-4" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="lg:col-span-1 space-y-12">
+      <!-- Categorías -->
+      <div class="bg-surface-container-low p-6 rounded-lg">
+        <h3 class="text-lg font-semibold text-on-surface mb-6 font-headline flex items-center gap-2">
+          <Icon name="material-symbols:category" class="text-primary size-5" />
+          Categorías
+        </h3>
+        <ul class="space-y-4">
+          {
+            [
+              { label: "Noticias", count: "24" },
+              { label: "Análisis", count: "12" },
+              { label: "Eventos", count: "8" },
+              { label: "Capacitación", count: "15" }
+            ].map((cat) => (
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-on-surface-variant hover:text-primary transition-colors flex justify-between items-center group font-body"
+                >
+                  {cat.label}
+                  <span class="text-xs bg-surface-container-highest px-2 py-1 rounded text-on-surface-variant group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+                    {cat.count}
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Archivo Histórico -->
+      <div class="bg-surface-container-low p-6 rounded-lg">
+        <h3 class="text-lg font-semibold text-on-surface mb-6 font-headline flex items-center gap-2">
+          <Icon name="material-symbols:history" class="text-primary size-5" />
+          Archivo Histórico
+        </h3>
+        <ul class="space-y-4">
+          {
+            ["Octubre 2023", "Septiembre 2023", "Agosto 2023", "Julio 2023"].map((month) => (
+              <li>
+                <a href="#" class="text-base text-on-surface-variant hover:text-primary transition-colors block font-body">
+                  {month}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="bg-surface-container-lowest border border-outline-variant/15 p-6 rounded-lg shadow-lg">
+        <h3 class="text-lg font-semibold text-on-surface mb-2 font-headline">Boletín Informativo</h3>
+        <p class="text-sm text-on-surface-variant mb-6 font-body">
+          Reciba las últimas novedades directamente en su bandeja de entrada.
+        </p>
+        <form class="space-y-4">
+          <div>
+            <label for="email" class="sr-only">Correo electrónico</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Su correo electrónico"
+              class="w-full bg-surface-container-low border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 px-4 py-3 text-sm text-on-surface font-body transition-colors rounded-t-sm"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-primary-container text-on-primary py-3 rounded-sm text-sm font-medium hover:bg-primary hover:text-on-primary transition-colors font-headline"
+          >
+            Suscribirse
+          </button>
+        </form>
+      </div>
+    </aside>
+  </main>
+
+  <Footer />
+</Layout>
