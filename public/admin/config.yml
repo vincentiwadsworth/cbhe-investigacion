@@ -1,6 +1,10 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
 backend:
-  name: git-gateway
+  name: github
+  repo: vincentiwadsworth/cbhe-web
   branch: main
+  skip_ci: true
 
 media_folder: "public/images"
 public_folder: "/images"
