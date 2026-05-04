@@ -29,6 +29,7 @@ See `_shared/skill-resolver.md` for the full resolution protocol.
 | Supabase, auth, database, edge functions | supabase | ~/.agents/skills/supabase/SKILL.md |
 | Postgres performance, query optimization | supabase-postgres-best-practices | ~/.agents/skills/supabase-postgres-best-practices/SKILL.md |
 | review my UI, check accessibility, audit design | web-design-guidelines | ~/.agents/skills/web-design-guidelines/SKILL.md |
+| improve accessibility, a11y audit, WCAG compliance | accessibility | ~/.agents/skills/accessibility/SKILL.md |
 
 ## Project Skills
 
@@ -74,6 +75,18 @@ Pre-digested rules per skill. Delegators copy matching blocks into sub-agent pro
 - Animate only `transform`/`opacity`; never `transition: all`
 - `font-variant-numeric: tabular-nums` for number columns
 - Loading states end with `…`: `"Loading…"`, `"Saving…"`
+
+### accessibility
+- WCAG 2.2 POUR: Perceivable, Operable, Understandable, Robust. Target AA minimum.
+- Images: descriptive `alt` for content, `alt="" role="presentation"` for decorative
+- Icon buttons: always `aria-label`; complex images: `aria-describedby` + `<figcaption>`
+- Keyboard: visible `:focus-visible` ring 2-4px; logical tab order; skip-to-content link
+- Forms: labels with `for` (never placeholder-only); errors with `aria-live`; required fields with `aria-required`
+- Color: contrast ≥4.5:1 text, ≥3:1 large text; never rely on color alone; test with grayscale
+- Screen readers: semantic HTML first (`<nav>`, `<main>`, `<button>`); ARIA only when HTML insufficient
+- Reduced motion: `@media (prefers-reduced-motion)`; animations ≤150-300ms
+- Landmarks: `<header>`, `<main>`, `<nav>`, `<footer>`, `<aside>` on every page
+- Test: axe DevTools, Lighthouse a11y score ≥90, manual keyboard tab through all interactive elements
 
 ### git-commit
 - Conventional Commits: `type[scope]: description` (feat, fix, chore, docs, style, refactor, perf, test, build, ci)
@@ -188,4 +201,5 @@ Pre-digested rules per skill. Delegators copy matching blocks into sub-agent pro
 
 ## Project Conventions
 
-No project convention files found (AGENTS.md, CLAUDE.md, .cursorrules, GEMINI.md, copilot-instructions.md).
+- `AGENTS.md` — Stack, gotchas críticos (subpath links, Astro 6 API, Sveltia CMS, Tailwind v4), workflow rules
+- `.atl/skill-registry.md` — Este archivo. 27 skills catalogados con compact rules
