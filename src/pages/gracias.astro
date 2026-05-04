@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Gracias"
+  description="Su solicitud ha sido enviada correctamente."
+>
+  <Navbar />
+
+  <main id="main-content" class="min-h-[60vh] flex items-center justify-center px-8">
+    <div class="text-center max-w-xl">
+      <h1 class="text-4xl font-headline font-bold text-on-surface mb-4">
+        ¡Gracias por su interés!
+      </h1>
+      <p class="text-lg text-on-surface-variant mb-8">
+        Hemos recibido su solicitud de afiliación. Nuestro equipo se pondrá en
+        contacto con su empresa a la brevedad para continuar con el proceso.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 bg-primary-container text-on-primary px-6 py-3 rounded-sm font-medium hover:opacity-90 transition-opacity"
+      >
+        Volver al inicio
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -150,21 +150,26 @@ const categoryCounts = articulos.reduce<Record<string, number>>((acc, a) => {
         <p class="text-sm text-on-surface-variant mb-6 font-body">
           Reciba las últimas novedades directamente en su bandeja de entrada.
         </p>
-        <form class="space-y-4">
+        <form class="space-y-4" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value={import.meta.env.WEB3FORMS_KEY} />
+          <input type="hidden" name="redirect" value={`${Astro.site || ""}/gracias`} />
+          <input type="hidden" name="subject" value="Nueva suscripción al boletín — CBHE" />
           <div>
-            <label for="email" class="sr-only">Correo electrónico</label>
+            <label for="newsletter-email" class="block text-sm font-semibold text-on-surface mb-2">Correo electrónico</label>
             <input
               type="email"
-              id="email"
+              id="newsletter-email"
               name="email"
               autocomplete="email"
+              required
+              aria-required="true"
               placeholder="Su correo electrónico…"
               class="w-full bg-surface-container-low border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 px-4 py-3 text-sm text-on-surface font-body transition-colors rounded-t-sm"
             />
           </div>
           <button
             type="submit"
-            class="w-full bg-primary-container text-on-primary py-3 rounded-sm text-sm font-medium hover:bg-primary hover:text-on-primary transition-colors font-headline"
+            class="w-full bg-primary-container text-on-primary py-3 rounded-sm text-sm font-medium hover:bg-primary hover:text-on-primary transition-colors font-headline disabled:opacity-50"
           >
             Suscribirse
           </button>
