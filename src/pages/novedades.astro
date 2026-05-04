@@ -152,7 +152,7 @@ const categoryCounts = articulos.reduce<Record<string, number>>((acc, a) => {
         </p>
         <form class="space-y-4" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value={import.meta.env.WEB3FORMS_KEY} />
-          <input type="hidden" name="redirect" value={`${Astro.site || ""}/gracias`} />
+          <input type="hidden" name="redirect" value={new URL(`${import.meta.env.BASE_URL}/gracias`, Astro.site).href} />
           <input type="hidden" name="subject" value="Nueva suscripción al boletín — CBHE" />
           <div>
             <label for="newsletter-email" class="block text-sm font-semibold text-on-surface mb-2">Correo electrónico</label>

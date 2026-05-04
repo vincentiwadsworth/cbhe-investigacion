@@ -5,6 +5,8 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://vincentiwadsworth.github.io",
+  base: "/cbhe-web",
   integrations: [
     icon({
       include: {
