@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  /** Which page is currently active — determines the highlighted nav link */
+  active?: "inicio" | "quienes-somos" | "capacitacion" | "novedades" | "contacto";
+}
+
+const { active } = Astro.props;
+
+const links = [
+  { href: "/", label: "Inicio", key: "inicio" as const },
+  { href: "/quienes-somos", label: "Quiénes somos", key: "quienes-somos" as const },
+  { href: "/capacitacion", label: "Capacitación", key: "capacitacion" as const },
+  { href: "/novedades", label: "Novedades", key: "novedades" as const },
+  { href: "/contacto", label: "Contacto", key: "contacto" as const },
+];
+---
+
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2">
+      <Icon name="material-symbols:bolt" class="text-primary size-6" />
+      <span class="text-xl font-bold tracking-tighter text-primary">CBHE</span>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="hidden md:flex items-center space-x-8">
+      {links.map((link) => {
+        const isActive = active === link.key;
+        return (
+          <a
+            href={link.href}
+            class={
+              isActive
+                ? "text-primary border-b-2 border-primary pb-1"
+                : "text-on-surface-variant hover:text-primary transition-colors"
+            }
+          >
+            {link.label}
+          </a>
+        );
+      })}
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-4">
+      <button
+        class="text-on-surface-variant hover:text-primary cursor-pointer transition-colors"
+        aria-label="Buscar"
+      >
+        <Icon name="material-symbols:search" class="size-5" />
+      </button>
+      <a
+        href="/contacto"
+        class="bg-primary-container text-on-primary rounded-sm px-4 py-2 font-semibold hover:opacity-90 transition-opacity"
+      >
+        Afiliarse
+      </a>
+    </div>
+  </div>
+</nav>

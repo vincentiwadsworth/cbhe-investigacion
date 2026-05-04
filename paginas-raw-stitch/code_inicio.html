@@ -1,0 +1,398 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Cámara Boliviana de Hidrocarburos y Energía</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#ebf1ff",
+                    "surface-container-low": "#f0f3ff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#001e2c",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#006c92",
+                    "secondary": "#356096",
+                    "primary": "#00507e",
+                    "background": "#f9f9ff",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#96ccff",
+                    "on-tertiary-container": "#c2e7ff",
+                    "surface-variant": "#d5e3ff",
+                    "surface-container-high": "#dee9ff",
+                    "on-secondary-fixed-variant": "#17487c",
+                    "surface-container": "#e7eeff",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#96ccff",
+                    "surface-dim": "#c7dbff",
+                    "on-primary-fixed-variant": "#004a75",
+                    "tertiary": "#005370",
+                    "tertiary-fixed": "#c3e8ff",
+                    "outline": "#707881",
+                    "inverse-surface": "#00315f",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#0069a3",
+                    "on-primary-container": "#cce4ff",
+                    "surface-tint": "#00639a",
+                    "secondary-fixed-dim": "#a4c8ff",
+                    "primary-fixed": "#cee5ff",
+                    "on-surface-variant": "#404750",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#9bc3ff",
+                    "outline-variant": "#c0c7d1",
+                    "on-background": "#001c3b",
+                    "surface": "#f9f9ff",
+                    "on-secondary-fixed": "#001c3a",
+                    "on-secondary-container": "#225085",
+                    "secondary-fixed": "#d4e3ff",
+                    "on-tertiary-fixed-variant": "#004c69",
+                    "surface-container-highest": "#d5e3ff",
+                    "on-surface": "#001c3b",
+                    "tertiary-fixed-dim": "#7ad0ff",
+                    "surface-bright": "#f9f9ff",
+                    "on-primary-fixed": "#001d32"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md font-inter antialiased text-sm font-medium tracking-tight docked full-width top-0 sticky z-50 tonal shift via bg-surface-container-low dark:bg-slate-800/50 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-700 dark:text-blue-400" style="font-variation-settings: &quot;FILL&quot; 1;">bolt</span>
+<span class="text-xl font-bold tracking-tighter text-blue-700 dark:text-blue-400" style="">CBHE</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-blue-700 dark:text-blue-400 border-b-2 border-blue-700 dark:border-blue-400 pb-1 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-all duration-300 scale-95 active:opacity-80 transition-transform" href="#" style="">Inicio</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-all duration-300 scale-95 active:opacity-80 transition-transform" href="#" style="">Quiénes somos</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-all duration-300 scale-95 active:opacity-80 transition-transform" href="#" style="">Capacitación</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-all duration-300 scale-95 active:opacity-80 transition-transform" href="#" style="">Novedades</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-all duration-300 scale-95 active:opacity-80 transition-transform" href="#" style="">Contacto</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-600 hover:text-blue-700 cursor-pointer transition-colors" style="">search</span>
+<button class="bg-primary-container text-on-primary rounded-sm px-4 py-2 font-semibold hover:opacity-90 transition-opacity" style="">Afiliarse</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-[819px] flex items-center justify-center bg-surface-container-low overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Planta de gas natural al atardecer" class="w-full h-full object-cover opacity-20 mix-blend-multiply" data-alt="industrial natural gas processing plant silhouetted against a dramatic golden hour sunset sky with intricate pipe structures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3CwQTnDZrz7oQR9O3ywolyU2qBfSiQ2u5wTZFzxtWiP0sAnagSKHKLSSDpdNq_wkJ4RrZHe3nwVaapxOM8KE4aYEjoSnpLwRdOiqOrcYErgRhov3-aE34BXinD1b6lbN1y6Q-MgAS01lZxWbVaLHZO9Qu527s2bsBD0QxMYX2h0kEFr7eKL2Ms9ai_u0AqaVsW5q3K7-yXCBvfEq2M7e-cSiYML3tQX1yW8QBu7Qt1IFUW6ioQ4N6DfPlmjQ4huKrPDsqhoPg16c" style="">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary-container/80 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full text-center">
+<h1 class="text-on-primary font-headline font-extrabold text-[56px] leading-tight mb-6 tracking-tight max-w-4xl mx-auto" style="">Integramos energías con liderazgo e innovación</h1>
+<p class="text-on-primary-container font-body text-xl mb-12 max-w-2xl mx-auto leading-relaxed" style="">[Agrupamos/representamos a las empresas]</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-surface text-primary rounded-sm px-8 py-4 font-semibold hover:bg-surface-container-highest transition-colors" style=""><div>Conózcanos</div></button>
+<button class="bg-transparent border border-on-primary text-on-primary rounded-sm px-8 py-4 font-semibold hover:bg-on-primary/10 transition-colors" style="">Novedades</button>
+</div>
+</div>
+</header>
+<!-- Quiénes Somos (Resumen) -->
+<section class="py-24 bg-surface relative">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-primary font-headline text-[28px] font-bold mb-6" style="">Trabajamos por el sector</h2>
+<p class="text-on-surface-variant font-body text-lg leading-relaxed mb-6" style="">
+                        La Cámara Boliviana de Hidrocarburos y Energía (CBHE) agrupa a las principales empresas que operan en la cadena productiva del sector hidrocarburífero y energético del país. Nuestro propósito es ser el eje articulador de la industria.
+                    </p>
+<p class="text-on-surface-variant font-body text-lg leading-relaxed mb-8" style="">
+                        Trabajamos enfocados en la coordinación técnica, el análisis normativo, la promoción de mejores prácticas y el fomento a la capacitación de alto nivel, garantizando el desarrollo responsable de los recursos energéticos.
+                    </p>
+<a class="inline-flex items-center text-primary-container font-semibold hover:underline decoration-primary-container underline-offset-4" href="#" style="">
+                        Leer nuestra misión completa <span class="material-symbols-outlined ml-2 text-sm" style="">arrow_forward</span>
+</a>
+</div>
+<div class="relative h-[500px] rounded-sm overflow-hidden bg-surface-container-low shadow-sm">
+<img alt="Ingenieros revisando planos en una planta" class="w-full h-full object-cover" data-alt="two professional engineers in hard hats and safety gear reviewing blueprints on a digital tablet in a modern industrial facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7DWMEr5qSDSDeT_agIB0cQ2wrIyFrkbOhbZpgHegYi8i2n-ji3ls8o6jjcmxmi0lVARws3xaqknka4MSjQ3csucNXanbOV45CWphCMD9573ho-r6KWy0Qlkp7_IbiANrmNh4IZBeT8UsXVIlKYSz2mS0lMeQSrADNG2g4ieLUwqVEOMx0-Kb7XkqhxseVpXhWwLjoqZBJGFyeHPt3CuzqN4kznv8GsAf4YYs_JOAR9QFJ0nMzz0y727yTCAYmcqNx9g5lQP-GG-M" style="">
+<div class="absolute bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-sm p-6 border-t border-surface-container-highest">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-primary font-bold text-2xl" style="">40</p>
+<p class="text-on-surface-variant text-sm font-medium" style="">Años de trayectoria</p>
+</div>
+<div class="w-px h-12 bg-surface-container-highest"></div>
+<div>
+<p class="text-primary font-bold text-2xl" style="">+50</p>
+<p class="text-on-surface-variant text-sm font-medium" style="">Empresas afiliadas</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Grupos de Miembros -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-16">
+<h2 class="text-primary font-headline text-[28px] font-bold mb-4" style="">Nuestras empresas afiliadas</h2>
+<p class="text-on-surface-variant font-body text-lg max-w-3xl" style="">[Estamos organizados en 5 grupos....]<br>Representamos a toda la cadena de valor de la industria energética, organizada en cinco grupos especializados para una coordinación técnica eficiente.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+<!-- Categoria 1 -->
+<div class="bg-surface rounded-sm p-6 hover:bg-surface-container-highest transition-colors duration-300 group cursor-pointer border border-surface-container-highest/50">
+<div class="w-12 h-12 bg-surface-container-low rounded-sm flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" style="">explore</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface mb-2" style="">Exploración y Producción</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">Empresas dedicadas a la búsqueda y extracción de recursos hidrocarburíferos.</p>
+</div>
+<!-- Categoria 2 -->
+<div class="bg-surface rounded-sm p-6 hover:bg-surface-container-highest transition-colors duration-300 group cursor-pointer border border-surface-container-highest/50">
+<div class="w-12 h-12 bg-surface-container-low rounded-sm flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" style="">engineering</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface mb-2" style="">Servicios en Pozo</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">Perforación, terminación y mantenimiento especializado de pozos.</p>
+</div>
+<!-- Categoria 3 -->
+<div class="bg-surface rounded-sm p-6 hover:bg-surface-container-highest transition-colors duration-300 group cursor-pointer border border-surface-container-highest/50">
+<div class="w-12 h-12 bg-surface-container-low rounded-sm flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" style="">factory</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface mb-2" style="">Servicios en Superficie</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">Construcción, ingeniería y operación de facilidades de producción.</p>
+</div>
+<!-- Categoria 4 -->
+<div class="bg-surface rounded-sm p-6 hover:bg-surface-container-highest transition-colors duration-300 group cursor-pointer border border-surface-container-highest/50">
+<div class="w-12 h-12 bg-surface-container-low rounded-sm flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" style="">local_shipping</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface mb-2" style="">Industria y Transporte</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">Refinación, comercialización, ductos y logística especializada.</p>
+</div>
+<!-- Categoria 5 -->
+<div class="bg-surface rounded-sm p-6 hover:bg-surface-container-highest transition-colors duration-300 group cursor-pointer border border-surface-container-highest/50">
+<div class="w-12 h-12 bg-surface-container-low rounded-sm flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" style="">handyman</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface mb-2" style="">Servicios Auxiliares</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">Consultoría, tecnología, provisión de equipos y servicios transversales.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Formulario de Afiliación -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-primary font-headline text-[28px] font-bold mb-4" style="">Afilie a su empresa</h2>
+<p class="text-on-surface-variant font-body text-lg mb-8" style="">
+                        Únase a la red más importante de empresas del sector energético en Bolivia. Complete el formulario y nuestro equipo de afiliaciones se pondrá en contacto con su empresa a la brevedad.
+                    </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1" style="">check_circle</span>
+<div>
+<h4 class="font-bold text-on-surface" style="">Representación sectorial</h4>
+<p class="text-sm text-on-surface-variant" style="">Voz activa en la defensa y promoción del sector ante instancias gubernamentales.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1" style="">check_circle</span>
+<div>
+<h4 class="font-bold text-on-surface" style="">Actualización técnica</h4>
+<p class="text-sm text-on-surface-variant" style="">Acceso exclusivo a estadísticas, normativas y capacitaciones de alto nivel.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-sm shadow-sm border border-surface-container-highest">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-2" for="company" style="">Nombre de la Empresa</label>
+<input class="w-full bg-surface border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5" id="company" placeholder="Ej. Energa S.A." type="text">
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-2" for="sector" style="">Sector de la Industria</label>
+<select class="w-full bg-surface border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5" id="sector">
+<option value="">Seleccione un sector</option>
+<option value="exploracion">Exploración y Producción</option>
+<option value="servicios-pozo">Servicios en Pozo</option>
+<option value="servicios-superficie">Servicios en Superficie</option>
+<option value="transporte">Industria y Transporte</option>
+<option value="auxiliares">Servicios Auxiliares</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-2" for="contact" style="">Persona de Contacto</label>
+<input class="w-full bg-surface border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5" id="contact" placeholder="Nombre completo" type="text">
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-2" for="email" style="">Correo Electrónico</label>
+<input class="w-full bg-surface border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5" id="email" placeholder="email@empresa.com" type="email">
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-2" for="message" style="">Mensaje / Comentarios</label>
+<textarea class="w-full bg-surface border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5" id="message" placeholder="Indíquenos el motivo de su interés..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-on-primary rounded-sm py-4 font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2" type="submit" style="">
+                        Enviar Solicitud
+                        <span class="material-symbols-outlined text-lg" style="">send</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Últimas Novedades -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-12">
+<h2 class="text-primary font-headline text-[28px] font-bold mb-4" style="">Novedades</h2>
+<p class="text-on-surface-variant font-body text-lg max-w-3xl" style="">[eliminado]</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Noticia 1 -->
+<div class="bg-surface-container-low rounded-sm overflow-hidden border border-surface-container-highest/50 shadow-sm hover:shadow-md transition-shadow group">
+<div class="h-48 overflow-hidden">
+<img alt="Foro de Energía" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgEny-qlZg_OmToOcy93Pwh1CfFqXApAIlbPOQu-4LwKtfJcobqYiCsUAzrsIJhxKeSYihvzA8nT6DNWTuy00DPrDl-N17FVjkzGVl5fRwerfqr8SfJAGNuYr7GVBf-x6asqAmuTPiAJWWG_WHR25wxx4QDlke8L3WDAPzyZxu3V4QNKYrjDDzcEOfFisrUo10FKCyoRasGN56KsaF22mYJtJLdwU8RBlM0kS7lf-XGzQvmklJFv38yN4cfKk9iqnCE2jwqNyMKfg" style="">
+</div>
+<div class="p-6 flex flex-col items-start">
+<span class="text-xs font-semibold text-primary-container mb-2 tracking-wide uppercase" style="">Evento</span>
+<h3 class="font-headline font-bold text-xl text-on-surface mb-3 line-clamp-2" style="">Foro Anual de Energía Renovable e Innovación</h3>
+<p class="text-sm text-on-surface-variant mb-4 line-clamp-3" style="">Líderes del sector se reunieron para debatir sobre el futuro energético y las nuevas tecnologías sostenibles aplicables a la región.</p>
+<div class="mt-auto flex items-center justify-between w-full">
+<span class="text-xs text-on-surface-variant" style="">12 Oct 2023</span>
+<a class="text-sm font-semibold text-primary hover:text-primary-container transition-colors" href="#" style="">Leer más</a>
+</div>
+</div>
+</div>
+<!-- Noticia 2 -->
+<div class="bg-surface-container-low rounded-sm overflow-hidden border border-surface-container-highest/50 shadow-sm hover:shadow-md transition-shadow group">
+<div class="h-48 overflow-hidden">
+<img alt="Regulaciones Energéticas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCZYfUHA9yhsWW5vwS5n8mxLsU96g7fPJuPspZaz8M3phGEULDUb-OpTHL6lH94XF3gBm8PztJQLo3ekePQkZmINzykoygorXQWvVda8pV79ikaFk4AgNwVDgmRfz4jX2GM8AmLz9Jk9bgp15burx76FSE1Z1Lue3cx-xZWV_yWCtZPNSMDXXE5RWafGd8FyFwV65QpyQY6EhJMbdpJPlcbuwk4X8HkB5ZWsNo72ynr_-6b2OD5vgFH18qQM-HzfAmsJPdlI5737c" style="">
+</div>
+<div class="p-6 flex flex-col items-start">
+<span class="text-xs font-semibold text-primary-container mb-2 tracking-wide uppercase" style="">Normativa</span>
+<h3 class="font-headline font-bold text-xl text-on-surface mb-3 line-clamp-2" style="">Actualización en las Regulaciones de Exploración</h3>
+<p class="text-sm text-on-surface-variant mb-4 line-clamp-3" style="">El ministerio ha publicado el nuevo marco regulatorio que facilita la inversión en exploración de nuevos pozos sostenibles.</p>
+<div class="mt-auto flex items-center justify-between w-full">
+<span class="text-xs text-on-surface-variant" style="">05 Oct 2023</span>
+<a class="text-sm font-semibold text-primary hover:text-primary-container transition-colors" href="#" style="">Leer más</a>
+</div>
+</div>
+</div>
+<!-- Noticia 3 -->
+<div class="bg-surface-container-low rounded-sm overflow-hidden border border-surface-container-highest/50 shadow-sm hover:shadow-md transition-shadow group">
+<div class="h-48 overflow-hidden">
+<img alt="Innovación en Producción" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_37tn-7Qggyn2V0P-LAGMJSIDPzLM6l_G4HWWo8u1kCOB8vIJxflNNYC1rU2Uza1GkcgUQf9r6KAv8WyldiIcvI4TvTzjLfw5nrMc-pTxX0I5VmER-CDBXXkT9dWc625lzsWO3mkrgKHPV7oAX3d5Pzvtf988Vzp6fmW5LtoFMRLliVKzery36-bmKSer0yDwjfgfDpqPtPhkZd-jzhdNIpPT7MxlBnFr5h4lrPqe9dpxBLm93o0_V_BUZ1bEbnenPHtYitJwg3c" style="">
+</div>
+<div class="p-6 flex flex-col items-start">
+<span class="text-xs font-semibold text-primary-container mb-2 tracking-wide uppercase" style="">Tecnología</span>
+<h3 class="font-headline font-bold text-xl text-on-surface mb-3 line-clamp-2" style="">Nuevos Sistemas de Monitoreo en Tiempo Real</h3>
+<p class="text-sm text-on-surface-variant mb-4 line-clamp-3" style="">Implementación de soluciones IoT para optimizar el rendimiento y la seguridad en las operaciones diarias de planta.</p>
+<div class="mt-auto flex items-center justify-between w-full">
+<span class="text-xs text-on-surface-variant" style="">28 Sep 2023</span>
+<a class="text-sm font-semibold text-primary hover:text-primary-container transition-colors" href="#" style="">Leer más</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Cursos Destacados -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-12">
+<h2 class="text-primary font-headline text-[28px] font-bold mb-4" style="">CBHE Capacitación</h2>
+<p class="text-on-surface-variant font-body text-lg max-w-3xl" style="">Conozca nuestros cursos y programas de formación técnica.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Curso 1 -->
+<div class="bg-surface rounded-sm overflow-hidden flex flex-col sm:flex-row border border-surface-container-highest/50 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+<div class="w-full sm:w-2/5 h-48 sm:h-auto overflow-hidden">
+<img alt="Gestión de Riesgos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqS24jwf1q5UgTVFTtsnROsy7sVo4BJenEixlDwvQUWyJjbDuaNBjazigTQMxBrThc9iRHdFkCRAMIG7pz7jKHYjJAeMlxawaq88_Wm2A6h2JKogk41lNcOIM8DGwAfC_hOGp4HLpD55V1uQ4PiplyUSslEe8cOJvcuST6p204N4yT299YTuesU_DwrmQ_Ecrk2SZNmfUQ5vOL-tCyfgiJCczwsLd0bhx-T8uLxY4EwScFWXe0StPQQnHvAnOKOQbwpcm-PUz5Ip4" style="">
+</div>
+<div class="p-6 flex flex-col justify-center w-full sm:w-3/5">
+<h3 class="font-headline font-bold text-xl text-on-surface mb-2" style="">Gestión de riesgos operativos</h3>
+<p class="text-sm text-on-surface-variant mb-4" style="">Estrategias modernas para mitigar riesgos en plantas y operaciones de campo, dirigidas a supervisores y gerentes de seguridad.</p>
+<a class="inline-flex items-center text-primary-container font-semibold hover:text-primary transition-colors mt-auto" href="#" style="">
+                    Más información <span class="material-symbols-outlined ml-2 text-sm" style="">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Curso 2 -->
+<div class="bg-surface rounded-sm overflow-hidden flex flex-col sm:flex-row border border-surface-container-highest/50 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+<div class="w-full sm:w-2/5 h-48 sm:h-auto overflow-hidden">
+<img alt="Transición Energética" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiEF7BjbryU0OEH3dr32jlqFdy9qIvwcBl2OkbCSBltId6_YP0v_-otWA734MPhWGOSGLuoiuzds97VnKWTBwbLVB-0cOanOF1tZB6SY_Pc5KrOEY4GtZ6OQ42AACGPn2rkN-FhJZa682bKBD_awBUrqHR_A8EPMV100AYpH7Is1Sxy1uFR-Fy-cQBppL43uYZOpvBYs9KsOcl-RZnXlkr9bTJWiWtXX8BkcfPDaTMJpTU51VIo1Jtr5Zyc2tVAd3OhzHabDHoIak" style="">
+</div>
+<div class="p-6 flex flex-col justify-center w-full sm:w-3/5">
+<h3 class="font-headline font-bold text-xl text-on-surface mb-2" style="">Transición energética sostenible</h3>
+<p class="text-sm text-on-surface-variant mb-4" style="">Comprenda los fundamentos, tecnologías y marcos regulatorios que guían el camino hacia una energía más limpia.</p>
+<a class="inline-flex items-center text-primary-container font-semibold hover:text-primary transition-colors mt-auto" href="#" style="">
+                    Más información <span class="material-symbols-outlined ml-2 text-sm" style="">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 font-inter text-xs leading-relaxed w-full border-t border-slate-200 dark:border-slate-800 tonal shift between surface and surface-container-low flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-lg font-bold text-slate-900 dark:text-white mb-4" style="">CBHE</div>
+<p class="text-slate-500 dark:text-slate-400 mb-6" style="">Impulsando el desarrollo sostenible del sector hidrocarburífero y energético de Bolivia.</p>
+</div>
+<div class="col-span-1">
+<h4 class="font-semibold text-slate-900 dark:text-white mb-4" style="">Enlaces rápidos</h4>
+<ul class="space-y-3">
+<li class="" style=""><a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 hover:underline decoration-blue-500 underline-offset-4 transition-all duration-200 hover:opacity-80" href="#" style="">Transparencia</a></li>
+<li class="" style=""><a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 hover:underline decoration-blue-500 underline-offset-4 transition-all duration-200 hover:opacity-80" href="#" style="">Estadísticas</a></li>
+<li class="" style=""><a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 hover:underline decoration-blue-500 underline-offset-4 transition-all duration-200 hover:opacity-80" href="#" style="">Convenios</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-semibold text-slate-900 dark:text-white mb-4" style="">Legal</h4>
+<ul class="space-y-3">
+<li class="" style=""><a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 hover:underline decoration-blue-500 underline-offset-4 transition-all duration-200 hover:opacity-80" href="#" style="">Privacidad</a></li>
+<li class="" style=""><a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 hover:underline decoration-blue-500 underline-offset-4 transition-all duration-200 hover:opacity-80" href="#" style="">Términos de Uso</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-semibold text-slate-900 dark:text-white mb-4" style="">Contacto</h4>
+<ul class="space-y-3">
+<li class="" style=""><a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 hover:underline decoration-blue-500 underline-offset-4 transition-all duration-200 hover:opacity-80" href="#" style="">Soporte Técnico</a></li>
+<li class="text-slate-500 dark:text-slate-400" style="">info@cbhe.org.bo</li>
+</ul>
+</div>
+<div class="col-span-1 md:col-span-4 border-t border-slate-200 dark:border-slate-800 pt-8 mt-4 flex flex-col md:flex-row justify-between items-center">
+<p class="text-slate-500 dark:text-slate-400" style="">© 2026 Cámara Boliviana de Hidrocarburos y Energía. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,145 @@
+---
+import { Icon } from "astro-icon/components";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Inicio"
+  description="Cámara Boliviana de Hidrocarburos y Energía — Integramos energías con liderazgo e innovación."
+>
+  <Navbar active="inicio" />
+
+  <main>
+    <!-- Hero -->
+    <header
+      class="relative min-h-[600px] flex items-center justify-center bg-surface-container-low overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          alt="Planta de gas natural al atardecer"
+          class="w-full h-full object-cover opacity-20"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3CwQTnDZrz7oQR9O3ywolyU2qBfSiQ2u5wTZFzxtWiP0sAnagSKHKLSSDpdNq_wkJ4RrZHe3nwVaapxOM8KE4aYEjoSnpLwRdOiqOrcYErgRhov3-aE34BXinD1b6lbN1y6Q-MgAS01lZxWbVaLHZO9Qu527s2bsBD0QxMYX2h0kEFr7eKL2Ms9ai_u0AqaVsW5q3K7-yXCBvfEq2M7e-cSiYML3tQX1yW8QBu7Qt1IFUW6ioQ4N6DfPlmjQ4huKrPDsqhoPg16c"
+        />
+        <div
+          class="absolute inset-0 bg-linear-to-br from-primary/90 to-primary-container/80"
+          style="mix-blend-mode: multiply;"
+        ></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-8 w-full text-center">
+        <h1 class="text-on-primary font-headline font-extrabold text-5xl md:text-6xl leading-tight mb-6 tracking-tight max-w-4xl mx-auto">
+          Integramos energías con liderazgo e innovación
+        </h1>
+        <p class="text-on-primary-container font-body text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+          Agrupamos y representamos a las principales empresas del sector
+          hidrocarburífero y energético de Bolivia.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/quienes-somos"
+            class="bg-surface text-primary rounded-sm px-8 py-4 font-semibold hover:bg-surface-container-highest transition-colors"
+          >
+            Conózcanos
+          </a>
+          <a
+            href="/novedades"
+            class="bg-transparent border border-on-primary text-on-primary rounded-sm px-8 py-4 font-semibold hover:bg-on-primary/10 transition-colors"
+          >
+            Novedades
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Quiénes Somos (Resumen) -->
+    <section class="py-24 bg-surface">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 class="text-primary font-headline text-3xl font-bold mb-6">
+              Trabajamos por el sector
+            </h2>
+            <p class="text-on-surface-variant font-body text-lg leading-relaxed mb-6">
+              La Cámara Boliviana de Hidrocarburos y Energía (CBHE) agrupa a las
+              principales empresas que operan en la cadena productiva del sector
+              hidrocarburífero y energético del país. Nuestro propósito es ser el eje
+              articulador de la industria.
+            </p>
+            <p class="text-on-surface-variant font-body text-lg leading-relaxed mb-8">
+              Trabajamos enfocados en la coordinación técnica, el análisis normativo, la
+              promoción de mejores prácticas y el fomento a la capacitación de alto nivel,
+              garantizando el desarrollo responsable de los recursos energéticos.
+            </p>
+            <a
+              href="/quienes-somos"
+              class="inline-flex items-center text-primary-container font-semibold hover:underline decoration-primary-container underline-offset-4"
+            >
+              Leer nuestra misión completa
+              <Icon name="material-symbols:arrow-forward" class="size-4 ml-2" />
+            </a>
+          </div>
+
+          <div class="relative h-[400px] rounded-sm overflow-hidden bg-surface-container-low shadow-sm">
+            <img
+              alt="Ingenieros revisando planos en una planta"
+              class="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7DWMEr5qSDSDeT_agIB0cQ2wrIyFrkbOhbZpgHegYi8i2n-ji3ls8o6jjcmxmi0lVARws3xaqknka4MSjQ3csucNXanbOV45CWphCMD9573ho-r6KWy0Qlkp7_IbiANrmNh4IZBeT8UsXVIlKYSz2mS0lMeQSrADNG2g4ieLUwqVEOMx0-Kb7XkqhxseVpXhWwLjoqZBJGFyeHPt3CuzqN4kznv8GsAf4YYs_JOAR9QFJ0nMzz0y727yTCAYmcqNx9g5lQP-GG-M"
+            />
+            <div class="absolute bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-sm p-6 border-t border-surface-container-highest">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-primary font-bold text-2xl">40</p>
+                  <p class="text-on-surface-variant text-sm font-medium">Años de trayectoria</p>
+                </div>
+                <div class="w-px h-12 bg-surface-container-highest"></div>
+                <div>
+                  <p class="text-primary font-bold text-2xl">+50</p>
+                  <p class="text-on-surface-variant text-sm font-medium">Empresas afiliadas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grupos de Miembros -->
+    <section class="py-24 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="mb-16">
+          <h2 class="text-primary font-headline text-3xl font-bold mb-4">
+            Nuestras empresas afiliadas
+          </h2>
+          <p class="text-on-surface-variant font-body text-lg max-w-3xl">
+            Representamos a toda la cadena de valor de la industria energética, organizada
+            en cinco grupos especializados para una coordinación técnica eficiente.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          {
+            [
+              { icon: "explore", title: "Exploración y Producción", desc: "Empresas dedicadas a la búsqueda y extracción de recursos hidrocarburíferos." },
+              { icon: "engineering", title: "Servicios en Pozo", desc: "Perforación, terminación y mantenimiento especializado de pozos." },
+              { icon: "factory", title: "Servicios en Superficie", desc: "Construcción, ingeniería y operación de facilidades de producción." },
+              { icon: "local-shipping", title: "Industria y Transporte", desc: "Refinación, comercialización, ductos y logística especializada." },
+              { icon: "handyman", title: "Servicios Auxiliares", desc: "Consultoría, tecnología, provisión de equipos y servicios transversales." },
+            ].map((group) => (
+              <article class="bg-surface rounded-sm p-6 hover:bg-surface-container-highest transition-colors duration-300 group cursor-pointer border border-surface-container-highest/50">
+                <div class="w-12 h-12 bg-surface-container-low rounded-sm flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors">
+                  <Icon name={`material-symbols:${group.icon}`} class="text-primary size-6 group-hover:text-on-primary" />
+                </div>
+                <h3 class="font-headline font-bold text-on-surface mb-2">{group.title}</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">{group.desc}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
