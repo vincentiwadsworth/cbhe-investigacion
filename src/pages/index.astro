@@ -8,7 +8,7 @@ import Layout from "../layouts/Layout.astro";
 const articulos = await getCollection("articulos", ({ data }) => !data.draft);
 const cursos = await getCollection("cursos", ({ data }) => !data.draft);
 
-const ultimosArticulos = articulos.filter((a) => !a.data.featured).slice(0, 3);
+const ultimosArticulos = articulos.slice(0, 3);
 const cursosDestacados = cursos.slice(0, 2);
 
 const modeIcons: Record<string, string> = {
