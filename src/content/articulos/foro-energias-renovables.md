@@ -1,6 +1,6 @@
 ---
 title: "Foro de Energías Renovables atrae a expertos internacionales"
-category: "Energías Alternativas"
+category: "Eventos"
 excerpt: "Debate técnico sobre la viabilidad de proyectos eólicos y solares en el contexto geográfico y regulatorio actual."
 date: "08 Oct 2023"
 image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCE6j_o9lzvIoA4iFZDNEpPd-DBJRK67lugxKE9FLXKt7El3fq4IboJSBevUXSrM1PfTdNQD1yy97dbCzDIDP3CoE_YzmNknafpfyHarDxsjoCbV5BIv7AtWF0jAkmT5_zUw6GhAvEBE2eVNvh_lV-tpCHrYNPwclE8_-8qCdMy2JISjhTHYLARoWzOZd8iPQqY5qgRkhMcPfR7GHARY-W1SnfYD2cvILCR6q9Tq0GwoqoHNvruGRAQTR5u8zIpJCokOkeVcWgU1Wg"

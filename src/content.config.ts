@@ -21,10 +21,9 @@ const articulos = defineCollection({
   schema: z.object({
     title: z.string(),
     category: z.enum([
-      "Análisis Sectorial",
-      "Institucional",
-      "Energías Alternativas",
-      "Regulación",
+      "Noticias",
+      "Análisis",
+      "Eventos",
       "Capacitación",
     ]),
     excerpt: z.string(),

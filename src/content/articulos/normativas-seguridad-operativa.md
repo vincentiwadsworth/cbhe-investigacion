@@ -1,6 +1,6 @@
 ---
 title: CBHE y Aqualitos suscriben convenio para impulsar la cooperación y el desarrollo de proyectos sostenibles en el sector energético
-category: Institucional
+category: "Noticias"
 excerpt: A través de un memorándum de entendimiento, comprometieron el intercambio de capacidades técnicas y conocimientos.
 date: 06 Ene 2026
 image: https://cbhe.org.bo/media/k2/items/cache/fa176086e3905a7aae487916932a736e_XL.jpg

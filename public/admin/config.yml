@@ -62,10 +62,9 @@ collections:
           widget: select,
           options:
             [
-              "Análisis Sectorial",
-              "Institucional",
-              "Energías Alternativas",
-              "Regulación",
+              "Noticias",
+              "Análisis",
+              "Eventos",
               "Capacitación",
             ],
         }
