@@ -1,21 +1,20 @@
 ---
-title: "Actualización de Normativas de Seguridad Operativa"
-category: "Regulación"
-excerpt: "Revisión exhaustiva de los nuevos protocolos técnicos exigidos para operaciones de campo a partir del próximo trimestre."
-date: "05 Oct 2023"
-featured: false
+title: CBHE y Aqualitos suscriben convenio para impulsar la cooperación y el desarrollo de proyectos sostenibles en el sector energético
+category: Institucional
+excerpt: A través de un memorándum de entendimiento, comprometieron el intercambio de capacidades técnicas y conocimientos.
+date: 06 Ene 2026
+image: https://cbhe.org.bo/media/k2/items/cache/fa176086e3905a7aae487916932a736e_XL.jpg
+featured: true
 ---
 
-La Agencia Nacional de Hidrocarburos (ANH) publicó la actualización del Reglamento de Seguridad Operativa para actividades de exploración y producción, introduciendo nuevos requisitos que entrarán en vigencia el primer trimestre de 2024.
+La Cámara Boliviana de Hidrocarburos y Energía (CBHE) y Aqualitos suscribieron un acuerdo con el objetivo de promover el desarrollo de iniciativas alineadas con el crecimiento sostenible de la industria energética en Bolivia, a través del trabajo conjunto y el intercambio de capacidades técnicas.
 
-## Principales cambios
+A través de un memorándum de entendimiento, establecieron un marco de colaboración orientado a la complementariedad de competencias y misiones de ambas instituciones, para promover sinergias en actividades técnicas, proyectos estratégicos y acciones conjuntas que estén alineadas con los objetivos de la entidad gremial y de la empresa consultora que explora oportunidades de negocio con especial cuidado de la sostenibilidad.
 
-La normativa actualizada incorpora estándares internacionales de la International Association of Oil & Gas Producers (IOGP) y establece protocolos más estrictos para operaciones de perforación en zonas sensibles, gestión de integridad de ductos, y respuesta a emergencias.
+Entre los principales ejes del convenio se encuentra el intercambio de conocimientos, así como la cooperación en el diseño y ejecución de proyectos relevantes para la industria de los hidrocarburos y la energía en general. Asimismo, el acuerdo contempla la asistencia institucional en la organización de eventos, cursos y otras actividades de interés común, incluyendo la posibilidad de desarrollar iniciativas conjuntas cuando exista un beneficio mutuo.
 
-## Implicaciones operativas
+Tanto la CBHE como AquaLitos comparten el objetivo de fomentar iniciativas que impulsen el crecimiento sostenible, la excelencia técnico-operacional, la sostenibilidad socioambiental y el desarrollo de recursos humanos especializados. Este enfoque abarca no solo al sector de hidrocarburos, sino también al conjunto de la industria energética, incorporando el potencial de los recursos evaporíticos de Bolivia.
 
-Las empresas operadoras deberán actualizar sus sistemas de gestión de seguridad en un plazo de 180 días. Esto incluye la revisión de procedimientos de control de pozos, la certificación de equipos de prevención de reventones (BOP) y la implementación de sistemas de monitoreo en tiempo real para operaciones críticas.
+El memorándum fue suscrito por Enzo Michel, director ejecutivo de la CBHE, y Andrés Brockman, CEO de Aqualitos, quienes destacaron que la cooperación permitirá un mejor aprovechamiento de las capacidades técnicas, tanto a nivel nacional como internacional, generando beneficios directos para la industria y sus principales grupos de interés. En ese marco, las actividades que desarrollarán en conjunto -como programas de formación- buscarán fortalecer el vínculo con actores clave del sector y contribuir a la construcción de una visión de largo plazo para el desarrollo energético del país.
 
-## Capacitación requerida
-
-La CBHE, a través de su programa de capacitación, ofrecerá talleres especializados durante noviembre y diciembre para facilitar la transición de las empresas afiliadas hacia el cumplimiento de los nuevos requisitos normativos.
+El convenio tiene una vigencia de diez años y se enmarca en un espíritu de colaboración abierta, que constituye una oportunidad para el desarrollo de diversas iniciativas de interés común, reafirmando el compromiso de ambas entidades con una industria energética más sostenible, competitiva y articulada.
