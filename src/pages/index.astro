@@ -1,8 +1,21 @@
 ---
+import { getCollection } from "astro:content";
 import Icon from "../components/Icon.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
+
+const articulos = await getCollection("articulos", ({ data }) => !data.draft);
+const cursos = await getCollection("cursos", ({ data }) => !data.draft);
+
+const ultimosArticulos = articulos.filter((a) => !a.data.featured).slice(0, 3);
+const cursosDestacados = cursos.slice(0, 2);
+
+const modeIcons: Record<string, string> = {
+  Virtual: "desktop-windows",
+  Presencial: "apartment",
+  Híbrido: "devices",
+};
 ---
 
 <Layout
@@ -13,19 +26,14 @@ import Layout from "../layouts/Layout.astro";
 
   <main id="main-content">
     <!-- Hero -->
-    <header
-      class="relative min-h-[600px] flex items-center justify-center bg-surface-container-low overflow-hidden"
-    >
+    <header class="relative min-h-[600px] flex items-center justify-center bg-surface-container-low overflow-hidden">
       <div class="absolute inset-0 z-0">
         <img
           alt="Planta de gas natural al atardecer"
           class="w-full h-full object-cover opacity-20"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3CwQTnDZrz7oQR9O3ywolyU2qBfSiQ2u5wTZFzxtWiP0sAnagSKHKLSSDpdNq_wkJ4RrZHe3nwVaapxOM8KE4aYEjoSnpLwRdOiqOrcYErgRhov3-aE34BXinD1b6lbN1y6Q-MgAS01lZxWbVaLHZO9Qu527s2bsBD0QxMYX2h0kEFr7eKL2Ms9ai_u0AqaVsW5q3K7-yXCBvfEq2M7e-cSiYML3tQX1yW8QBu7Qt1IFUW6ioQ4N6DfPlmjQ4huKrPDsqhoPg16c"
         />
-        <div
-          class="absolute inset-0 bg-linear-to-br from-primary/90 to-primary-container/80"
-          style="mix-blend-mode: multiply;"
-        ></div>
+        <div class="absolute inset-0 bg-linear-to-br from-primary/90 to-primary-container/80" style="mix-blend-mode: multiply;"></div>
       </div>
 
       <div class="relative z-10 max-w-7xl mx-auto px-8 w-full text-center">
@@ -33,20 +41,13 @@ import Layout from "../layouts/Layout.astro";
           Integramos energías con liderazgo e innovación
         </h1>
         <p class="text-on-primary-container font-body text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-          Agrupamos y representamos a las principales empresas del sector
-          hidrocarburífero y energético de Bolivia.
+          Agrupamos y representamos a las principales empresas del sector hidrocarburífero y energético de Bolivia.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/quienes-somos"
-            class="bg-surface text-primary rounded-sm px-8 py-4 font-semibold hover:bg-surface-container-highest transition-colors"
-          >
+          <a href="/quienes-somos" class="bg-surface text-primary rounded-sm px-8 py-4 font-semibold hover:bg-surface-container-highest transition-colors">
             Conózcanos
           </a>
-          <a
-            href="/novedades"
-            class="bg-transparent border border-on-primary text-on-primary rounded-sm px-8 py-4 font-semibold hover:bg-on-primary/10 transition-colors"
-          >
+          <a href="/novedades" class="bg-transparent border border-on-primary text-on-primary rounded-sm px-8 py-4 font-semibold hover:bg-on-primary/10 transition-colors">
             Novedades
           </a>
         </div>
@@ -58,24 +59,14 @@ import Layout from "../layouts/Layout.astro";
       <div class="max-w-7xl mx-auto px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 class="text-primary font-headline text-3xl font-bold mb-6">
-              Trabajamos por el sector
-            </h2>
+            <h2 class="text-primary font-headline text-3xl font-bold mb-6">Trabajamos por el sector</h2>
             <p class="text-on-surface-variant font-body text-lg leading-relaxed mb-6">
-              La Cámara Boliviana de Hidrocarburos y Energía (CBHE) agrupa a las
-              principales empresas que operan en la cadena productiva del sector
-              hidrocarburífero y energético del país. Nuestro propósito es ser el eje
-              articulador de la industria.
+              La Cámara Boliviana de Hidrocarburos y Energía (CBHE) agrupa a las principales empresas que operan en la cadena productiva del sector hidrocarburífero y energético del país. Nuestro propósito es ser el eje articulador de la industria.
             </p>
             <p class="text-on-surface-variant font-body text-lg leading-relaxed mb-8">
-              Trabajamos enfocados en la coordinación técnica, el análisis normativo, la
-              promoción de mejores prácticas y el fomento a la capacitación de alto nivel,
-              garantizando el desarrollo responsable de los recursos energéticos.
+              Trabajamos enfocados en la coordinación técnica, el análisis normativo, la promoción de mejores prácticas y el fomento a la capacitación de alto nivel, garantizando el desarrollo responsable de los recursos energéticos.
             </p>
-            <a
-              href="/quienes-somos"
-              class="inline-flex items-center text-primary-container font-semibold hover:underline decoration-primary-container underline-offset-4"
-            >
+            <a href="/quienes-somos" class="inline-flex items-center text-primary-container font-semibold hover:underline decoration-primary-container underline-offset-4">
               Leer nuestra misión completa
               <Icon name="material-symbols:arrow-forward" class="size-4 ml-2" />
             </a>
@@ -109,12 +100,9 @@ import Layout from "../layouts/Layout.astro";
     <section class="py-24 bg-surface-container-low">
       <div class="max-w-7xl mx-auto px-8">
         <div class="mb-16">
-          <h2 class="text-primary font-headline text-3xl font-bold mb-4">
-            Nuestras empresas afiliadas
-          </h2>
+          <h2 class="text-primary font-headline text-3xl font-bold mb-4">Nuestras empresas afiliadas</h2>
           <p class="text-on-surface-variant font-body text-lg max-w-3xl">
-            Representamos a toda la cadena de valor de la industria energética, organizada
-            en cinco grupos especializados para una coordinación técnica eficiente.
+            Representamos a toda la cadena de valor de la industria energética, organizada en cinco grupos especializados para una coordinación técnica eficiente.
           </p>
         </div>
 
@@ -136,6 +124,145 @@ import Layout from "../layouts/Layout.astro";
               </article>
             ))
           }
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de Afiliación -->
+    <section class="py-24 bg-surface">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 class="text-primary font-headline text-3xl font-bold mb-4">Afilie a su empresa</h2>
+            <p class="text-on-surface-variant font-body text-lg mb-8">
+              Únase a la red más importante de empresas del sector energético en Bolivia. Complete el formulario y nuestro equipo de afiliaciones se pondrá en contacto con su empresa a la brevedad.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <Icon name="material-symbols:check-circle" class="text-primary-container size-6 mt-0.5 shrink-0" />
+                <div>
+                  <h4 class="font-bold text-on-surface">Representación sectorial</h4>
+                  <p class="text-sm text-on-surface-variant">Voz activa en la defensa y promoción del sector ante instancias gubernamentales.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <Icon name="material-symbols:check-circle" class="text-primary-container size-6 mt-0.5 shrink-0" />
+                <div>
+                  <h4 class="font-bold text-on-surface">Actualización técnica</h4>
+                  <p class="text-sm text-on-surface-variant">Acceso exclusivo a estadísticas, normativas y capacitaciones de alto nivel.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-surface-container-low p-8 rounded-sm shadow-sm border border-surface-container-highest">
+            <form class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-semibold text-on-surface mb-2" for="company">Nombre de la Empresa</label>
+                  <input class="w-full bg-surface border border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5 text-on-surface" id="company" name="company" type="text" autocomplete="organization" placeholder="Ej. Energía S.A.…" />
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-on-surface mb-2" for="sector">Sector de la Industria</label>
+                  <select class="w-full bg-surface border border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5 text-on-surface" id="sector" name="sector">
+                    <option value="">Seleccione un sector</option>
+                    <option value="exploracion">Exploración y Producción</option>
+                    <option value="servicios-pozo">Servicios en Pozo</option>
+                    <option value="servicios-superficie">Servicios en Superficie</option>
+                    <option value="transporte">Industria y Transporte</option>
+                    <option value="auxiliares">Servicios Auxiliares</option>
+                  </select>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-semibold text-on-surface mb-2" for="contact">Persona de Contacto</label>
+                  <input class="w-full bg-surface border border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5 text-on-surface" id="contact" name="contact" type="text" autocomplete="name" placeholder="Nombre completo…" />
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-on-surface mb-2" for="email">Correo Electrónico</label>
+                  <input class="w-full bg-surface border border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5 text-on-surface" id="email" name="email" type="email" autocomplete="email" placeholder="email@empresa.com…" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-on-surface mb-2" for="message">Mensaje / Comentarios</label>
+                <textarea class="w-full bg-surface border border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5 text-on-surface" id="message" name="message" rows="4" placeholder="Indíquenos el motivo de su interés…"></textarea>
+              </div>
+              <button class="w-full bg-primary-container text-on-primary rounded-sm py-4 font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2" type="submit">
+                Enviar Solicitud
+                <Icon name="material-symbols:send" class="size-5" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Últimas Novedades -->
+    <section class="py-24 bg-surface">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="mb-12">
+          <h2 class="text-primary font-headline text-3xl font-bold mb-4">Novedades</h2>
+          <p class="text-on-surface-variant font-body text-lg max-w-3xl">
+            Manténgase al día con las últimas noticias, eventos y análisis del sector energético boliviano.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {ultimosArticulos.map((articulo) => (
+            <article class="bg-surface-container-low rounded-sm overflow-hidden border border-surface-container-highest/50 shadow-sm hover:shadow-md transition-shadow group">
+              {articulo.data.image && (
+                <div class="h-48 overflow-hidden">
+                  <img
+                    alt={articulo.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src={articulo.data.image}
+                  />
+                </div>
+              )}
+              <div class="p-6 flex flex-col items-start">
+                <span class="text-xs font-semibold text-primary-container mb-2 tracking-wide uppercase">{articulo.data.category}</span>
+                <h3 class="font-headline font-bold text-xl text-on-surface mb-3 line-clamp-2">{articulo.data.title}</h3>
+                <p class="text-sm text-on-surface-variant mb-4 line-clamp-3">{articulo.data.excerpt}</p>
+                <div class="mt-auto flex items-center justify-between w-full">
+                  <span class="text-xs text-on-surface-variant">{articulo.data.date}</span>
+                  <a href={`/novedades/${articulo.id}`} class="text-sm font-semibold text-primary hover:text-primary-container transition-colors">Leer más</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Cursos Destacados -->
+    <section class="py-24 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="mb-12">
+          <h2 class="text-primary font-headline text-3xl font-bold mb-4">CBHE Capacitación</h2>
+          <p class="text-on-surface-variant font-body text-lg max-w-3xl">Conozca nuestros cursos y programas de formación técnica.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {cursosDestacados.map((curso) => (
+            <article class="bg-surface rounded-sm overflow-hidden flex flex-col sm:flex-row border border-surface-container-highest/50 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+              <div class="w-full sm:w-2/5 h-48 sm:h-auto overflow-hidden">
+                <img
+                  alt={curso.data.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src={curso.data.image}
+                />
+              </div>
+              <div class="p-6 flex flex-col justify-center w-full sm:w-3/5">
+                <h3 class="font-headline font-bold text-xl text-on-surface mb-2">{curso.data.title}</h3>
+                <p class="text-sm text-on-surface-variant mb-4 line-clamp-3">{curso.data.description}</p>
+                <a href={`/capacitacion/${curso.id}`} class="inline-flex items-center text-primary-container font-semibold hover:text-primary transition-colors mt-auto">
+                  Más información
+                  <Icon name="material-symbols:arrow-forward" class="size-4 ml-2" />
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
