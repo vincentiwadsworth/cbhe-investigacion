@@ -58,7 +58,7 @@ const categoryCounts = articulos.reduce<Record<string, number>>((acc, a) => {
                   <Icon name="material-symbols:calendar-today" class="size-4" />
                   {featured.data.date}
                 </span>
-                <a href={`/novedades/${featured.id}`} class="text-primary font-medium hover:underline inline-flex items-center gap-1">
+                <a href={`novedades/${featured.id}`} class="text-primary font-medium hover:underline inline-flex items-center gap-1">
                   Leer más
                   <Icon name="material-symbols:arrow-forward" class="size-4" />
                 </a>
@@ -114,7 +114,7 @@ const categoryCounts = articulos.reduce<Record<string, number>>((acc, a) => {
           {Object.entries(categoryCounts).map(([cat, count]) => (
             <li>
               <a
-                href={`/novedades?categoria=${encodeURIComponent(cat)}`}
+                href={`novedades?categoria=${encodeURIComponent(cat)}`}
                 class="text-base text-on-surface-variant hover:text-primary transition-colors flex justify-between items-center group font-body"
               >
                 {cat}

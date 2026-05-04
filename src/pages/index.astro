@@ -44,10 +44,10 @@ const modeIcons: Record<string, string> = {
           Agrupamos y representamos a las principales empresas del sector hidrocarburífero y energético de Bolivia.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/quienes-somos" class="bg-surface text-primary rounded-sm px-8 py-4 font-semibold hover:bg-surface-container-highest transition-colors">
+          <a href="quienes-somos" class="bg-surface text-primary rounded-sm px-8 py-4 font-semibold hover:bg-surface-container-highest transition-colors">
             Conózcanos
           </a>
-          <a href="/novedades" class="bg-transparent border border-on-primary text-on-primary rounded-sm px-8 py-4 font-semibold hover:bg-on-primary/10 transition-colors">
+          <a href="novedades" class="bg-transparent border border-on-primary text-on-primary rounded-sm px-8 py-4 font-semibold hover:bg-on-primary/10 transition-colors">
             Novedades
           </a>
         </div>
@@ -66,7 +66,7 @@ const modeIcons: Record<string, string> = {
             <p class="text-on-surface-variant font-body text-lg leading-relaxed mb-8">
               Trabajamos enfocados en la coordinación técnica, el análisis normativo, la promoción de mejores prácticas y el fomento a la capacitación de alto nivel, garantizando el desarrollo responsable de los recursos energéticos.
             </p>
-            <a href="/quienes-somos" class="inline-flex items-center text-primary-container font-semibold hover:underline decoration-primary-container underline-offset-4">
+            <a href="quienes-somos" class="inline-flex items-center text-primary-container font-semibold hover:underline decoration-primary-container underline-offset-4">
               Leer nuestra misión completa
               <Icon name="material-symbols:arrow-forward" class="size-4 ml-2" />
             </a>
@@ -230,7 +230,7 @@ const modeIcons: Record<string, string> = {
                 <p class="text-sm text-on-surface-variant mb-4 line-clamp-3">{articulo.data.excerpt}</p>
                 <div class="mt-auto flex items-center justify-between w-full">
                   <span class="text-xs text-on-surface-variant">{articulo.data.date}</span>
-                  <a href={`/novedades/${articulo.id}`} class="text-sm font-semibold text-primary hover:text-primary-container transition-colors">Leer más</a>
+                  <a href={`novedades/${articulo.id}`} class="text-sm font-semibold text-primary hover:text-primary-container transition-colors">Leer más</a>
                 </div>
               </div>
             </article>
@@ -260,7 +260,7 @@ const modeIcons: Record<string, string> = {
               <div class="p-6 flex flex-col justify-center w-full sm:w-3/5">
                 <h3 class="font-headline font-bold text-xl text-on-surface mb-2">{curso.data.title}</h3>
                 <p class="text-sm text-on-surface-variant mb-4 line-clamp-3">{curso.data.description}</p>
-                <a href={`/capacitacion/${curso.id}`} class="inline-flex items-center text-primary-container font-semibold hover:text-primary transition-colors mt-auto">
+                <a href={`capacitacion/${curso.id}`} class="inline-flex items-center text-primary-container font-semibold hover:text-primary transition-colors mt-auto">
                   Más información
                   <Icon name="material-symbols:arrow-forward" class="size-4 ml-2" />
                 </a>

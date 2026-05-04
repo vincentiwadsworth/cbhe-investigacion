@@ -9,11 +9,11 @@ export interface Props {
 const { active } = Astro.props;
 
 const links = [
-  { href: "/", label: "Inicio", key: "inicio" as const },
-  { href: "/quienes-somos", label: "Quiénes somos", key: "quienes-somos" as const },
-  { href: "/capacitacion", label: "Capacitación", key: "capacitacion" as const },
-  { href: "/novedades", label: "Novedades", key: "novedades" as const },
-  { href: "/contacto", label: "Contacto", key: "contacto" as const },
+  { href: "", label: "Inicio", key: "inicio" as const },
+  { href: "quienes-somos", label: "Quiénes somos", key: "quienes-somos" as const },
+  { href: "capacitacion", label: "Capacitación", key: "capacitacion" as const },
+  { href: "novedades", label: "Novedades", key: "novedades" as const },
+  { href: "contacto", label: "Contacto", key: "contacto" as const },
 ];
 
 const linkClass = (isActive: boolean) =>
@@ -25,7 +25,7 @@ const linkClass = (isActive: boolean) =>
 <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
   <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 shrink-0">
+    <a href="" class="flex items-center gap-2 shrink-0">
       <Icon name="material-symbols:bolt" class="text-primary size-6" />
       <span class="text-xl font-bold tracking-tighter text-primary">CBHE</span>
     </a>
@@ -48,7 +48,7 @@ const linkClass = (isActive: boolean) =>
         <Icon name="material-symbols:search" class="size-5" />
       </button>
       <a
-        href="/#afiliacion"
+        href="#afiliacion"
         class="bg-primary-container text-on-primary rounded-sm px-4 py-2 font-semibold hover:opacity-90 transition-opacity text-sm md:text-base"
       >
         Afiliarse
