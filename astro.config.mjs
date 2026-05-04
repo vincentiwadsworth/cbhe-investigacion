@@ -44,6 +44,8 @@ export default defineConfig({
           "category",
           "history",
           "expand-more",
+          "menu",
+          "close",
         ],
       },
     }),
