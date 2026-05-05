@@ -3,7 +3,7 @@ import Icon from "./Icon.astro";
 
 export interface Props {
   /** Which page is currently active — determines the highlighted nav link */
-  active?: "inicio" | "quienes-somos" | "capacitacion" | "novedades" | "contacto";
+  active?: "inicio" | "quienes-somos" | "capacitacion" | "novedades" | "contacto" | "afiliacion";
 }
 
 const { active } = Astro.props;
@@ -23,7 +23,7 @@ const linkClass = (isActive: boolean) =>
 ---
 
 <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
-  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+  <div class="flex justify-between items-center px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 max-w-7xl mx-auto">
     <!-- Logo -->
     <a href="" class="flex items-center shrink-0">
       <img
@@ -31,7 +31,7 @@ const linkClass = (isActive: boolean) =>
         alt="CBHE — Cámara Boliviana de Hidrocarburos y Energía"
         width="200"
         height="109"
-        class="h-[55px] w-auto"
+        class="h-[40px] sm:h-[48px] md:h-[55px] w-auto"
       />
     </a>
 
@@ -47,7 +47,7 @@ const linkClass = (isActive: boolean) =>
     <!-- Actions -->
     <div class="flex items-center gap-4">
       <a
-        href="#afiliacion"
+        href="afiliacion"
         class="bg-primary-container text-on-primary rounded-sm px-4 py-2 font-semibold hover:opacity-90 transition-opacity text-sm md:text-base"
       >
         Afiliarse

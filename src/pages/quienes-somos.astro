@@ -13,14 +13,14 @@ import Footer from "../components/Footer.astro";
 
   <main id="main-content">
     <!-- Hero -->
-    <section class="relative bg-linear-to-br from-primary to-primary-container pt-32 pb-48 px-8 overflow-hidden">
-      <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-16">
-        <div class="flex-1 space-y-8">
+    <section class="relative bg-linear-to-br from-primary to-primary-container pt-24 sm:pt-28 md:pt-32 pb-36 sm:pb-40 md:pb-48 px-4 sm:px-6 md:px-8 overflow-hidden">
+      <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16">
+        <div class="flex-1 space-y-6 md:space-y-8">
           <span class="text-primary-fixed-dim font-bold tracking-widest uppercase text-sm">Institucional</span>
-          <h1 class="text-5xl md:text-6xl font-headline font-extrabold text-on-primary leading-tight tracking-tight">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-headline font-extrabold text-on-primary leading-tight tracking-tight">
             Sobre la Cámara Boliviana de Hidrocarburos y Energía
           </h1>
-          <p class="text-lg md:text-xl text-on-primary-container font-body leading-relaxed max-w-2xl">
+          <p class="text-base sm:text-lg md:text-xl text-on-primary-container font-body leading-relaxed max-w-2xl">
             Representamos la fuerza impulsora del sector energético en Bolivia. Unimos a las
             principales empresas para garantizar un desarrollo sostenible, riguroso y transparente
             de nuestros recursos estratégicos.
@@ -38,15 +38,15 @@ import Footer from "../components/Footer.astro";
     </section>
 
     <!-- Misión & Visión -->
-    <section class="max-w-7xl mx-auto px-8 -mt-24 relative z-20 mb-32">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 -mt-24 relative z-20 mb-16 sm:mb-24 md:mb-32">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         <!-- Misión -->
         <div class="bg-surface p-12 rounded-xl shadow-lg hover:bg-surface-container-lowest transition-colors duration-300">
           <div class="w-16 h-16 bg-surface-container-low rounded-lg flex items-center justify-center mb-8">
             <Icon name="material-symbols:flag" class="text-primary size-8" />
           </div>
-          <h2 class="text-3xl font-headline font-bold text-on-surface mb-6">Nuestra Misión</h2>
-          <p class="font-body text-on-surface-variant leading-relaxed text-lg">
+          <h2 class="text-2xl md:text-3xl font-headline font-bold text-on-surface mb-6">Nuestra Misión</h2>
+          <p class="font-body text-on-surface-variant leading-relaxed text-base md:text-lg">
             Promover el desarrollo eficiente, competitivo y sostenible del sector de
             hidrocarburos y energía en Bolivia. Representamos y defendemos los intereses de
             nuestros afiliados a través de la excelencia técnica, el diálogo constructivo y la
@@ -59,8 +59,8 @@ import Footer from "../components/Footer.astro";
           <div class="w-16 h-16 bg-surface-container-lowest rounded-lg flex items-center justify-center mb-8">
             <Icon name="material-symbols:visibility" class="text-primary size-8" />
           </div>
-          <h2 class="text-3xl font-headline font-bold text-on-surface mb-6">Nuestra Visión</h2>
-          <p class="font-body text-on-surface-variant leading-relaxed text-lg">
+          <h2 class="text-2xl md:text-3xl font-headline font-bold text-on-surface mb-6">Nuestra Visión</h2>
+          <p class="font-body text-on-surface-variant leading-relaxed text-base md:text-lg">
             Ser el referente institucional indiscutible del sector energético boliviano a nivel
             nacional e internacional. Aspiramos a liderar la transición hacia una matriz
             energética moderna, consolidando a Bolivia como un actor clave mediante la innovación
@@ -71,13 +71,13 @@ import Footer from "../components/Footer.astro";
     </section>
 
     <!-- Estructura Sectorial -->
-    <section class="py-24 bg-surface-container-lowest">
-      <div class="max-w-7xl mx-auto px-8">
-        <div class="mb-20 max-w-3xl">
-          <h2 class="text-4xl font-headline font-extrabold text-on-surface mb-6 tracking-tight">
+    <section class="py-12 sm:py-16 md:py-24 bg-surface-container-lowest">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div class="mb-12 md:mb-20 max-w-3xl">
+          <h2 class="text-3xl sm:text-4xl font-headline font-extrabold text-on-surface mb-6 tracking-tight">
             Estructura Sectorial
           </h2>
-          <p class="text-xl text-on-surface-variant leading-relaxed">
+          <p class="text-lg sm:text-xl text-on-surface-variant leading-relaxed">
             Nuestra membresía se articula en cinco grupos industriales especializados, reflejando
             la complejidad y profundidad técnica de la cadena de valor energética.
           </p>
@@ -111,7 +111,7 @@ import Footer from "../components/Footer.astro";
           </div>
 
           <!-- Main content -->
-          <div class="md:col-span-8 space-y-12">
+          <div class="md:col-span-8 space-y-8 md:space-y-12">
             {
               [
                 {
@@ -159,7 +159,7 @@ import Footer from "../components/Footer.astro";
                       <h3 class="text-2xl font-bold text-on-surface mb-4 group-hover:text-primary transition-colors">
                         {group.title}
                       </h3>
-                      <p class="text-on-surface-variant leading-relaxed text-lg">
+                      <p class="text-on-surface-variant leading-relaxed text-base md:text-lg">
                         {group.desc}
                       </p>
                     </div>

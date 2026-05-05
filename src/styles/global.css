@@ -97,6 +97,8 @@
   html {
     font-family: "Inter", sans-serif;
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   body {
@@ -126,6 +128,11 @@
       transition-duration: 0.01ms !important;
     }
   }
+}
+
+/* Text balance for headings — prevents single-word orphans on mobile */
+h1, h2, h3, h4 {
+  text-wrap: balance;
 }
 
 /* Icon utility — ensures astro-icon SVGs match text size */
