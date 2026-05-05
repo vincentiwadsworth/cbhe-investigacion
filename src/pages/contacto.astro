@@ -1,0 +1,239 @@
+---
+import Icon from "../components/Icon.astro";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Contacto"
+  description="Póngase en contacto con la Cámara Boliviana de Hidrocarburos y Energía — Dirección, teléfono, correo y formulario de consultas."
+>
+  <Navbar active="contacto" />
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="relative bg-linear-to-br from-primary to-primary-container pt-24 pb-20 px-8 overflow-hidden">
+      <div class="max-w-7xl mx-auto relative z-10">
+        <span class="text-primary-fixed-dim font-bold tracking-widest uppercase text-sm">Contacto</span>
+        <h1 class="text-4xl md:text-5xl font-headline font-extrabold text-on-primary leading-tight tracking-tight mt-4 max-w-2xl">
+          Estamos para servirle
+        </h1>
+        <p class="text-lg md:text-xl text-on-primary-container font-body leading-relaxed mt-6 max-w-2xl">
+          Comuníquese con nuestro equipo. Atenderemos su consulta con la mayor brevedad posible.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contacto Grid: Info + Formulario -->
+    <section class="py-24 bg-surface">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <!-- Columna Izquierda: Información -->
+          <div>
+            <h2 class="text-primary font-headline text-3xl font-bold mb-4">Información de contacto</h2>
+            <p class="text-on-surface-variant font-body text-lg mb-10">
+              Visítenos en nuestras oficinas o comuníquese por cualquiera de los siguientes medios.
+            </p>
+
+            <div class="space-y-8">
+              <!-- Dirección -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-surface-container-low rounded-sm flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name="material-symbols:location-on" class="text-primary size-5" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-on-surface">Dirección</h3>
+                  <p class="text-on-surface-variant text-sm mt-1">Radial 17 1/2 y 6to. Anillo — Zona Oeste</p>
+                  <p class="text-on-surface-variant text-sm">Santa Cruz — Bolivia</p>
+                </div>
+              </div>
+
+              <!-- Teléfono / Fax -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-surface-container-low rounded-sm flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name="material-symbols:call" class="text-primary size-5" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-on-surface">Teléfono / Fax</h3>
+                  <p class="text-on-surface-variant text-sm mt-1">Fax: (591-3) 3577868</p>
+                  <p class="text-on-surface-variant text-sm">P.O. Box 3920</p>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-surface-container-low rounded-sm flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name="material-symbols:mail" class="text-primary size-5" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-on-surface">Correo Electrónico</h3>
+                  <a
+                    href="mailto:cbhe@cbhe.org.bo"
+                    class="text-primary hover:text-primary-container transition-colors text-sm mt-1 block"
+                  >
+                    cbhe@cbhe.org.bo
+                  </a>
+                </div>
+              </div>
+
+              <!-- Redes Sociales -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-surface-container-low rounded-sm flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name="material-symbols:language" class="text-primary size-5" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-on-surface">Redes Sociales</h3>
+                  <div class="flex flex-wrap gap-3 mt-2">
+                    <a
+                      href="https://www.facebook.com/CBHEnergia"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors text-sm"
+                    >
+                      <Icon name="material-symbols:open-in-new" class="size-3.5" />
+                      Facebook
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/company/c%C3%A1mara-boliviana-de-hidrocarburos-y-energ%C3%ADa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors text-sm"
+                    >
+                      <Icon name="material-symbols:open-in-new" class="size-3.5" />
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Google Maps -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-surface-container-low rounded-sm flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name="material-symbols:map" class="text-primary size-5" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-on-surface">Ubicación</h3>
+                  <a
+                    href="https://maps.app.goo.gl/qJ3b6GpF3rRKcyM77"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1 text-primary hover:text-primary-container transition-colors text-sm mt-1"
+                  >
+                    Ver en Google Maps
+                    <Icon name="material-symbols:open-in-new" class="size-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Formulario -->
+          <div>
+            <h2 class="text-primary font-headline text-3xl font-bold mb-4">Envíenos un mensaje</h2>
+            <p class="text-on-surface-variant font-body text-lg mb-8">
+              Complete el formulario y le responderemos a la brevedad.
+            </p>
+
+            <div class="bg-surface-container-low p-8 rounded-sm shadow-sm border border-surface-container-highest">
+              <form class="space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value={import.meta.env.WEB3FORMS_KEY} />
+                <input type="hidden" name="redirect" value={new URL(`${import.meta.env.BASE_URL}/gracias`, Astro.site).href} />
+                <input type="hidden" name="subject" value="Nuevo mensaje de contacto — CBHE" />
+                <input type="hidden" name="from_name" value="Formulario de Contacto CBHE" />
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-sm font-semibold text-on-surface mb-2" for="name">
+                      Nombre <span class="text-error" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      class="w-full bg-surface border border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5 text-on-surface"
+                      id="name"
+                      name="name"
+                      type="text"
+                      autocomplete="name"
+                      placeholder="Su nombre completo"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-semibold text-on-surface mb-2" for="email">
+                      Correo Electrónico <span class="text-error" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      class="w-full bg-surface border border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5 text-on-surface"
+                      id="email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      placeholder="email@ejemplo.com"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-semibold text-on-surface mb-2" for="asunto">Asunto</label>
+                  <input
+                    class="w-full bg-surface border border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5 text-on-surface"
+                    id="asunto"
+                    name="asunto"
+                    type="text"
+                    placeholder="Motivo de su consulta"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-sm font-semibold text-on-surface mb-2" for="message">
+                    Mensaje <span class="text-error" aria-hidden="true">*</span>
+                  </label>
+                  <textarea
+                    class="w-full bg-surface border border-surface-container-highest rounded-sm focus:border-primary-container focus:ring-primary-container px-4 py-2.5 text-on-surface"
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Describa su consulta o solicitud…"
+                    required
+                    aria-required="true"
+                  ></textarea>
+                </div>
+
+                <button
+                  class="w-full bg-primary-container text-on-primary rounded-sm py-4 font-bold hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
+                  type="submit"
+                >
+                  Enviar Mensaje
+                  <Icon name="material-symbols:send" class="size-5" />
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mapa CTA -->
+    <section class="py-24 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto px-8 text-center">
+        <h2 class="text-primary font-headline text-3xl font-bold mb-4">Visítenos</h2>
+        <p class="text-on-surface-variant font-body text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+          Nuestras oficinas están ubicadas en la Radial 17 1/2 y 6to. Anillo, Zona Oeste, Santa Cruz de la Sierra.
+        </p>
+        <a
+          href="https://maps.app.goo.gl/qJ3b6GpF3rRKcyM77"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-primary-container text-on-primary rounded-sm px-8 py-4 font-semibold hover:opacity-90 transition-opacity"
+        >
+          <Icon name="material-symbols:map" class="size-5" />
+          Abrir en Google Maps
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
