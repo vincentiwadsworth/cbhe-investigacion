@@ -26,28 +26,32 @@ const modeIcons: Record<string, string> = {
 
   <main id="main-content">
     <!-- Hero -->
-    <header class="relative min-h-[600px] flex items-center justify-center bg-surface-container-low overflow-hidden">
+    <header class="relative min-h-[600px] flex items-end bg-surface-container-low overflow-hidden">
       <div class="absolute inset-0 z-0">
+        <!-- TODO: Replace src with new hero image (prompts in sdd/hero-redesign/proposal) -->
         <img
           alt="Planta de gas natural al atardecer"
-          class="w-full h-full object-cover opacity-20"
+          class="w-full h-full object-cover"
+          data-hero-image
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3CwQTnDZrz7oQR9O3ywolyU2qBfSiQ2u5wTZFzxtWiP0sAnagSKHKLSSDpdNq_wkJ4RrZHe3nwVaapxOM8KE4aYEjoSnpLwRdOiqOrcYErgRhov3-aE34BXinD1b6lbN1y6Q-MgAS01lZxWbVaLHZO9Qu527s2bsBD0QxMYX2h0kEFr7eKL2Ms9ai_u0AqaVsW5q3K7-yXCBvfEq2M7e-cSiYML3tQX1yW8QBu7Qt1IFUW6ioQ4N6DfPlmjQ4huKrPDsqhoPg16c"
         />
-        <div class="absolute inset-0 bg-linear-to-br from-primary/90 to-primary-container/80" style="mix-blend-mode: multiply;"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
       </div>
 
-      <div class="relative z-10 max-w-7xl mx-auto px-8 w-full text-center">
-        <h1 class="text-on-primary font-headline font-extrabold text-5xl md:text-6xl leading-tight mb-6 tracking-tight max-w-4xl mx-auto">
-          Integramos energías con liderazgo e innovación
+      <div class="relative z-10 max-w-7xl px-8 w-full pb-16">
+        <h1 class="text-white font-headline font-extrabold text-5xl md:text-6xl leading-tight mb-6 tracking-tight max-w-4xl">
+          <span class="block">PRODUCIMOS EL <span class="text-primary-fixed text-7xl md:text-8xl">70%</span></span>
+          <span class="block">DEL GAS NATURAL</span>
+          <span class="block">A NIVEL NACIONAL</span>
         </h1>
-        <p class="text-on-primary-container font-body text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-          Agrupamos y representamos a las principales empresas del sector hidrocarburífero y energético de Bolivia.
+        <p class="text-white/80 font-body text-xl mb-12 max-w-2xl leading-relaxed">
+          Integramos energías con liderazgo e innovación desde 1985.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="flex flex-col sm:flex-row gap-4">
           <a href="quienes-somos" class="bg-surface text-primary rounded-sm px-8 py-4 font-semibold hover:bg-surface-container-highest transition-colors">
             Conózcanos
           </a>
-          <a href="novedades" class="bg-transparent border border-on-primary text-on-primary rounded-sm px-8 py-4 font-semibold hover:bg-on-primary/10 transition-colors">
+          <a href="novedades" class="border-2 border-white/60 text-white rounded-sm px-8 py-4 font-semibold hover:bg-white/10 transition-colors">
             Novedades
           </a>
         </div>
