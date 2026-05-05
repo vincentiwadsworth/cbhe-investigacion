@@ -1,6 +1,6 @@
 ---
 title: "Programa Avanzado de Diseño de Sistemas Contra Incendios"
-category: "Técnico"
+category: "Curso"
 modality: "Virtual"
 image: "https://cbhe.org.bo/media/k2/items/cache/1777c3d07087d8dc17fc1be0a58395f6_L.jpg"
 startDate: "Inicia: 13 Abr 2026"

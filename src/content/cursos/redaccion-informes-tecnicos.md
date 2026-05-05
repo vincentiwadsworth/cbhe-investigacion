@@ -1,6 +1,6 @@
 ---
 title: "Redacción de Informes Técnicos para Ingenieros y Profesionales Afines"
-category: "Tecnológico"
+category: "Curso"
 modality: "Virtual"
 image: "https://cbhe.org.bo/media/k2/items/cache/2e538f294e7fae320ad03de2627e2480_L.jpg"
 startDate: "Inicia: 20 Ene 2026"

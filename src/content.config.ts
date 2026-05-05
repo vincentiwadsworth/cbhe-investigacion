@@ -6,7 +6,7 @@ const cursos = defineCollection({
   loader: glob({ base: "./src/content/cursos", pattern: "**/*.md" }),
   schema: z.object({
     title: z.string(),
-    category: z.enum(["Técnico", "Legal", "Tecnológico", "Ambiental"]),
+    category: z.enum(["Curso", "Certificación"]),
     modality: z.enum(["Virtual", "Presencial", "Híbrido"]),
     image: z.string().url(),
     startDate: z.string(),

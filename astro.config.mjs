@@ -51,6 +51,7 @@ export default defineConfig({
           "mail",
           "map",
           "open-in-new",
+          "chat",
         ],
       },
     }),

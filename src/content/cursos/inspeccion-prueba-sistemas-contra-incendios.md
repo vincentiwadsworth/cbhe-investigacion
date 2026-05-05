@@ -1,6 +1,6 @@
 ---
 title: "Pack de Clases Maestras en Inspección y Prueba de Sistemas Contra Incendios"
-category: "Técnico"
+category: "Curso"
 modality: "Virtual"
 image: "https://cbhe.org.bo/media/k2/items/cache/e9bd74fe228e102a2538114c0a742f82_L.jpg"
 startDate: "Inicia: 15 Mar 2026"
