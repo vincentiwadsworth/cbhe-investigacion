@@ -7,6 +7,11 @@ import Footer from "../components/Footer.astro";
 
 const cursos = await getCollection("cursos", ({ data }) => !data.draft);
 
+const MESES: Record<string, number> = { Ene:0, Feb:1, Mar:2, Abr:3, May:4, Jun:5, Jul:6, Ago:7, Sep:8, Oct:9, Nov:10, Dic:11 };
+const parseFecha = (d: string) => { const [dia, mes, año] = d.split(" "); return new Date(+año, MESES[mes], +dia).getTime(); };
+const cursosPorFecha = (a: any, b: any) => parseFecha(b.data.startDate.replace("Inicia: ", "")) - parseFecha(a.data.startDate.replace("Inicia: ", ""));
+cursos.sort(cursosPorFecha);
+
 const modeIcons: Record<string, string> = {
   Virtual: "desktop-windows",
   Presencial: "apartment",

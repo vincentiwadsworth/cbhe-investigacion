@@ -7,8 +7,16 @@ import Footer from "../components/Footer.astro";
 
 const articulos = await getCollection("articulos", ({ data }) => !data.draft);
 
-const featured = articulos.find((a) => a.data.featured);
-const grid = articulos.filter((a) => !a.data.featured);
+const MESES: Record<string, number> = { Ene:0, Feb:1, Mar:2, Abr:3, May:4, Jun:5, Jul:6, Ago:7, Sep:8, Oct:9, Nov:10, Dic:11 };
+const porFechaDesc = (a: { data: { date: string } }, b: { data: { date: string } }) => {
+  const [da, ma, aa] = a.data.date.split(" ");
+  const [db, mb, ab] = b.data.date.split(" ");
+  return new Date(+ab, MESES[mb], +db).getTime() - new Date(+aa, MESES[ma], +da).getTime();
+};
+const ordenados = articulos.sort(porFechaDesc);
+
+const featured = ordenados.find((a) => a.data.featured);
+const grid = ordenados.filter((a) => !a.data.featured);
 
 // Contar artículos por categoría
 const categoryCounts = articulos.reduce<Record<string, number>>((acc, a) => {

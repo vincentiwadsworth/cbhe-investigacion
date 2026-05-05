@@ -3,6 +3,7 @@ title: Gobierno alista control electrónico para frenar contrabando de garrafas 
 category: "Noticias"
 excerpt: El Ministerio de Hidrocarburos implementará dispositivos electrónicos en las garrafas para combatir el contrabando hacia Perú, que genera pérdidas de $us 200.000 diarios al Estado.
 date: 14 Ene 2026
+image: https://cbhe.org.bo/media/k2/items/cache/263aa605f5c168ceeb0282be68b74960_XL.jpg
 featured: false
 ---
 

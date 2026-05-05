@@ -3,6 +3,7 @@ title: YPFB avanza con la perforación del pozo Mayaya Centro X2 en el área Lli
 category: "Noticias"
 excerpt: Las obras civiles para la perforación del pozo exploratorio MYC-X2 registran un 66% de avance. El proyecto es clave en la estrategia de reposición de reservas de gas natural del país.
 date: 09 Oct 2025
+image: https://vision360-s3.cdn.net.ar/s3i233/2025/10/vision360/images/02/30/89/2308914_a141d78a275ee89096aadb1b50ea4489a71da2bb740fb05400bcaa55a81a5f9a/md.webp
 featured: false
 ---
 

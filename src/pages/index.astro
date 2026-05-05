@@ -8,8 +8,14 @@ import Layout from "../layouts/Layout.astro";
 const articulos = await getCollection("articulos", ({ data }) => !data.draft);
 const cursos = await getCollection("cursos", ({ data }) => !data.draft);
 
-const ultimosArticulos = articulos.slice(0, 3);
-const cursosDestacados = cursos.slice(0, 2);
+const MESES: Record<string, number> = { Ene:0, Feb:1, Mar:2, Abr:3, May:4, Jun:5, Jul:6, Ago:7, Sep:8, Oct:9, Nov:10, Dic:11 };
+const parseFecha = (d: string) => { const [dia, mes, año] = d.split(" "); return new Date(+año, MESES[mes], +dia).getTime(); };
+
+const articulosPorFecha = (a: any, b: any) => parseFecha(b.data.date) - parseFecha(a.data.date);
+const cursosPorFecha = (a: any, b: any) => parseFecha(b.data.startDate.replace("Inicia: ", "")) - parseFecha(a.data.startDate.replace("Inicia: ", ""));
+
+const ultimosArticulos = articulos.sort(articulosPorFecha).slice(0, 3);
+const cursosDestacados = cursos.sort(cursosPorFecha).slice(0, 2);
 
 const modeIcons: Record<string, string> = {
   Virtual: "desktop-windows",

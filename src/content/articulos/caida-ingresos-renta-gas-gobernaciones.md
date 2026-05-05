@@ -3,6 +3,7 @@ title: La caída de la renta gasífera pone en riesgo las finanzas de las gobern
 category: "Análisis"
 excerpt: Con el cese de exportaciones a Argentina y la reducción de envíos a Brasil, las gobernaciones —cuyo presupuesto depende en un 95% de las regalías— enfrentan un escenario de ajuste fiscal severo.
 date: 30 Jun 2025
+image: https://cbhe.org.bo/media/k2/items/cache/72c37cb407ad8a339605c17df13f4566_XL.jpg
 featured: false
 ---
 
