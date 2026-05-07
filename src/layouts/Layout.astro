@@ -4,13 +4,17 @@ import "../styles/global.css";
 export interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image } = Astro.props;
 
 const baseHref = import.meta.env.BASE_URL === '/'
   ? import.meta.env.SITE
   : `${import.meta.env.SITE}${import.meta.env.BASE_URL}/`;
+
+// Open Graph: absolute URL for images (required by social platforms)
+const ogImageUrl = new URL(image || 'og-default.png', baseHref).href;
 ---
 
 <!doctype html>
@@ -21,11 +25,21 @@ const baseHref = import.meta.env.BASE_URL === '/'
     <meta name="theme-color" content="#00507e" />
     <meta name="color-scheme" content="light" />
     <base href={baseHref} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://lh3.googleusercontent.com" />
     <link rel="preconnect" href="https://images.unsplash.com" />
     {description && <meta name="description" content={description} />}
+    <!-- Open Graph -->
+    <meta property="og:title" content={`${title} | CBHE`} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CBHE" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | CBHE`} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageUrl} />
     <title>{title} | CBHE</title>
   </head>
   <body>
