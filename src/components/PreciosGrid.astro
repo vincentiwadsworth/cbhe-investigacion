@@ -46,37 +46,35 @@ const items = [
 
 <section class="py-8 sm:py-10 md:py-12 bg-[#01406c]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-    <div class="flex items-baseline justify-between gap-4 mb-6">
+    <div class="flex items-baseline justify-between gap-4 mb-1">
       <h2 class="text-white/50 font-headline text-xs uppercase tracking-[0.2em]">Indicadores del sector</h2>
-      <p class="text-white/30 text-xs whitespace-nowrap">{fmtDate.format(updatedDate)}</p>
+      <p class="text-white/30 text-[10px] sm:text-xs whitespace-nowrap">{fmtDate.format(updatedDate)}</p>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-6 lg:divide-x lg:divide-white/15">
+    <div class="divide-y divide-white/10 lg:divide-y-0 lg:grid lg:grid-cols-5 lg:divide-x lg:divide-white/15">
       {items.map((item) => (
-        <div class="lg:pl-6 first:lg:pl-0">
-          <p class="text-white/50 text-xs uppercase tracking-wide mb-1.5">{item.label}</p>
-          <p class="text-white font-headline font-extrabold text-2xl sm:text-3xl tabular-nums tracking-tight">
-            {fmtPrice(item.price)}
-          </p>
-          <p class="text-white/30 text-xs mt-1">{item.unit}</p>
+        <div class="flex lg:flex-col items-center lg:items-start justify-between lg:justify-start py-3.5 lg:py-0 lg:px-6 first:lg:pl-0">
+          <p class="text-white/50 text-xs uppercase tracking-wide">{item.label}</p>
+          <div class="text-right lg:text-left">
+            <p class="text-white font-headline font-extrabold text-lg sm:text-xl lg:text-2xl xl:text-3xl tabular-nums tracking-tight">
+              {fmtPrice(item.price)}
+            </p>
+            <p class="text-white/30 text-[10px] lg:text-xs mt-0.5">{item.unit}</p>
+          </div>
         </div>
       ))}
 
-      <div class="lg:pl-6">
-        <p class="text-white/50 text-xs uppercase tracking-wide mb-1.5">USD/BOB BCB</p>
-        <div class="space-y-1">
-          <div>
-            <p class="text-white font-headline font-extrabold text-lg sm:text-xl tabular-nums tracking-tight">
-              {fmtPrice(usd_bob.buy)}
-              <span class="text-white/30 text-xs font-normal ml-1.5">Compra</span>
-            </p>
-          </div>
-          <div>
-            <p class="text-white font-headline font-extrabold text-lg sm:text-xl tabular-nums tracking-tight">
-              {fmtPrice(usd_bob.sell)}
-              <span class="text-white/30 text-xs font-normal ml-1.5">Venta</span>
-            </p>
-          </div>
+      <div class="flex lg:flex-col items-center lg:items-start justify-between lg:justify-start py-3.5 lg:py-0 lg:px-6">
+        <p class="text-white/50 text-xs uppercase tracking-wide">USD/BOB BCB</p>
+        <div class="text-right lg:text-left">
+          <p class="text-white font-headline font-extrabold text-base sm:text-lg lg:text-xl xl:text-2xl tabular-nums tracking-tight">
+            {fmtPrice(usd_bob.buy)}
+            <span class="text-white/30 text-[10px] lg:text-xs font-normal mx-1">Compra</span>
+          </p>
+          <p class="text-white font-headline font-extrabold text-base sm:text-lg lg:text-xl xl:text-2xl tabular-nums tracking-tight">
+            {fmtPrice(usd_bob.sell)}
+            <span class="text-white/30 text-[10px] lg:text-xs font-normal mx-1">Venta</span>
+          </p>
         </div>
       </div>
     </div>
