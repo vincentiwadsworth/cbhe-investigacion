@@ -71,9 +71,9 @@ const grid = ordenados.filter((a) => !a.data.featured);
       }
 
       <!-- Grid de Noticias -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div id="novedades-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {grid.map((articulo) => (
-          <article class="bg-surface-container-low p-6 rounded-lg transition-all duration-300 hover:bg-surface-container-highest flex flex-col">
+          <article data-load-more-item class="bg-surface-container-low p-6 rounded-lg transition-all duration-300 hover:bg-surface-container-highest flex flex-col">
             {articulo.data.image && (
               <div
                 class="h-48 rounded bg-cover bg-center mb-6"
@@ -96,9 +96,9 @@ const grid = ordenados.filter((a) => !a.data.featured);
         ))}
       </div>
 
-      <div class="text-center pt-8">
-        <button class="bg-surface-container-high text-primary px-6 py-3 rounded-sm text-sm font-medium hover:bg-surface-variant transition-colors font-headline inline-flex items-center gap-2">
-          Cargar más noticias
+      <div id="novedades-load-more-wrapper" class="text-center pt-8">
+        <button id="novedades-load-more-btn" class="bg-surface-container-high text-primary px-6 py-3 rounded-sm text-sm font-medium hover:bg-surface-variant transition-colors font-headline inline-flex items-center gap-2">
+          <span id="novedades-load-more-text">Cargar más noticias</span>
           <Icon name="material-symbols:expand-more" class="size-4" />
         </button>
       </div>
@@ -107,4 +107,42 @@ const grid = ordenados.filter((a) => !a.data.featured);
   </main>
 
   <Footer />
+
+  <script>
+    (function () {
+      const BATCH = 4
+      const grid = document.getElementById("novedades-grid")
+      const btn = document.getElementById("novedades-load-more-btn")
+      const label = document.getElementById("novedades-load-more-text")
+      if (!grid || !btn) return
+
+      const items = grid.querySelectorAll("[data-load-more-item]")
+      if (items.length <= BATCH) {
+        btn.parentElement!.remove()
+        return
+      }
+
+      let shown = BATCH
+      items.forEach((el, i) => {
+        if (i >= BATCH) el.classList.add("hidden")
+      })
+
+      const updateLabel = () => {
+        const left = items.length - shown
+        if (label) label.textContent = `Cargar más noticias (${left})`
+      }
+      updateLabel()
+
+      btn.addEventListener("click", () => {
+        const next = Math.min(shown + BATCH, items.length)
+        for (let i = shown; i < next; i++) items[i].classList.remove("hidden")
+        shown = next
+        if (shown >= items.length) {
+          btn.parentElement!.remove()
+          return
+        }
+        updateLabel()
+      })
+    })()
+  </script>
 </Layout>

@@ -119,9 +119,9 @@ const modeIcons: Record<string, string> = {
           <p class="text-on-surface-variant mt-2">Formación diseñada para los desafíos actuales del sector.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cursos.map((curso) => (
-            <article class="group bg-surface rounded-lg shadow-sm hover:shadow-md border border-outline-variant/15 transition-all duration-300 hover:bg-surface-container-lowest flex flex-col overflow-hidden">
+        <div id="cursos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {cursos.map((curso, i) => (
+            <article data-load-more-item class="group bg-surface rounded-lg shadow-sm hover:shadow-md border border-outline-variant/15 transition-all duration-300 hover:bg-surface-container-lowest flex flex-col overflow-hidden">
               <div class="aspect-video relative overflow-hidden">
                 <img
                   alt={curso.data.title}
@@ -162,9 +162,9 @@ const modeIcons: Record<string, string> = {
           ))}
         </div>
 
-        <div class="mt-12 text-center">
-          <button class="bg-surface border border-outline-variant px-8 py-3 rounded-sm font-medium text-on-surface hover:bg-surface-container-low transition-colors inline-flex items-center gap-2">
-            Cargar más
+        <div id="cursos-load-more-wrapper" class="mt-12 text-center">
+          <button id="cursos-load-more-btn" class="bg-surface border border-outline-variant px-8 py-3 rounded-sm font-medium text-on-surface hover:bg-surface-container-low transition-colors inline-flex items-center gap-2">
+            <span id="cursos-load-more-text">Cargar más</span>
             <Icon name="material-symbols:refresh" class="size-5" />
           </button>
         </div>
@@ -197,4 +197,42 @@ const modeIcons: Record<string, string> = {
   </main>
 
   <Footer />
+
+  <script>
+    (function () {
+      const BATCH = 3
+      const grid = document.getElementById("cursos-grid")
+      const btn = document.getElementById("cursos-load-more-btn")
+      const label = document.getElementById("cursos-load-more-text")
+      if (!grid || !btn) return
+
+      const items = grid.querySelectorAll("[data-load-more-item]")
+      if (items.length <= BATCH) {
+        btn.parentElement!.remove()
+        return
+      }
+
+      let shown = BATCH
+      items.forEach((el, i) => {
+        if (i >= BATCH) el.classList.add("hidden")
+      })
+
+      const updateLabel = () => {
+        const left = items.length - shown
+        if (label) label.textContent = `Cargar más (${left})`
+      }
+      updateLabel()
+
+      btn.addEventListener("click", () => {
+        const next = Math.min(shown + BATCH, items.length)
+        for (let i = shown; i < next; i++) items[i].classList.remove("hidden")
+        shown = next
+        if (shown >= items.length) {
+          btn.parentElement!.remove()
+          return
+        }
+        updateLabel()
+      })
+    })()
+  </script>
 </Layout>
