@@ -26,12 +26,12 @@ const { commodities, usd_bob } = data;
 const updatedDate = new Date(data.updated);
 const fmtDate = new Intl.DateTimeFormat("es-BO", {
   day: "2-digit",
-  month: "short",
-  year: "numeric",
+  month: "2-digit",
+  year: "2-digit",
   hour: "2-digit",
   minute: "2-digit",
-  timeZone: "UTC",
-  timeZoneName: "short",
+  hour12: false,
+  timeZone: "America/La_Paz",
 });
 
 const fmtPrice = (p: number) => p.toFixed(2);
@@ -46,11 +46,6 @@ const items = [
 
 <section class="py-8 sm:py-10 md:py-12 bg-[#01406c]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-    <div class="flex items-baseline justify-between gap-4 mb-1">
-      <h2 class="text-white/50 font-headline text-xs uppercase tracking-[0.2em]">Indicadores del sector</h2>
-      <p class="text-white/30 text-[10px] sm:text-xs whitespace-nowrap">{fmtDate.format(updatedDate)}</p>
-    </div>
-
     <div class="divide-y divide-white/10 lg:divide-y-0 lg:grid lg:grid-cols-5 lg:divide-x lg:divide-white/15">
       {items.map((item) => (
         <div class="flex lg:flex-col items-center lg:items-start justify-between lg:justify-start py-3.5 lg:py-0 lg:px-6 first:lg:pl-0">
@@ -78,5 +73,9 @@ const items = [
         </div>
       </div>
     </div>
+
+    <p class="text-white/30 text-[10px] sm:text-xs text-right mt-6">
+      Actualizado {fmtDate.format(updatedDate)}
+    </p>
   </div>
 </section>
