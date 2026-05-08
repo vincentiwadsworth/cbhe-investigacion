@@ -44,11 +44,11 @@ const items = [
 ];
 ---
 
-<section class="py-8 sm:py-10 md:py-12 bg-[#01406c]">
+<section class="py-4 sm:py-5 bg-[#01406c]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
     <div class="divide-y divide-white/10 lg:divide-y-0 lg:grid lg:grid-cols-5 lg:divide-x lg:divide-white/15">
       {items.map((item) => (
-        <div class="flex lg:flex-col items-center lg:items-start justify-between lg:justify-start py-3.5 lg:py-0 lg:px-6 first:lg:pl-0">
+        <div class="flex lg:flex-col items-center lg:items-start justify-between lg:justify-start py-2.5 lg:py-0 lg:px-6 first:lg:pl-0">
           <p class="text-white/50 text-xs uppercase tracking-wide">{item.label}</p>
           <div class="text-right lg:text-left">
             <p class="text-white font-headline font-extrabold text-lg sm:text-xl lg:text-2xl xl:text-3xl tabular-nums tracking-tight">
@@ -59,7 +59,7 @@ const items = [
         </div>
       ))}
 
-      <div class="flex lg:flex-col items-center lg:items-start justify-between lg:justify-start py-3.5 lg:py-0 lg:px-6">
+      <div class="flex lg:flex-col items-center lg:items-start justify-between lg:justify-start py-2.5 lg:py-0 lg:px-6">
         <p class="text-white/50 text-xs uppercase tracking-wide">USD/BOB BCB</p>
         <div class="text-right lg:text-left">
           <p class="text-white font-headline font-extrabold text-base sm:text-lg lg:text-xl xl:text-2xl tabular-nums tracking-tight">
@@ -74,7 +74,7 @@ const items = [
       </div>
     </div>
 
-    <p class="text-white/30 text-[10px] sm:text-xs text-right mt-6">
+    <p class="text-white/30 text-[10px] sm:text-xs text-right mt-3">
       Actualizado {fmtDate.format(updatedDate)}
     </p>
   </div>
