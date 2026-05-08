@@ -4,6 +4,8 @@ import Icon from "../components/Icon.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
+import PreciosGrid from "../components/PreciosGrid.astro";
+import preciosData from "../../data/prices.json";
 
 const articulos = await getCollection("articulos", ({ data }) => !data.draft);
 const cursos = await getCollection("cursos", ({ data }) => !data.draft);
@@ -65,6 +67,9 @@ const modeIcons: Record<string, string> = {
         </div>
       </div>
     </header>
+
+    <!-- Datos del Sector -->
+    <PreciosGrid data={preciosData} />
 
     <!-- Quiénes Somos (Resumen) -->
     <section class="py-12 sm:py-16 md:py-24 bg-surface">
