@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Privacidad"
+  description="Política de privacidad — Cómo protegemos y manejamos la información personal en CBHE."
+>
+  <Navbar />
+
+  <main id="main-content" class="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24">
+    <h1 class="text-3xl sm:text-4xl font-headline font-bold text-on-surface mb-4 tracking-tight">
+      Política de Privacidad
+    </h1>
+    <p class="text-on-surface-variant mb-8">Última actualización: mayo 2026</p>
+
+    <div class="prose prose-lg max-w-none prose-p:text-on-surface-variant prose-p:leading-relaxed prose-headings:font-headline prose-headings:text-on-surface space-y-6">
+      <section>
+        <h2 class="text-xl font-bold mt-8 mb-4">1. Información que recopilamos</h2>
+        <p>
+          A través de nuestros formularios de contacto y afiliación, recopilamos:
+          nombre de la empresa, sector de la industria, nombre de la persona de contacto,
+          correo electrónico y cualquier mensaje o comentario que usted decida compartir.
+          No recopilamos información de navegación ni utilizamos cookies de rastreo.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold mt-8 mb-4">2. Uso de la información</h2>
+        <p>
+          La información proporcionada se utiliza exclusivamente para:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Gestionar y responder a solicitudes de afiliación y contacto.</li>
+          <li>Enviar comunicaciones relacionadas con los servicios de CBHE.</li>
+          <li>Mejorar la atención a nuestras empresas afiliadas.</li>
+        </ul>
+        <p>
+          No compartimos, vendemos ni transferimos su información personal a terceros
+          sin su consentimiento, salvo cuando sea requerido por ley.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold mt-8 mb-4">3. Protección de datos</h2>
+        <p>
+          Implementamos medidas técnicas y organizativas para proteger su información
+          contra acceso no autorizado, alteración, divulgación o destrucción. El
+          formulario de contacto utiliza Web3Forms con transmisión encriptada.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold mt-8 mb-4">4. Sus derechos</h2>
+        <p>
+          Usted tiene derecho a solicitar acceso, rectificación, cancelación u
+          oposición al tratamiento de sus datos personales. Para ejercer estos
+          derechos, contáctenos a través de <a href="mailto:cbhe@cbhe.org.bo" class="text-primary hover:underline">cbhe@cbhe.org.bo</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold mt-8 mb-4">5. Cambios a esta política</h2>
+        <p>
+          Nos reservamos el derecho de actualizar esta política en cualquier momento.
+          Los cambios serán publicados en esta página con la fecha de la última
+          actualización.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold mt-8 mb-4">6. Contacto</h2>
+        <p>
+          Si tiene preguntas sobre esta política de privacidad, escríbanos a
+          <a href="mailto:cbhe@cbhe.org.bo" class="text-primary hover:underline">cbhe@cbhe.org.bo</a>
+          o utilice nuestro <a href="contacto" class="text-primary hover:underline">formulario de contacto</a>.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

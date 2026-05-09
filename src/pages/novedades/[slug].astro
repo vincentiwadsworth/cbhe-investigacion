@@ -1,0 +1,107 @@
+---
+import { getCollection, render } from "astro:content";
+import Icon from "../../components/Icon.astro";
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const articulos = await getCollection("articulos", ({ data }) => !data.draft);
+  return articulos.map((a) => ({ params: { slug: a.id } }));
+}
+
+const { slug } = Astro.params;
+const articulos = await getCollection("articulos", ({ data }) => !data.draft);
+const articulo = articulos.find((a) => a.id === slug);
+
+if (!articulo) return Astro.redirect("/404");
+
+const { Content } = await render(articulo);
+
+// Convertir "09 Oct 2025" a ISO 8601 para JSON-LD
+const MESES: Record<string, string> = {
+  Ene: "01", Feb: "02", Mar: "03", Abr: "04",
+  May: "05", Jun: "06", Jul: "07", Ago: "08",
+  Sep: "09", Oct: "10", Nov: "11", Dic: "12",
+};
+const [dia, mes, año] = articulo.data.date.split(" ");
+const isoDate = `${año}-${MESES[mes]}-${dia.padStart(2, "0")}`;
+---
+
+<Layout
+  title={articulo.data.title}
+  description={articulo.data.excerpt}
+  image={articulo.data.image}
+  currentPath={`novedades/${slug}`}
+  ogType="article"
+  datePublished={isoDate}
+>
+  <Navbar active="novedades" />
+
+  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24">
+    <!-- Breadcrumb visual -->
+    <nav class="mb-8 text-sm text-on-surface-variant" aria-label="Navegación">
+      <a href="" class="hover:text-primary transition-colors">Inicio</a>
+      <span class="mx-2" aria-hidden="true">/</span>
+      <a href="novedades" class="hover:text-primary transition-colors">Novedades</a>
+      <span class="mx-2" aria-hidden="true">/</span>
+      <span class="text-on-surface">{articulo.data.title}</span>
+    </nav>
+
+    <!-- Category + Date -->
+    <div class="flex flex-wrap items-center gap-3 mb-6">
+      <span class="text-xs font-semibold text-primary uppercase tracking-wider bg-primary-container/10 px-3 py-1 rounded-full">
+        {articulo.data.category}
+      </span>
+      <span class="flex items-center gap-1.5 text-sm text-on-surface-variant">
+        <Icon name="material-symbols:calendar-today" class="size-4" />
+        {articulo.data.date}
+      </span>
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-on-surface leading-tight tracking-tight mb-6">
+      {articulo.data.title}
+    </h1>
+
+    <!-- Excerpt -->
+    <p class="text-lg text-on-surface-variant leading-relaxed mb-10 font-body">
+      {articulo.data.excerpt}
+    </p>
+
+    <!-- Hero image -->
+    {articulo.data.image && (
+      <figure class="mb-12 rounded-lg overflow-hidden">
+        <img
+          src={articulo.data.image}
+          alt={articulo.data.title}
+          class="w-full h-auto object-cover rounded-lg"
+          loading="lazy"
+        />
+      </figure>
+    )}
+
+    <!-- Article body -->
+    <article class="prose prose-lg max-w-none
+      prose-headings:font-headline prose-headings:text-on-surface prose-headings:font-bold
+      prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+      prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+      prose-p:text-on-surface-variant prose-p:leading-relaxed prose-p:mb-5
+      prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-on-surface prose-strong:font-semibold
+      prose-ul:text-on-surface-variant prose-li:marker:text-primary
+    ">
+      <Content />
+    </article>
+
+    <!-- Back link -->
+    <div class="mt-16 pt-8 border-t border-outline-variant/15">
+      <a href="novedades" class="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+        <Icon name="material-symbols:arrow-forward" class="size-4 rotate-180" />
+        Volver a Novedades
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

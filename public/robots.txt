@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /gracias
+Disallow: /admin
+
+Sitemap: https://vincentiwadsworth.github.io/cbhe-web/sitemap-index.xml
