@@ -1,84 +1,297 @@
 ---
+import Icon from "../components/Icon.astro";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 ---
 
 <Layout
-  title="Privacidad"
-  description="Política de privacidad — Cómo protegemos y manejamos la información personal en CBHE."
+  title="Política de Privacidad"
+  description="Política de privacidad de la Cámara Boliviana de Hidrocarburos y Energía (CBHE) en cumplimiento con la Constitución Política del Estado y los estándares internacionales de protección de datos."
+  currentPath="privacidad"
 >
   <Navbar />
 
-  <main id="main-content" class="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24">
-    <h1 class="text-3xl sm:text-4xl font-headline font-bold text-on-surface mb-4 tracking-tight">
-      Política de Privacidad
-    </h1>
-    <p class="text-on-surface-variant mb-8">Última actualización: mayo 2026</p>
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="relative bg-linear-to-br from-primary to-primary-container pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-8 overflow-hidden">
+      <div class="max-w-7xl mx-auto relative z-10">
+        <span class="text-primary-fixed-dim font-bold tracking-widest uppercase text-sm">Legal</span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-headline font-extrabold text-on-primary leading-tight tracking-tight mt-4 max-w-2xl">
+          Política de Privacidad
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-on-primary-container font-body leading-relaxed mt-4 md:mt-6 max-w-2xl">
+          Cómo protegemos y manejamos la información personal en CBHE, en cumplimiento con el marco legal boliviano.
+        </p>
+      </div>
+    </section>
 
-    <div class="prose prose-lg max-w-none prose-p:text-on-surface-variant prose-p:leading-relaxed prose-headings:font-headline prose-headings:text-on-surface space-y-6">
-      <section>
-        <h2 class="text-xl font-bold mt-8 mb-4">1. Información que recopilamos</h2>
-        <p>
-          A través de nuestros formularios de contacto y afiliación, recopilamos:
-          nombre de la empresa, sector de la industria, nombre de la persona de contacto,
-          correo electrónico y cualquier mensaje o comentario que usted decida compartir.
-          No recopilamos información de navegación ni utilizamos cookies de rastreo.
-        </p>
-      </section>
+    <!-- Contenido de la política -->
+    <section class="py-12 sm:py-16 md:py-24 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div class="max-w-3xl">
+          <p class="text-on-surface-variant text-sm flex items-center gap-2 mb-10">
+            <Icon name="material-symbols:calendar-today" class="size-4" />
+            Última actualización: mayo 2026
+          </p>
 
-      <section>
-        <h2 class="text-xl font-bold mt-8 mb-4">2. Uso de la información</h2>
-        <p>
-          La información proporcionada se utiliza exclusivamente para:
-        </p>
-        <ul class="list-disc pl-6 space-y-2">
-          <li>Gestionar y responder a solicitudes de afiliación y contacto.</li>
-          <li>Enviar comunicaciones relacionadas con los servicios de CBHE.</li>
-          <li>Mejorar la atención a nuestras empresas afiliadas.</li>
-        </ul>
-        <p>
-          No compartimos, vendemos ni transferimos su información personal a terceros
-          sin su consentimiento, salvo cuando sea requerido por ley.
-        </p>
-      </section>
+          <!-- Resumen ejecutivo -->
+          <div class="bg-primary-container/30 border border-primary-container rounded-xl p-6 mb-12">
+            <h2 class="text-lg font-bold text-on-surface mb-3">En resumen</h2>
+            <ul class="space-y-3 text-sm text-on-surface-variant">
+              <li class="flex gap-2">
+                <Icon name="material-symbols:check-circle" class="text-primary size-5 shrink-0 mt-0.5" />
+                <span><strong class="text-on-surface">No recopilamos datos de navegación.</strong> Este sitio no usa cookies de rastreo, analytics ni scripts de terceros que perfilen su actividad.</span>
+              </li>
+              <li class="flex gap-2">
+                <Icon name="material-symbols:check-circle" class="text-primary size-5 shrink-0 mt-0.5" />
+                <span>La <strong class="text-on-surface">única</strong> información personal que recibimos es la que usted <strong class="text-on-surface">decide voluntariamente</strong> enviarnos a través de nuestros formularios de contacto y afiliación.</span>
+              </li>
+              <li class="flex gap-2">
+                <Icon name="material-symbols:check-circle" class="text-primary size-5 shrink-0 mt-0.5" />
+                <span>Sus datos se usan <strong class="text-on-surface">exclusivamente</strong> para atender su solicitud y no se comparten con terceros sin su consentimiento.</span>
+              </li>
+              <li class="flex gap-2">
+                <Icon name="material-symbols:check-circle" class="text-primary size-5 shrink-0 mt-0.5" />
+                <span>Usted tiene <strong class="text-on-surface">derechos constitucionales</strong> sobre sus datos: puede solicitarnos acceso, rectificación, cancelación u oposición en cualquier momento.</span>
+              </li>
+            </ul>
+          </div>
 
-      <section>
-        <h2 class="text-xl font-bold mt-8 mb-4">3. Protección de datos</h2>
-        <p>
-          Implementamos medidas técnicas y organizativas para proteger su información
-          contra acceso no autorizado, alteración, divulgación o destrucción. El
-          formulario de contacto utiliza Web3Forms con transmisión encriptada.
-        </p>
-      </section>
+          <!-- 1. Identificación -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">1. Identificación del responsable</h2>
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              El presente sitio web es operado por la <strong class="text-on-surface">Cámara Boliviana de Hidrocarburos y Energía (CBHE)</strong>, asociación empresarial con más de 40 años de trayectoria, que agrupa a las empresas del sector de hidrocarburos y energía en Bolivia.
+            </p>
+            <ul class="space-y-1.5 text-sm text-on-surface-variant">
+              <li><strong class="text-on-surface">Dirección:</strong> Radial 17 1/2 y 6to. Anillo, Zona Oeste, Santa Cruz — Bolivia</li>
+              <li><strong class="text-on-surface">Casilla postal:</strong> P.O. Box 3920</li>
+              <li><strong class="text-on-surface">Correo electrónico:</strong> <a href="mailto:cbhe@cbhe.org.bo" class="text-primary hover:underline">cbhe@cbhe.org.bo</a></li>
+              <li><strong class="text-on-surface">Sitio web:</strong> <a href="https://vincentiwadsworth.github.io/cbhe-web/" class="text-primary hover:underline">cbhe-web.pages.dev</a></li>
+            </ul>
+          </div>
 
-      <section>
-        <h2 class="text-xl font-bold mt-8 mb-4">4. Sus derechos</h2>
-        <p>
-          Usted tiene derecho a solicitar acceso, rectificación, cancelación u
-          oposición al tratamiento de sus datos personales. Para ejercer estos
-          derechos, contáctenos a través de <a href="mailto:cbhe@cbhe.org.bo" class="text-primary hover:underline">cbhe@cbhe.org.bo</a>.
-        </p>
-      </section>
+          <!-- 2. Fundamento legal -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">2. Fundamento legal</h2>
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              Esta política de privacidad se sustenta en el marco jurídico boliviano vigente:
+            </p>
+            <ul class="space-y-3 text-on-surface-variant leading-relaxed">
+              <li class="flex gap-3">
+                <span class="text-primary font-bold shrink-0">•</span>
+                <span><strong class="text-on-surface">Constitución Política del Estado, Artículo 21, numeral 2</strong> — Reconoce el derecho a la privacidad, intimidad, honra y la autodeterminación informativa como derechos fundamentales.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-primary font-bold shrink-0">•</span>
+                <span><strong class="text-on-surface">Constitución Política del Estado, Artículos 130 al 132</strong> — Establecen la <strong class="text-on-surface">Acción de Protección de Privacidad</strong>, recurso constitucional que garantiza el derecho a conocer, objetar, eliminar o rectificar datos personales en archivos públicos o privados.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-primary font-bold shrink-0">•</span>
+                <span><strong class="text-on-surface">Ley N° 164</strong> (Ley General de Telecomunicaciones, 2011) — Consagra el deber de confidencialidad y protección de datos personales en el ámbito de las TIC.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-primary font-bold shrink-0">•</span>
+                <span><strong class="text-on-surface">Decreto Supremo N° 1793</strong> — Regula el consentimiento informado, las medidas de seguridad y los derechos de acceso, rectificación, actualización, cancelación y oposición.</span>
+              </li>
+            </ul>
+          </div>
 
-      <section>
-        <h2 class="text-xl font-bold mt-8 mb-4">5. Cambios a esta política</h2>
-        <p>
-          Nos reservamos el derecho de actualizar esta política en cualquier momento.
-          Los cambios serán publicados en esta página con la fecha de la última
-          actualización.
-        </p>
-      </section>
+          <!-- 3. Información que recopilamos -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">3. Información que recopilamos</h2>
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              <strong class="text-on-surface">Este sitio web no recopila datos de navegación de forma automática.</strong> No utilizamos cookies de rastreo, herramientas de analytics (Google Analytics, Meta Pixel o similares), ni scripts de terceros que perfilen su actividad en línea.
+            </p>
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              La <strong class="text-on-surface">única</strong> información personal que CBHE recibe es aquella que usted <strong class="text-on-surface">decide voluntariamente proporcionarnos</strong> a través de:
+            </p>
+            <ul class="space-y-2 text-on-surface-variant leading-relaxed mb-6">
+              <li class="flex gap-3">
+                <span class="text-primary font-bold shrink-0">•</span>
+                <span><strong class="text-on-surface">Formulario de contacto</strong> — nombre de la empresa, sector industrial, nombre de la persona de contacto, correo electrónico y mensaje.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-primary font-bold shrink-0">•</span>
+                <span><strong class="text-on-surface">Formulario de afiliación</strong> — datos necesarios para procesar la solicitud de membresía.</span>
+              </li>
+            </ul>
 
-      <section>
-        <h2 class="text-xl font-bold mt-8 mb-4">6. Contacto</h2>
-        <p>
-          Si tiene preguntas sobre esta política de privacidad, escríbanos a
-          <a href="mailto:cbhe@cbhe.org.bo" class="text-primary hover:underline">cbhe@cbhe.org.bo</a>
-          o utilice nuestro <a href="contacto" class="text-primary hover:underline">formulario de contacto</a>.
-        </p>
-      </section>
-    </div>
+            <div class="bg-info-container/20 border border-info-container rounded-lg p-5 text-sm text-on-surface-variant">
+              <p class="font-semibold text-on-surface mb-1 flex items-center gap-2">
+                <Icon name="material-symbols:security" class="size-4" />
+                Sitio 100% estático
+              </p>
+              <p class="leading-relaxed">
+                Este sitio web es completamente estático (cero JavaScript del lado del cliente). No hay servidores de aplicaciones, bases de datos ni sistemas de autenticación que procesen o almacenen datos personales en el servidor. Toda la información que usted envía viaja directamente al servicio de Web3Forms y de allí a la bandeja de entrada de CBHE por correo electrónico.
+              </p>
+            </div>
+          </div>
+
+          <!-- 4. Finalidad del tratamiento -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">4. Finalidad del tratamiento</h2>
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              Los datos personales que usted nos proporciona se utilizan <strong class="text-on-surface">exclusivamente</strong> para los fines que originaron su envío:
+            </p>
+            <ul class="space-y-2 text-on-surface-variant leading-relaxed mb-4">
+              <li class="flex gap-3"><span class="text-primary font-bold shrink-0">•</span>Gestionar y responder a sus solicitudes de contacto o consultas.</li>
+              <li class="flex gap-3"><span class="text-primary font-bold shrink-0">•</span>Procesar y dar seguimiento a las solicitudes de afiliación a CBHE.</li>
+              <li class="flex gap-3"><span class="text-primary font-bold shrink-0">•</span>Enviar comunicaciones directamente relacionadas con el servicio solicitado.</li>
+              <li class="flex gap-3"><span class="text-primary font-bold shrink-0">•</span>Mejorar la atención a nuestras empresas afiliadas y público en general.</li>
+            </ul>
+            <p class="bg-surface-container-low rounded-lg p-4 text-on-surface-variant text-sm leading-relaxed">
+              <strong class="text-on-surface">No realizamos perfiles automatizados, no tomamos decisiones automatizadas ni utilizamos sus datos para fines distintos a los aquí descritos.</strong>
+            </p>
+          </div>
+
+          <!-- 5. Base legal del tratamiento -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">5. Base legal del tratamiento</h2>
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              El tratamiento de sus datos personales se fundamenta en:
+            </p>
+            <ul class="space-y-2 text-on-surface-variant leading-relaxed mb-4">
+              <li class="flex gap-3"><span class="text-primary font-bold shrink-0">•</span><strong class="text-on-surface">Su consentimiento expreso, libre, informado e inequívoco</strong>, manifestado al completar y enviar voluntariamente cualquiera de nuestros formularios.</li>
+              <li class="flex gap-3"><span class="text-primary font-bold shrink-0">•</span>La ejecución de las medidas precontractuales necesarias para gestionar su solicitud de afiliación o consulta.</li>
+            </ul>
+            <p class="text-on-surface-variant leading-relaxed">
+              El envío del formulario implica la aceptación de esta política. Puede retirar su consentimiento en cualquier momento contactándonos a <a href="mailto:cbhe@cbhe.org.bo" class="text-primary hover:underline">cbhe@cbhe.org.bo</a>, sin que ello afecte a la licitud del tratamiento realizado con anterioridad.
+            </p>
+          </div>
+
+          <!-- 6. Destinatarios y encargados -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">6. Destinatarios de los datos y encargados de tratamiento</h2>
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              CBHE no comparte, vende, alquila ni transfiere sus datos personales a terceros sin su consentimiento, salvo cuando sea requerido por ley o autoridad competente.
+            </p>
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              Para la operación del sitio, CBHE utiliza los siguientes encargados de tratamiento que actúan bajo sus propias políticas de privacidad:
+            </p>
+            <ul class="space-y-3 text-on-surface-variant leading-relaxed">
+              <li class="flex gap-3">
+                <span class="text-primary font-bold shrink-0">•</span>
+                <span><strong class="text-on-surface">Web3Forms</strong> — Procesa los datos de formularios y los reenvía por correo electrónico. <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline inline-flex items-center gap-1">Política de privacidad <Icon name="material-symbols:open-in-new" class="size-3.5" /></a></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-primary font-bold shrink-0">•</span>
+                <span><strong class="text-on-surface">GitHub Pages</strong> — Plataforma de hosting del sitio. GitHub actúa como infraestructura; no tiene acceso a los datos personales enviados. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline inline-flex items-center gap-1">Declaración de privacidad <Icon name="material-symbols:open-in-new" class="size-3.5" /></a></span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 7. Medidas de seguridad -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">7. Medidas de seguridad</h2>
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              En cumplimiento del Decreto Supremo N° 1793 y de los estándares internacionales, CBHE ha implementado las siguientes medidas:
+            </p>
+            <ul class="space-y-2 text-on-surface-variant leading-relaxed mb-4">
+              <li class="flex gap-3"><span class="text-primary font-bold shrink-0">•</span>Transmisión encriptada mediante protocolo HTTPS (TLS) en todos los formularios.</li>
+              <li class="flex gap-3"><span class="text-primary font-bold shrink-0">•</span>Acceso restringido al correo electrónico institucional donde se reciben los datos.</li>
+              <li class="flex gap-3"><span class="text-primary font-bold shrink-0">•</span>Uso de servicios externos (Web3Forms) que cumplen con estándares de seguridad.</li>
+              <li class="flex gap-3"><span class="text-primary font-bold shrink-0">•</span>Políticas internas de confidencialidad para el personal de CBHE.</li>
+            </ul>
+            <p class="text-on-surface-variant text-sm leading-relaxed">
+              A pesar de estas medidas, ninguna transmisión por internet es completamente segura. El usuario asume este riesgo al enviar sus datos.
+            </p>
+          </div>
+
+          <!-- 8. Período de conservación -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">8. Período de conservación de los datos</h2>
+            <p class="text-on-surface-variant leading-relaxed">
+              Los datos se conservarán únicamente durante el tiempo necesario para cumplir con la finalidad para la cual fueron recogidos. Una vez atendida su solicitud, los correos electrónicos se mantendrán en los archivos institucionales conforme a las políticas internas de gestión documental, salvo que usted solicite expresamente su eliminación.
+            </p>
+          </div>
+
+          <!-- 9. Derechos ARCO -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">9. Sus derechos (ARCO + Constitución)</h2>
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              En virtud de la <strong class="text-on-surface">Constitución Política del Estado (Arts. 130-132)</strong> y del <strong class="text-on-surface">Decreto Supremo N° 1793</strong>, usted tiene los siguientes derechos sobre sus datos personales:
+            </p>
+
+            <div class="overflow-x-auto mb-4">
+              <table class="w-full text-sm border-collapse">
+                <thead>
+                  <tr class="border-b border-outline-variant">
+                    <th class="text-left py-3 pr-4 font-bold text-on-surface">Derecho</th>
+                    <th class="text-left py-3 font-bold text-on-surface">¿Qué significa?</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/30">
+                  <tr>
+                    <td class="py-3 pr-4 align-top font-semibold text-on-surface">Acceso</td>
+                    <td class="py-3 text-on-surface-variant">Saber si estamos tratando sus datos y obtener copia de los mismos.</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 align-top font-semibold text-on-surface">Rectificación</td>
+                    <td class="py-3 text-on-surface-variant">Solicitar la corrección de datos inexactos o desactualizados.</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 align-top font-semibold text-on-surface">Cancelación (Supresión)</td>
+                    <td class="py-3 text-on-surface-variant">Solicitar la eliminación de sus datos cuando ya no sean necesarios.</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 align-top font-semibold text-on-surface">Oposición</td>
+                    <td class="py-3 text-on-surface-variant">Oponerse al tratamiento de sus datos por motivos legítimos.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              Para ejercer estos derechos, escríbanos a <a href="mailto:cbhe@cbhe.org.bo" class="text-primary hover:underline">cbhe@cbhe.org.bo</a> o use nuestro <a href="contacto" class="text-primary hover:underline">formulario de contacto</a>. Atenderemos su solicitud en un plazo máximo de 15 días hábiles.
+            </p>
+            <p class="bg-surface-container-low rounded-lg p-4 text-sm text-on-surface-variant leading-relaxed">
+              <Icon name="material-symbols:gavel" class="size-4 inline mr-1" />
+              Así mismo, tiene expedita la <strong class="text-on-surface">Acción de Protección de Privacidad</strong> ante el Tribunal Constitucional Plurinacional (Arts. 130-132 CPE).
+            </p>
+          </div>
+
+          <!-- 10. Enlaces a terceros -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">10. Enlaces a sitios de terceros</h2>
+            <p class="text-on-surface-variant leading-relaxed">
+              Este sitio puede contener enlaces a sitios externos (redes sociales, plataformas de capacitación, entidades gubernamentales, etc.). CBHE no se responsabiliza por las prácticas de privacidad ni el contenido de dichos sitios. Le recomendamos revisar sus políticas de privacidad.
+            </p>
+          </div>
+
+          <!-- 11. Cambios -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">11. Cambios a esta política</h2>
+            <p class="text-on-surface-variant leading-relaxed">
+              CBHE se reserva el derecho de actualizar esta política para reflejar cambios en el marco legal o en nuestras prácticas. Cualquier modificación será publicada en esta página con la fecha de la última actualización.
+            </p>
+          </div>
+
+          <!-- 12. Contacto -->
+          <div class="mb-10">
+            <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">12. Contacto</h2>
+            <p class="text-on-surface-variant leading-relaxed mb-4">
+              Si tiene preguntas sobre esta política o desea ejercer sus derechos, puede contactarnos por:
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-3">
+                <Icon name="material-symbols:mail" class="text-primary size-5 shrink-0" />
+                <a href="mailto:cbhe@cbhe.org.bo" class="text-primary hover:underline">cbhe@cbhe.org.bo</a>
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="material-symbols:chat" class="text-primary size-5 shrink-0" />
+                <a href="contacto" class="text-primary hover:underline">Formulario de contacto</a>
+              </li>
+              <li class="flex items-start gap-3">
+                <Icon name="material-symbols:location-on" class="text-primary size-5 shrink-0 mt-0.5" />
+                <span class="text-on-surface-variant">Radial 17 1/2 y 6to. Anillo, Zona Oeste, Santa Cruz — Bolivia</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer />
