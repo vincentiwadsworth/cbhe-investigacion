@@ -11,10 +11,14 @@ const articulos = await getCollection("articulos", ({ data }) => !data.draft);
 const cursos = await getCollection("cursos", ({ data }) => !data.draft);
 
 const MESES: Record<string, number> = { Ene:0, Feb:1, Mar:2, Abr:3, May:4, Jun:5, Jul:6, Ago:7, Sep:8, Oct:9, Nov:10, Dic:11 };
-const parseFecha = (d: string) => { const [dia, mes, año] = d.split(" "); return new Date(+año, MESES[mes], +dia).getTime(); };
+const parseFecha = (d: string) => {
+  const limpio = d.replace(/^Inicia:\s*/i, "").trim();
+  const [dia, mes, año] = limpio.split(" ");
+  return new Date(+año, MESES[mes], +dia).getTime();
+};
 
 const articulosPorFecha = (a: any, b: any) => parseFecha(b.data.date) - parseFecha(a.data.date);
-const cursosPorFecha = (a: any, b: any) => parseFecha(b.data.startDate.replace("Inicia: ", "")) - parseFecha(a.data.startDate.replace("Inicia: ", ""));
+const cursosPorFecha = (a: any, b: any) => parseFecha(b.data.startDate) - parseFecha(a.data.startDate);
 
 const ultimosArticulos = articulos.sort(articulosPorFecha).slice(0, 3);
 const cursosDestacados = cursos.sort(cursosPorFecha).slice(0, 2);
@@ -277,20 +281,33 @@ const modeIcons: Record<string, string> = {
           {cursosDestacados.map((curso) => (
             <article class="bg-surface rounded-sm overflow-hidden flex flex-col sm:flex-row border border-surface-container-highest/50 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
               <div class="w-full sm:w-2/5 h-48 sm:h-auto overflow-hidden">
-                <img
-                  alt={curso.data.title}
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                  src={curso.data.image}
-                />
+                {curso.data.image ? (
+                  <img
+                    alt={curso.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    src={curso.data.image}
+                  />
+                ) : (
+                  <div class="w-full h-full bg-primary-container flex items-center justify-center">
+                    <Icon name="material-symbols:school" class="size-12 text-primary opacity-30" />
+                  </div>
+                )}
               </div>
               <div class="p-6 flex flex-col justify-center w-full sm:w-3/5">
                 <h3 class="font-headline font-bold text-xl text-on-surface mb-2">{curso.data.title}</h3>
                 <p class="text-sm text-on-surface-variant mb-4 line-clamp-3">{curso.data.description}</p>
-                <a href={`capacitacion/${curso.id}`} class="inline-flex items-center text-primary-container font-semibold hover:text-primary transition-colors mt-auto">
-                  Más información
-                  <Icon name="material-symbols:arrow-forward" class="size-4 ml-2" />
-                </a>
+                {curso.data.canvaLink ? (
+                  <a href={curso.data.canvaLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary-container font-semibold hover:text-primary transition-colors mt-auto">
+                    Ver más
+                    <Icon name="material-symbols:open-in-new" class="size-4 ml-2" />
+                  </a>
+                ) : (
+                  <a href={`capacitacion/${curso.id}`} class="inline-flex items-center text-primary-container font-semibold hover:text-primary transition-colors mt-auto">
+                    Más información
+                    <Icon name="material-symbols:arrow-forward" class="size-4 ml-2" />
+                  </a>
+                )}
               </div>
             </article>
           ))}

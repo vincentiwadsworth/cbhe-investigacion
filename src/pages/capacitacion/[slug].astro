@@ -44,14 +44,20 @@ const modeIcons: Record<string, string> = {
     </nav>
 
     <!-- Hero image -->
-    <figure class="mb-10 rounded-lg overflow-hidden">
-      <img
-        src={curso.data.image}
-        alt={curso.data.title}
-        class="w-full h-auto object-cover rounded-lg"
-        loading="lazy"
-      />
-    </figure>
+    {curso.data.image ? (
+      <figure class="mb-10 rounded-lg overflow-hidden">
+        <img
+          src={curso.data.image}
+          alt={curso.data.title}
+          class="w-full h-auto object-cover rounded-lg"
+          loading="lazy"
+        />
+      </figure>
+    ) : (
+      <div class="mb-10 rounded-lg overflow-hidden bg-primary-container aspect-video flex items-center justify-center">
+        <Icon name="material-symbols:school" class="size-24 text-primary opacity-30" />
+      </div>
+    )}
 
     <!-- Course metadata pills -->
     <div class="flex flex-wrap items-center gap-3 mb-6">
@@ -75,22 +81,69 @@ const modeIcons: Record<string, string> = {
         <Icon name="material-symbols:calendar-today" class="size-6 text-primary shrink-0 mt-0.5" />
         <div>
           <p class="text-sm font-semibold text-on-surface">Fecha de inicio</p>
-          <p class="text-on-surface-variant">{curso.data.startDate.replace("Inicia: ", "")}</p>
+          <p class="text-on-surface-variant">{curso.data.startDate}</p>
         </div>
       </div>
-      <div class="bg-surface-container-low rounded-lg p-5 flex items-start gap-4">
-        <Icon name="material-symbols:schedule" class="size-6 text-primary shrink-0 mt-0.5" />
-        <div>
-          <p class="text-sm font-semibold text-on-surface">Duración</p>
-          <p class="text-on-surface-variant">{curso.data.hours}</p>
+      {curso.data.price && (
+        <div class="bg-surface-container-low rounded-lg p-5 flex items-start gap-4">
+          <Icon name="material-symbols:payments" class="size-6 text-primary shrink-0 mt-0.5" />
+          <div>
+            <p class="text-sm font-semibold text-on-surface">Inversión</p>
+            <p class="text-on-surface-variant">{curso.data.price}</p>
+          </div>
         </div>
-      </div>
+      )}
+      {curso.data.registrationDeadline && (
+        <div class="bg-surface-container-low rounded-lg p-5 flex items-start gap-4">
+          <Icon name="material-symbols:calendar-today" class="size-6 text-primary shrink-0 mt-0.5" />
+          <div>
+            <p class="text-sm font-semibold text-on-surface">Fecha límite inscripción</p>
+            <p class="text-on-surface-variant">{curso.data.registrationDeadline}</p>
+          </div>
+        </div>
+      )}
     </div>
 
     <!-- Description -->
     {curso.data.description && (
       <div class="mb-10 bg-surface-container-low rounded-lg p-6 border-l-4 border-primary">
         <p class="text-on-surface-variant leading-relaxed">{curso.data.description}</p>
+      </div>
+    )}
+
+    <!-- Canva link CTA -->
+    {curso.data.canvaLink && (
+      <div class="mb-10 bg-primary-container/10 rounded-lg p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div class="flex-1">
+          <p class="text-sm font-semibold text-on-surface">Arte completo del curso</p>
+          <p class="text-sm text-on-surface-variant">Toda la información detallada, agenda y requisitos en el diseño oficial.</p>
+        </div>
+        <a
+          href={curso.data.canvaLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-primary-container text-on-primary px-6 py-3 rounded-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
+        >
+          <Icon name="material-symbols:palette" class="size-5" />
+          Ver en Canva
+        </a>
+      </div>
+    )}
+
+    <!-- Instructors -->
+    {curso.data.instructors && curso.data.instructors.length > 0 && (
+      <div class="mb-10">
+        <h2 class="text-2xl font-headline font-bold text-on-surface mb-6">Ponentes</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {curso.data.instructors.map((instructor) => (
+            <div class="bg-surface-container-low rounded-lg p-6">
+              <h3 class="text-lg font-headline font-bold text-on-surface mb-2">{instructor.name}</h3>
+              {instructor.bio && (
+                <p class="text-sm text-on-surface-variant leading-relaxed">{instructor.bio}</p>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     )}
 
@@ -111,15 +164,28 @@ const modeIcons: Record<string, string> = {
     <div class="mt-16 bg-primary-container/10 rounded-lg p-8 text-center">
       <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">¿Interesado en este curso?</h2>
       <p class="text-on-surface-variant mb-6">Contáctenos por WhatsApp para más información sobre inscripciones y descuentos.</p>
-      <a
-        href="https://wa.me/59178500177"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 bg-primary-container text-on-primary px-8 py-4 rounded-sm font-semibold hover:opacity-90 transition-opacity"
-      >
-        <Icon name="material-symbols:chat" class="size-5" />
-        Consultar por WhatsApp
-      </a>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        {curso.data.canvaLink && (
+          <a
+            href={curso.data.canvaLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-surface-container-high text-primary px-8 py-4 rounded-sm font-semibold hover:bg-surface-variant transition-colors"
+          >
+            <Icon name="material-symbols:palette" class="size-5" />
+            Ver arte completo en Canva
+          </a>
+        )}
+        <a
+          href="https://wa.me/59178500177"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-primary-container text-on-primary px-8 py-4 rounded-sm font-semibold hover:opacity-90 transition-opacity"
+        >
+          <Icon name="material-symbols:chat" class="size-5" />
+          Consultar por WhatsApp
+        </a>
+      </div>
     </div>
 
     <!-- Back link -->

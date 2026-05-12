@@ -8,10 +8,18 @@ const cursos = defineCollection({
     title: z.string(),
     category: z.enum(["Curso", "Certificación"]),
     modality: z.enum(["Virtual", "Presencial", "Híbrido"]),
-    image: z.string().url(),
+    image: z.string().url().optional(),
     startDate: z.string(),
-    hours: z.string(),
+    price: z.string(),
+    registrationDeadline: z.string().optional(),
+    canvaLink: z.preprocess((val) => (val === "" ? undefined : val), z.string().url().optional()),
     description: z.string().optional(),
+    instructors: z.array(
+      z.object({
+        name: z.string(),
+        bio: z.string().optional(),
+      })
+    ).default([]),
     draft: z.boolean().default(false),
   }),
 });

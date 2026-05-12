@@ -22,7 +22,7 @@ collections:
           name: category,
           label: Categoría,
           widget: select,
-          options: ["Técnico", "Legal", "Tecnológico", "Ambiental"],
+          options: ["Curso", "Certificación"],
         }
       - {
           name: modality,
@@ -30,16 +30,28 @@ collections:
           widget: select,
           options: ["Virtual", "Presencial", "Híbrido"],
         }
-      - { name: image, label: Imagen, widget: image }
-      - { name: startDate, label: Fecha de inicio, widget: string }
-      - { name: hours, label: Horas académicas, widget: string }
+      - { name: image, label: Imagen (opcional, si no hay Canva), widget: image, required: false }
+      - { name: startDate, label: "Fecha de inicio", widget: string, hint: "Formato: 9 Jun 2026 (día, mes abreviado en 3 letras, año). El orden en la web es automático por esta fecha." }
+      - { name: price, label: Precio / Inversión, widget: string, hint: "Ej: 950 Bs. (750 Bs. lanzamiento hasta 22 de mayo)" }
+      - { name: registrationDeadline, label: Fecha límite inscripción, widget: string, required: false, hint: "Solo si hay precio de lanzamiento" }
+      - { name: canvaLink, label: Link a Canva, widget: string, required: false, hint: "URL del diseño en Canva con toda la info del curso" }
       - {
           name: description,
-          label: Descripción breve,
+          label: Descripción breve (para tarjeta),
           widget: text,
           required: false,
+          hint: "1-2 líneas para la vista previa en el catálogo",
         }
-      - { name: body, label: Contenido completo, widget: markdown }
+      - {
+          name: instructors,
+          label: Ponentes / Instructores,
+          widget: list,
+          required: false,
+          fields:
+            - { name: name, label: Nombre, widget: string }
+            - { name: bio, label: Biografía, widget: text, required: false },
+        }
+      - { name: body, label: Contenido completo (opcional si hay Canva), widget: markdown, required: false }
       - {
           name: draft,
           label: Borrador,

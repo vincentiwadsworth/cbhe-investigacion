@@ -3,9 +3,13 @@ title: "Programa Avanzado de Diseño de Sistemas Contra Incendios"
 category: "Curso"
 modality: "Virtual"
 image: "https://cbhe.org.bo/media/k2/items/cache/1777c3d07087d8dc17fc1be0a58395f6_L.jpg"
-startDate: "Inicia: 13 Abr 2026"
-hours: "24 horas académicas"
+startDate: "13 Abr 2026"
+price: "Consultar precios y descuentos por pronto pago"
+registrationDeadline: ""
+canvaLink: ""
 description: "Programa virtual certificado por el Fire Protection Institute y la CBHE. Cubre diseño, cálculo y normativa NFPA para sistemas de extinción, bombas contra incendios y conexiones para mangueras."
+instructors: []
+draft: false
 ---
 
 Programa virtual diseñado para profesionales con responsabilidad en instalación, diseño, revisión, inspección y mantenimiento de sistemas contra incendios. También dirigido a profesionales de compañías de seguros, autoridades competentes, firmas de ingeniería e instaladores de sistemas de protección contra incendios.

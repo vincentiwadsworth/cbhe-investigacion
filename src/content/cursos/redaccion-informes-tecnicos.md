@@ -3,9 +3,13 @@ title: "Redacción de Informes Técnicos para Ingenieros y Profesionales Afines"
 category: "Curso"
 modality: "Virtual"
 image: "https://cbhe.org.bo/media/k2/items/cache/2e538f294e7fae320ad03de2627e2480_L.jpg"
-startDate: "Inicia: 20 Ene 2026"
-hours: "30 horas académicas"
+startDate: "20 Ene 2026"
+price: "Consultar precios"
+registrationDeadline: ""
+canvaLink: ""
 description: "Capacitación individualizada en redacción técnica. 10 capítulos, libro digital de 200+ páginas, taller de redacción y evaluaciones por módulo. Basado en norma APA."
+instructors: []
+draft: false
 ---
 
 En los diferentes empleos, destacan las personas capaces de escribir y documentar sus logros e investigaciones. Lo escrito permanece en el tiempo, documenta la historia y facilita el análisis de los hechos. Esta capacitación entrena la capacidad de redactar artículos, informes y documentos técnicos con rigor profesional.

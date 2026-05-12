@@ -66,6 +66,8 @@ export default defineConfig({
           "local-fire-department",
           "euro",
           "currency-exchange",
+          "qr-code-2",
+          "palette",
         ],
       },
     }),
