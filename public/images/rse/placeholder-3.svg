@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2e7d32"/>
+      <stop offset="100%" style="stop-color:#43a047"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g3)"/>
+  <circle cx="400" cy="160" r="64" fill="rgba(255,255,255,0.08)"/>
+  <text x="400" y="280" font-family="Inter, sans-serif" font-size="28" font-weight="600" fill="white" text-anchor="middle">Agua potable</text>
+  <text x="400" y="320" font-family="Inter, sans-serif" font-size="16" fill="rgba(255,255,255,0.6)" text-anchor="middle">Fundesoc</text>
+</svg>
