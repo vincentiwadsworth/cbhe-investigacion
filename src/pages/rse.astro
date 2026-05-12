@@ -86,11 +86,15 @@ import Footer from "../components/Footer.astro";
     <!-- SECTION 3: Nacimos del compromiso de la CBHE con Bolivia -->
     <section class="py-12 sm:py-16 md:py-24 bg-surface">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
-          <!-- LEFT: Quote (1/3) -->
+        <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-8 md:mb-12">
+          Nacimos del compromiso de la CBHE con Bolivia
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-end">
+          <!-- LEFT: Quote (1/3) — aligned to bottom -->
           <div class="lg:col-span-1">
             <blockquote class="bg-surface-container-low rounded-sm border-l-4 border-primary p-6 md:p-8">
-              <p class="italic text-on-surface-variant text-base md:text-lg leading-relaxed">
+              <p class="italic text-on-surface-variant text-lg md:text-xl leading-relaxed">
                 "La labor de Fundesoc se realiza gracias al financiamiento y contribuciones de diferentes personas e instituciones locales, nacionales e internacionales con quienes compartimos objetivos y principios."
               </p>
               <footer class="not-italic font-semibold text-on-surface mt-4">
@@ -101,9 +105,6 @@ import Footer from "../components/Footer.astro";
 
           <!-- RIGHT: Content (2/3) -->
           <div class="lg:col-span-2">
-            <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-6">
-              Nacimos del compromiso de la CBHE con Bolivia
-            </h2>
             <div class="space-y-6">
               <p class="text-on-surface-variant font-body text-base md:text-lg leading-relaxed">
                 En 2007, la Cámara Boliviana de Hidrocarburos y Energía creó Fundesoc como su brazo de Responsabilidad Social Empresarial. Esta decisión respondió al pilar "Alentar programas de HSE y RSE" de su filosofía ACTUAR, que refleja el accionar y el comportamiento de la institución en la dinámica de la industria energética.
@@ -129,7 +130,7 @@ import Footer from "../components/Footer.astro";
               </div>
               <div class="bg-surface-container-low rounded-sm p-4 text-center">
                 <p class="text-primary font-headline font-extrabold text-3xl md:text-4xl">27</p>
-                <p class="text-on-surface-variant text-xs md:text-sm">Municipios en 7 departamentos</p>
+                <p class="text-on-surface-variant text-xs md:text-sm">Municipios</p>
               </div>
             </div>
           </div>
@@ -139,72 +140,54 @@ import Footer from "../components/Footer.astro";
 
     <!-- SECTION 4: Conozca más sobre Fundesoc -->
     <section class="py-12 sm:py-16 md:py-24 bg-surface-container-low">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 md:px-8">
         <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-4">Conozca más sobre Fundesoc</h2>
-        <p class="text-on-surface-variant font-body text-base md:text-lg mb-8 md:mb-12 max-w-3xl">
+        <p class="text-on-surface-variant font-body text-base md:text-lg mb-8 md:mb-10">
           Explore los proyectos, noticias y recursos disponibles en el sitio oficial de Fundesoc.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          <!-- Card 1: Sitio web -->
-          <div class="bg-surface-container-low rounded-sm shadow-sm border border-surface-container-highest p-6 md:p-8 flex flex-col">
-            <div class="w-10 h-10 bg-surface rounded-sm flex items-center justify-center shrink-0 mb-4">
-              <Icon name="material-symbols:language" class="text-primary size-5" />
+        <div class="space-y-3">
+          <!-- CTA 1: Sitio web -->
+          <a
+            href="https://fundesoc.org.bo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center justify-between bg-surface rounded-sm px-5 py-4 border border-outline-variant/30 hover:border-primary/30 hover:bg-surface-container-low transition-all"
+          >
+            <div>
+              <span class="font-semibold text-on-surface text-base">Visitar sitio web</span>
+              <span class="text-on-surface-variant text-sm ml-2">— fundesoc.org.bo</span>
             </div>
-            <h3 class="font-bold text-on-surface text-lg mb-2">Visitar sitio web</h3>
-            <p class="text-on-surface-variant text-sm mb-6 flex-1">
-              Explore proyectos, noticias y recursos en el sitio oficial de Fundesoc.
-            </p>
-            <a
-              href="https://fundesoc.org.bo"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 bg-primary-container text-on-primary rounded-sm px-6 py-3 font-semibold hover:opacity-90 transition-opacity self-start"
-            >
-              Ir a fundesoc.org.bo
-              <Icon name="material-symbols:open-in-new" class="size-4" decorative />
-            </a>
-          </div>
+            <Icon name="material-symbols:arrow-forward" class="size-5 text-primary shrink-0 group-hover:translate-x-1 transition-transform" decorative />
+          </a>
 
-          <!-- Card 2: Proyectos -->
-          <div class="bg-surface-container-low rounded-sm shadow-sm border border-surface-container-highest p-6 md:p-8 flex flex-col">
-            <div class="w-10 h-10 bg-surface rounded-sm flex items-center justify-center shrink-0 mb-4">
-              <Icon name="material-symbols:task-alt" class="text-primary size-5" />
+          <!-- CTA 2: Proyectos -->
+          <a
+            href="https://fundesoc.org.bo/index.php?Itemid=108&catid=13&id=74%3Afundesoc-logra-sinergias-para-el-desarrollo-sostenible&option=com_content&view=article"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center justify-between bg-surface rounded-sm px-5 py-4 border border-outline-variant/30 hover:border-primary/30 hover:bg-surface-container-low transition-all"
+          >
+            <div>
+              <span class="font-semibold text-on-surface text-base">Conocer proyectos</span>
+              <span class="text-on-surface-variant text-sm ml-2">— Logros e impacto por gestión</span>
             </div>
-            <h3 class="font-bold text-on-surface text-lg mb-2">Conocer proyectos</h3>
-            <p class="text-on-surface-variant text-sm mb-6 flex-1">
-              Descubra los logros por gestión y el impacto de nuestros programas en las comunidades.
-            </p>
-            <a
-              href="https://fundesoc.org.bo/index.php?Itemid=108&catid=13&id=74%3Afundesoc-logra-sinergias-para-el-desarrollo-sostenible&option=com_content&view=article"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 bg-primary-container text-on-primary rounded-sm px-6 py-3 font-semibold hover:opacity-90 transition-opacity self-start"
-            >
-              Ver proyectos
-              <Icon name="material-symbols:open-in-new" class="size-4" decorative />
-            </a>
-          </div>
+            <Icon name="material-symbols:arrow-forward" class="size-5 text-primary shrink-0 group-hover:translate-x-1 transition-transform" decorative />
+          </a>
 
-          <!-- Card 3: Donar -->
-          <div class="bg-surface-container-low rounded-sm shadow-sm border border-surface-container-highest p-6 md:p-8 flex flex-col">
-            <div class="w-10 h-10 bg-surface rounded-sm flex items-center justify-center shrink-0 mb-4">
-              <Icon name="material-symbols:payments" class="text-primary size-5" />
+          <!-- CTA 3: Donar -->
+          <a
+            href="https://fundesoc.org.bo/index.php?option=com_content&view=article&id=22&Itemid=128"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center justify-between bg-surface rounded-sm px-5 py-4 border border-outline-variant/30 hover:border-primary/30 hover:bg-surface-container-low transition-all"
+          >
+            <div>
+              <span class="font-semibold text-on-surface text-base">Hacer una donación</span>
+              <span class="text-on-surface-variant text-sm ml-2">— Cada aporte transforma vidas</span>
             </div>
-            <h3 class="font-bold text-on-surface text-lg mb-2">Donar</h3>
-            <p class="text-on-surface-variant text-sm mb-6 flex-1">
-              Contribuya al desarrollo sostenible de Bolivia. Cada aporte transforma vidas.
-            </p>
-            <a
-              href="https://fundesoc.org.bo/index.php?option=com_content&view=article&id=22&Itemid=128"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 bg-primary-container text-on-primary rounded-sm px-6 py-3 font-semibold hover:opacity-90 transition-opacity self-start"
-            >
-              Hacer una donación
-              <Icon name="material-symbols:open-in-new" class="size-4" decorative />
-            </a>
-          </div>
+            <Icon name="material-symbols:arrow-forward" class="size-5 text-primary shrink-0 group-hover:translate-x-1 transition-transform" decorative />
+          </a>
         </div>
       </div>
     </section>
