@@ -1,0 +1,254 @@
+---
+import Icon from "../components/Icon.astro";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import ImageCarousel from "../components/ImageCarousel.astro";
+
+const carouselImages = [
+  { src: "images/rse/placeholder-1.svg", alt: "Comunidad rural beneficiada por proyectos de Fundesoc" },
+  { src: "images/rse/placeholder-2.svg", alt: "Niños y niñas participando en programas educativos de Fundesoc" },
+  { src: "images/rse/placeholder-3.svg", alt: "Familias accediendo a agua potable gracias a Fundesoc" },
+  { src: "images/rse/placeholder-4.svg", alt: "Viviendas dignas y saludables construidas por Fundesoc" },
+  { src: "images/rse/placeholder-5.svg", alt: "Jóvenes en talleres de emprendedurismo de Fundesoc" },
+  { src: "images/rse/placeholder-6.svg", alt: "Proyecto de desarrollo productivo sostenible de Fundesoc" },
+];
+---
+
+<Layout
+  title="RSE"
+  description="Fundesoc, el brazo social de la CBHE, impulsa el desarrollo sostenible en Bolivia desde 2007. Conozca nuestros programas de Responsabilidad Social Empresarial."
+  currentPath="rse"
+>
+  <Navbar active="rse" />
+
+  <main id="main-content">
+    <!-- SECTION 1: Hero -->
+    <section class="relative bg-linear-to-br from-primary to-primary-container pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-8 overflow-hidden">
+      <!-- Background image overlay -->
+      <div class="absolute inset-0 opacity-[0.15]">
+        <img
+          src="https://images.unsplash.com/photo-1531844251246-9a1bfaaeeb9a?w=1200&q=80"
+          alt=""
+          class="w-full h-full object-cover"
+          aria-hidden="true"
+        />
+      </div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <span class="text-primary-fixed-dim font-bold tracking-widest uppercase text-sm">RSE</span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-headline font-extrabold text-on-primary leading-tight tracking-tight mt-4 max-w-2xl">
+          Transformamos vidas con energía y creatividad
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-on-primary-container font-body leading-relaxed mt-4 md:mt-6 max-w-2xl">
+          La Fundación Boliviana para el Desarrollo Social (Fundesoc) es el brazo social de la CBHE. Desde 2007, impulsa procesos sostenibles de alto impacto social y económico para mejorar la calidad de vida de la comunidad boliviana.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Dos áreas, un propósito -->
+    <section class="py-12 sm:py-16 md:py-24 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-4">Dos áreas, un propósito</h2>
+        <p class="text-on-surface-variant font-body text-base md:text-lg mb-10 max-w-3xl">
+          Fundesoc trabaja en dos grandes frentes que se complementan para lograr un impacto integral en las comunidades bolivianas.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Medios de Vida -->
+          <div class="bg-surface-container-low rounded-sm shadow-sm border border-surface-container-highest p-6 md:p-8">
+            <div class="w-10 h-10 bg-surface rounded-sm flex items-center justify-center shrink-0 mb-4">
+              <Icon name="material-symbols:handyman" class="text-primary size-5" />
+            </div>
+            <h3 class="font-bold text-on-surface text-lg mb-3">Medios de Vida</h3>
+            <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">
+              Impulsamos la producción agropecuaria, el acceso al agua potable, la construcción de viviendas dignas y el emprendedurismo comunitario. Acompañamos a las comunidades rurales y urbanas en su camino hacia la autogestión.
+            </p>
+          </div>
+
+          <!-- Desarrollo Humano -->
+          <div class="bg-surface-container-low rounded-sm shadow-sm border border-surface-container-highest p-6 md:p-8">
+            <div class="w-10 h-10 bg-surface rounded-sm flex items-center justify-center shrink-0 mb-4">
+              <Icon name="material-symbols:school" class="text-primary size-5" />
+            </div>
+            <h3 class="font-bold text-on-surface text-lg mb-3">Desarrollo Humano</h3>
+            <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">
+              Fortalecemos las capacidades de niños, jóvenes y familias mediante educación, prevención de riesgos psicosociales, salud comunitaria y fortalecimiento organizativo. Creemos en el poder de las personas para transformar su realidad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Impacto en imágenes -->
+    <section class="py-12 sm:py-16 md:py-24 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-4">Impacto en imágenes</h2>
+        <p class="text-on-surface-variant font-body text-base md:text-lg mb-8 md:mb-12 max-w-3xl">
+          Cada imagen refleja el compromiso de Fundesoc con las comunidades bolivianas.
+          Más de 43.400 personas beneficiadas en 184 comunidades de 7 departamentos.
+        </p>
+        <ImageCarousel images={carouselImages} ariaLabel="Galería de proyectos de Fundesoc" />
+      </div>
+    </section>
+
+    <!-- SECTION 4: Nacimos del compromiso de la CBHE -->
+    <section class="py-12 sm:py-16 md:py-24 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-8">Nacimos del compromiso de la CBHE con Bolivia</h2>
+
+        <div class="max-w-4xl space-y-6 mb-12">
+          <p class="text-on-surface-variant font-body text-base md:text-lg leading-relaxed">
+            En 2007, la Cámara Boliviana de Hidrocarburos y Energía creó Fundesoc como su brazo de Responsabilidad Social Empresarial. Esta decisión respondió al pilar "Alentar programas de HSE y RSE" de su filosofía ACTUAR, que refleja el accionar y el comportamiento de la institución en la dinámica de la industria energética.
+          </p>
+          <p class="text-on-surface-variant font-body text-base md:text-lg leading-relaxed">
+            Desde entonces, Fundesoc canaliza el compromiso del sector energético boliviano con el desarrollo del país, trabajando en alianza con empresas, organizaciones locales e internacionales, y entidades públicas para maximizar el impacto de cada proyecto.
+          </p>
+        </div>
+
+        <!-- Stats grid -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
+          <div class="bg-surface-container-low rounded-sm p-6 text-center">
+            <p class="text-primary font-headline font-extrabold text-4xl md:text-5xl">184</p>
+            <p class="text-on-surface-variant text-sm md:text-base">Comunidades</p>
+          </div>
+          <div class="bg-surface-container-low rounded-sm p-6 text-center">
+            <p class="text-primary font-headline font-extrabold text-4xl md:text-5xl">177</p>
+            <p class="text-on-surface-variant text-sm md:text-base">Barrios urbanos</p>
+          </div>
+          <div class="bg-surface-container-low rounded-sm p-6 text-center">
+            <p class="text-primary font-headline font-extrabold text-4xl md:text-5xl">43.400</p>
+            <p class="text-on-surface-variant text-sm md:text-base">Beneficiarios</p>
+          </div>
+          <div class="bg-surface-container-low rounded-sm p-6 text-center">
+            <p class="text-primary font-headline font-extrabold text-4xl md:text-5xl">27</p>
+            <p class="text-on-surface-variant text-sm md:text-base">Municipios en 7 departamentos</p>
+          </div>
+        </div>
+
+        <!-- Quote / callout -->
+        <blockquote class="bg-surface-container-low rounded-sm border-l-4 border-primary p-6 italic text-on-surface-variant max-w-3xl">
+          "La labor de Fundesoc se realiza gracias al financiamiento y contribuciones de diferentes personas e instituciones locales, nacionales e internacionales con quienes compartimos objetivos y principios."
+          <footer class="not-italic font-semibold text-on-surface mt-3">— María José Montero, Directora Ejecutiva</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Conozca más sobre Fundesoc -->
+    <section class="py-12 sm:py-16 md:py-24 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-4">Conozca más sobre Fundesoc</h2>
+        <p class="text-on-surface-variant font-body text-base md:text-lg mb-8 md:mb-12 max-w-3xl">
+          Explore los proyectos, noticias y recursos disponibles en el sitio oficial de Fundesoc.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <!-- Card 1: Sitio web -->
+          <div class="bg-surface-container-low rounded-sm shadow-sm border border-surface-container-highest p-6 md:p-8 flex flex-col">
+            <div class="w-10 h-10 bg-surface rounded-sm flex items-center justify-center shrink-0 mb-4">
+              <Icon name="material-symbols:language" class="text-primary size-5" />
+            </div>
+            <h3 class="font-bold text-on-surface text-lg mb-2">Visitar sitio web</h3>
+            <p class="text-on-surface-variant text-sm mb-6 flex-1">
+              Explore proyectos, noticias y recursos en el sitio oficial de Fundesoc.
+            </p>
+            <a
+              href="https://fundesoc.org.bo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-primary-container text-on-primary rounded-sm px-6 py-3 font-semibold hover:opacity-90 transition-opacity self-start"
+            >
+              Ir a fundesoc.org.bo
+              <Icon name="material-symbols:open-in-new" class="size-4" decorative />
+            </a>
+          </div>
+
+          <!-- Card 2: Proyectos -->
+          <div class="bg-surface-container-low rounded-sm shadow-sm border border-surface-container-highest p-6 md:p-8 flex flex-col">
+            <div class="w-10 h-10 bg-surface rounded-sm flex items-center justify-center shrink-0 mb-4">
+              <Icon name="material-symbols:task-alt" class="text-primary size-5" />
+            </div>
+            <h3 class="font-bold text-on-surface text-lg mb-2">Conocer proyectos</h3>
+            <p class="text-on-surface-variant text-sm mb-6 flex-1">
+              Descubra los logros por gestión y el impacto de nuestros programas en las comunidades.
+            </p>
+            <a
+              href="https://fundesoc.org.bo/index.php?Itemid=108&catid=13&id=74%3Afundesoc-logra-sinergias-para-el-desarrollo-sostenible&option=com_content&view=article"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-primary-container text-on-primary rounded-sm px-6 py-3 font-semibold hover:opacity-90 transition-opacity self-start"
+            >
+              Ver proyectos
+              <Icon name="material-symbols:open-in-new" class="size-4" decorative />
+            </a>
+          </div>
+
+          <!-- Card 3: Donar -->
+          <div class="bg-surface-container-low rounded-sm shadow-sm border border-surface-container-highest p-6 md:p-8 flex flex-col">
+            <div class="w-10 h-10 bg-surface rounded-sm flex items-center justify-center shrink-0 mb-4">
+              <Icon name="material-symbols:payments" class="text-primary size-5" />
+            </div>
+            <h3 class="font-bold text-on-surface text-lg mb-2">Donar</h3>
+            <p class="text-on-surface-variant text-sm mb-6 flex-1">
+              Contribuya al desarrollo sostenible de Bolivia. Cada aporte transforma vidas.
+            </p>
+            <a
+              href="https://fundesoc.org.bo/index.php?option=com_content&view=article&id=22&Itemid=128"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-primary-container text-on-primary rounded-sm px-6 py-3 font-semibold hover:opacity-90 transition-opacity self-start"
+            >
+              Hacer una donación
+              <Icon name="material-symbols:open-in-new" class="size-4" decorative />
+            </a>
+          </div>
+        </div>
+
+        <!-- Social media links -->
+        <div class="border-t border-outline-variant/30 mt-10 pt-8">
+          <p class="text-on-surface-variant text-sm font-semibold mb-4">Seguinos en redes sociales</p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="https://www.facebook.com/people/FUNDESOC/100083073687717/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors text-sm"
+            >
+              <Icon name="material-symbols:open-in-new" class="size-3.5" />
+              Facebook
+            </a>
+            <a
+              href="https://www.instagram.com/fundesoc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors text-sm"
+            >
+              <Icon name="material-symbols:open-in-new" class="size-3.5" />
+              Instagram
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UCVBss9DG0oxdinuhZIvp9PQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors text-sm"
+            >
+              <Icon name="material-symbols:open-in-new" class="size-3.5" />
+              YouTube
+            </a>
+            <a
+              href="https://www.linkedin.com/company/fundesocbolivia/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors text-sm"
+            >
+              <Icon name="material-symbols:open-in-new" class="size-3.5" />
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
