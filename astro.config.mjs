@@ -17,6 +17,7 @@ export default defineConfig({
         "material-symbols": [
           "bolt",
           "search",
+          "arrow-back",
           "arrow-forward",
           "explore",
           "engineering",
