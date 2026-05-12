@@ -96,21 +96,120 @@ const modeIcons: Record<string, string> = {
       </div>
     </section>
 
-    <!-- Carrusel de capacitación -->
-    <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 bg-surface-container-low">
-      <div class="max-w-5xl mx-auto">
-        <div class="mb-6 md:mb-8">
-          <h2 class="text-xl md:text-2xl font-headline font-bold text-on-surface">Galería de capacitación</h2>
-          <p class="text-on-surface-variant mt-1 text-sm">Momentos de nuestros programas de formación.</p>
+    <!-- Formación y certificaciones -->
+    <section class="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Columna de texto -->
+          <div class="space-y-6 lg:pr-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/10 rounded-full">
+              <Icon name="material-symbols:verified" class="text-primary size-4" />
+              <span class="text-xs font-semibold text-primary uppercase tracking-wider">
+                Estándares internacionales
+              </span>
+            </div>
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-headline font-bold text-on-surface leading-tight">
+              Formación certificada por entidades de clase mundial
+            </h2>
+            <p class="text-base md:text-lg text-on-surface-variant leading-relaxed max-w-lg">
+              Las instalaciones de la CBHE están diseñadas para impartir programas de capacitación
+              que cumplen con los requisitos de las certificadoras más exigentes del sector energético.
+              Esto le garantiza una formación alineada con los estándares que la industria demanda.
+            </p>
+            <p class="text-base text-on-surface-variant leading-relaxed max-w-lg">
+              Nuestros programas cuentan con el respaldo de entidades como NFPA, UL y FM Approvals,
+              referentes mundiales en seguridad contra incendios, calidad eléctrica y protección
+              de activos industriales.
+            </p>
+            <div class="flex flex-wrap gap-3 pt-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface rounded-full border border-outline-variant/20 text-xs font-medium text-on-surface-variant">
+                <Icon name="material-symbols:local-fire-department" class="size-3.5 text-tertiary" />
+                Seguridad contra incendios
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface rounded-full border border-outline-variant/20 text-xs font-medium text-on-surface-variant">
+                <Icon name="material-symbols:bolt" class="size-3.5 text-tertiary" />
+                Normas eléctricas
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface rounded-full border border-outline-variant/20 text-xs font-medium text-on-surface-variant">
+                <Icon name="material-symbols:factory" class="size-3.5 text-tertiary" />
+                Protección industrial
+              </span>
+            </div>
+          </div>
+
+          <!-- Columna de galería -->
+          <div class="relative">
+            <ImageCarousel
+              ariaLabel="Galería de capacitación CBHE"
+              images={[
+                { src: "/cbhe-web/images/capacitacion/carousel-1.webp", alt: "Capacitación técnica CBHE — sesión de formación" },
+                { src: "/cbhe-web/images/capacitacion/carousel-2.webp", alt: "Capacitación técnica CBHE — trabajo en equipo" },
+                { src: "/cbhe-web/images/capacitacion/carousel-3.webp", alt: "Capacitación técnica CBHE — sesión práctica" },
+              ]}
+            />
+          </div>
         </div>
-        <ImageCarousel
-          ariaLabel="Galería de capacitación CBHE"
-          images={[
-            { src: "/cbhe-web/images/capacitacion/carousel-1.webp", alt: "Capacitación técnica CBHE — sesión de formación" },
-            { src: "/cbhe-web/images/capacitacion/carousel-2.webp", alt: "Capacitación técnica CBHE — trabajo en equipo" },
-            { src: "/cbhe-web/images/capacitacion/carousel-3.webp", alt: "Capacitación técnica CBHE — sesión práctica" },
-          ]}
-        />
+      </div>
+    </section>
+
+    <!-- Certificaciones -->
+    <section class="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 bg-background border-t border-outline-variant/10">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12 md:mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/10 rounded-full mb-4">
+            <Icon name="material-symbols:verified" class="text-primary size-4" />
+            <span class="text-xs font-semibold text-primary uppercase tracking-wider">
+              Aval internacional
+            </span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-headline font-bold text-on-surface mb-4">
+            Entidades que respaldan nuestra formación
+          </h2>
+          <p class="text-on-surface-variant max-w-xl mx-auto leading-relaxed">
+            Organismos internacionales que emiten y avalan las certificaciones
+            ofrecidas en los programas de la CBHE.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
+          {[
+            {
+              src: "/cbhe-web/images/capacitacion/logo-nfpa.webp",
+              alt: "NFPA — National Fire Protection Association",
+              name: "NFPA",
+              fullName: "National Fire Protection Association",
+              description: "Estándares globales en seguridad contra incendios y eléctrica.",
+            },
+            {
+              src: "/cbhe-web/images/capacitacion/logo-ul.webp",
+              alt: "UL — Underwriters Laboratories",
+              name: "UL",
+              fullName: "Underwriters Laboratories",
+              description: "Referente en certificación de seguridad de productos y sistemas.",
+            },
+            {
+              src: "/cbhe-web/images/capacitacion/logo-fm.webp",
+              alt: "FM Approvals",
+              name: "FM",
+              fullName: "FM Approvals",
+              description: "Certificación internacional en protección de activos y riesgos industriales.",
+            },
+          ].map((cert) => (
+            <div class="flex flex-col items-center text-center group">
+              <div class="w-full aspect-[3/1.5] flex items-center justify-center p-6 bg-surface-container-low rounded-lg border border-outline-variant/15 mb-4">
+                <img
+                  src={cert.src}
+                  alt={cert.alt}
+                  class="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <p class="text-sm font-bold text-on-surface">{cert.name}</p>
+              <p class="text-xs text-on-surface-variant mt-0.5">{cert.fullName}</p>
+              <p class="text-xs text-outline mt-2 max-w-[220px]">{cert.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -203,8 +302,6 @@ const modeIcons: Record<string, string> = {
       </div>
     </section>
 
-
-
     <!-- QR de inscripción rápida -->
     <section class="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 bg-[#01406c]">
       <div class="max-w-5xl mx-auto">
@@ -257,33 +354,7 @@ const modeIcons: Record<string, string> = {
       </div>
     </section>
 
-    <!-- Aliados estratégicos -->
-    <section class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8 bg-background border-t border-outline-variant/15">
-      <div class="max-w-7xl mx-auto text-center">
-        <h2 class="text-sm font-semibold text-outline uppercase tracking-widest mb-12">
-          Aliados estratégicos
-        </h2>
-        <p class="text-on-surface-variant text-sm mb-10 max-w-2xl mx-auto">
-          Entidades internacionales que respaldan y emiten las certificaciones ofrecidas por la CBHE.
-        </p>
-        <div class="flex flex-wrap justify-center items-center gap-16 opacity-70 hover:opacity-100 transition-all duration-500">
-          {[
-            { src: "/cbhe-web/images/capacitacion/logo-nfpa.webp", alt: "NFPA — National Fire Protection Association" },
-            { src: "/cbhe-web/images/capacitacion/logo-ul.webp", alt: "UL — Underwriters Laboratories" },
-            { src: "/cbhe-web/images/capacitacion/logo-fm.webp", alt: "FM Approvals" },
-          ].map((ally) => (
-            <div class="flex flex-col items-center gap-3">
-              <img
-                src={ally.src}
-                alt={ally.alt}
-                class="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+
   </main>
 
   <Footer />
