@@ -4,9 +4,8 @@ import Icon from "../components/Icon.astro";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-import ImageCarousel from "../components/ImageCarousel.astro";
-
 const cursos = await getCollection("cursos", ({ data }) => !data.draft);
+const base = import.meta.env.BASE_URL;
 
 const MESES: Record<string, number> = { Ene:0, Feb:1, Mar:2, Abr:3, May:4, Jun:5, Jul:6, Ago:7, Sep:8, Oct:9, Nov:10, Dic:11 };
 const parseFecha = (d: string) => {
@@ -52,7 +51,7 @@ const modeIcons: Record<string, string> = {
           </p>
           <div class="flex flex-wrap gap-4 pt-4">
             <a
-              href="#catalogo"
+              href={`${base}/capacitacion/#catalogo`}
               class="bg-primary-container text-on-primary px-8 py-4 rounded-sm font-medium hover:opacity-90 transition-opacity inline-flex items-center gap-2"
             >
               Explorar Capacitaciones
@@ -96,16 +95,16 @@ const modeIcons: Record<string, string> = {
       </div>
     </section>
 
-    <!-- Formación y certificaciones -->
+    <!-- Formación con respaldo internacional -->
     <section class="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 bg-surface-container-low">
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <!-- Columna de texto -->
+          <!-- Texto -->
           <div class="space-y-6 lg:pr-8">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/10 rounded-full">
               <Icon name="material-symbols:verified" class="text-primary size-4" />
               <span class="text-xs font-semibold text-primary uppercase tracking-wider">
-                Estándares internacionales
+                Respaldo internacional
               </span>
             </div>
             <h2 class="text-2xl md:text-3xl lg:text-4xl font-headline font-bold text-on-surface leading-tight">
@@ -114,104 +113,98 @@ const modeIcons: Record<string, string> = {
             <p class="text-base md:text-lg text-on-surface-variant leading-relaxed max-w-lg">
               Las instalaciones de la CBHE están diseñadas para impartir programas de capacitación
               que cumplen con los requisitos de las certificadoras más exigentes del sector energético.
-              Esto le garantiza una formación alineada con los estándares que la industria demanda.
             </p>
             <p class="text-base text-on-surface-variant leading-relaxed max-w-lg">
               Nuestros programas cuentan con el respaldo de entidades como NFPA, UL y FM Approvals,
-              referentes mundiales en seguridad contra incendios, calidad eléctrica y protección
+              referentes internacionales en seguridad contra incendios, calidad eléctrica y protección
               de activos industriales.
             </p>
-            <div class="flex flex-wrap gap-3 pt-2">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface rounded-full border border-outline-variant/20 text-xs font-medium text-on-surface-variant">
-                <Icon name="material-symbols:local-fire-department" class="size-3.5 text-tertiary" />
-                Seguridad contra incendios
-              </span>
-              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface rounded-full border border-outline-variant/20 text-xs font-medium text-on-surface-variant">
-                <Icon name="material-symbols:bolt" class="size-3.5 text-tertiary" />
-                Normas eléctricas
-              </span>
-              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface rounded-full border border-outline-variant/20 text-xs font-medium text-on-surface-variant">
-                <Icon name="material-symbols:factory" class="size-3.5 text-tertiary" />
-                Protección industrial
-              </span>
-            </div>
           </div>
 
-          <!-- Columna de galería -->
-          <div class="relative">
-            <ImageCarousel
-              ariaLabel="Galería de capacitación CBHE"
-              images={[
-                { src: "/cbhe-web/images/capacitacion/carousel-1.webp", alt: "Capacitación técnica CBHE — sesión de formación" },
-                { src: "/cbhe-web/images/capacitacion/carousel-2.webp", alt: "Capacitación técnica CBHE — trabajo en equipo" },
-                { src: "/cbhe-web/images/capacitacion/carousel-3.webp", alt: "Capacitación técnica CBHE — sesión práctica" },
-              ]}
-            />
+          <!-- Galería auto-rotativa -->
+          <div class="relative aspect-[16/9] rounded-sm overflow-hidden bg-surface-container-low shadow-sm">
+            {[
+              { src: "/cbhe-web/images/capacitacion/carousel-1.webp", alt: "Capacitación técnica CBHE — sesión de formación" },
+              { src: "/cbhe-web/images/capacitacion/carousel-2.webp", alt: "Capacitación técnica CBHE — trabajo en equipo" },
+              { src: "/cbhe-web/images/capacitacion/carousel-3.webp", alt: "Capacitación técnica CBHE — sesión práctica" },
+            ].map((img, i) => (
+              <img
+                src={img.src}
+                alt={img.alt}
+                class="absolute inset-0 w-full h-full object-cover fade-slide"
+                style={`animation-delay: ${i * 5}s`}
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+            ))}
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Certificaciones -->
-    <section class="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 bg-background border-t border-outline-variant/10">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-12 md:mb-16">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/10 rounded-full mb-4">
-            <Icon name="material-symbols:verified" class="text-primary size-4" />
-            <span class="text-xs font-semibold text-primary uppercase tracking-wider">
-              Aval internacional
-            </span>
-          </div>
-          <h2 class="text-2xl md:text-3xl font-headline font-bold text-on-surface mb-4">
-            Entidades que respaldan nuestra formación
-          </h2>
-          <p class="text-on-surface-variant max-w-xl mx-auto leading-relaxed">
-            Organismos internacionales que emiten y avalan las certificaciones
-            ofrecidas en los programas de la CBHE.
+        <!-- Barra de certificaciones -->
+        <div class="mt-16 pt-12 border-t border-outline-variant/15">
+          <p class="text-center text-xs font-semibold text-outline uppercase tracking-widest mb-8">
+            Avaladas por
           </p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
-          {[
-            {
-              src: "/cbhe-web/images/capacitacion/logo-nfpa.webp",
-              alt: "NFPA — National Fire Protection Association",
-              name: "NFPA",
-              fullName: "National Fire Protection Association",
-              description: "Estándares globales en seguridad contra incendios y eléctrica.",
-            },
-            {
-              src: "/cbhe-web/images/capacitacion/logo-ul.webp",
-              alt: "UL — Underwriters Laboratories",
-              name: "UL",
-              fullName: "Underwriters Laboratories",
-              description: "Referente en certificación de seguridad de productos y sistemas.",
-            },
-            {
-              src: "/cbhe-web/images/capacitacion/logo-fm.webp",
-              alt: "FM Approvals",
-              name: "FM",
-              fullName: "FM Approvals",
-              description: "Certificación internacional en protección de activos y riesgos industriales.",
-            },
-          ].map((cert) => (
-            <div class="flex flex-col items-center text-center group">
-              <div class="w-full aspect-[3/1.5] flex items-center justify-center p-6 bg-surface-container-low rounded-lg border border-outline-variant/15 mb-4">
-                <img
-                  src={cert.src}
-                  alt={cert.alt}
-                  class="max-h-full max-w-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-              <p class="text-sm font-bold text-on-surface">{cert.name}</p>
-              <p class="text-xs text-on-surface-variant mt-0.5">{cert.fullName}</p>
-              <p class="text-xs text-outline mt-2 max-w-[220px]">{cert.description}</p>
+          <div class="flex flex-wrap justify-center items-center gap-10 md:gap-14">
+            <div class="flex items-center gap-3">
+              <img
+                src="/cbhe-web/images/capacitacion/logo-nfpa.webp"
+                alt="NFPA — National Fire Protection Association"
+                class="h-10 md:h-12 w-auto object-contain"
+                loading="lazy"
+              />
+              <span class="text-xs text-on-surface-variant font-medium hidden sm:inline">NFPA</span>
             </div>
-          ))}
+            <div class="flex items-center gap-3">
+              <img
+                src="/cbhe-web/images/capacitacion/logo-ul.webp"
+                alt="UL — Underwriters Laboratories"
+                class="h-10 md:h-12 w-auto object-contain"
+                loading="lazy"
+              />
+              <span class="text-xs text-on-surface-variant font-medium hidden sm:inline">UL</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <img
+                src="/cbhe-web/images/capacitacion/logo-fm.webp"
+                alt="FM Approvals"
+                class="h-10 md:h-12 w-auto object-contain"
+                loading="lazy"
+              />
+              <span class="text-xs text-on-surface-variant font-medium hidden sm:inline">FM Approvals</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <style>
+      @keyframes slideFade {
+        0%, 28% { opacity: 1; }
+        33%, 95% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      .fade-slide {
+        opacity: 0;
+        animation: slideFade 15s infinite;
+      }
+      .fade-slide:nth-child(1) { animation-delay: 0s; }
+      .fade-slide:nth-child(2) { animation-delay: 5s; }
+      .fade-slide:nth-child(3) { animation-delay: 10s; }
+      @media (prefers-reduced-motion: reduce) {
+        .fade-slide {
+          animation: none;
+          opacity: 1;
+          position: static;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .fade-slide ~ .fade-slide {
+          position: absolute;
+          clip: rect(0, 0, 0, 0);
+        }
+      }
+    </style>
 
     <!-- Course Grid -->
     <section id="catalogo" class="scroll-mt-24 py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8 bg-background">
@@ -302,19 +295,19 @@ const modeIcons: Record<string, string> = {
       </div>
     </section>
 
-    <!-- QR de inscripción rápida -->
-    <section class="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 bg-[#01406c]">
+    <!-- Inscríbase ahora -->
+    <section class="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 bg-[#00315f]">
       <div class="max-w-5xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div class="space-y-6">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
               <Icon name="material-symbols:qr-code-2" class="text-primary-fixed size-4" />
               <span class="text-xs font-semibold text-primary-fixed uppercase tracking-wider">
-                Inscripción rápida
+                Inscríbase ahora
               </span>
             </div>
             <h2 class="text-2xl md:text-3xl lg:text-4xl font-headline font-bold text-white leading-tight">
-              Inscríbase de forma inmediata
+              Inscríbase ahora
             </h2>
             <p class="text-white/80 leading-relaxed max-w-lg text-base md:text-lg">
               Escanee el código QR con su dispositivo móvil para acceder directamente al formulario de inscripción y a la información de contacto del área de Capacitación de la CBHE.
