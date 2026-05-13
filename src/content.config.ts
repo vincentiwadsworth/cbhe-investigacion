@@ -42,4 +42,18 @@ const articulos = defineCollection({
   }),
 });
 
-export const collections = { cursos, articulos };
+const empresas = defineCollection({
+  loader: glob({ base: "./src/content/empresas", pattern: "**/*.md" }),
+  schema: z.object({
+    nombre: z.string(),
+    grupo: z.enum(["upstream", "pozo", "superficie", "downstream", "auxiliares", "adherentes"]),
+    website: z.string().url().optional(),
+    email: z.string().email().optional(),
+    logo: z.string().optional(),
+    destacada: z.boolean().default(false),
+    orden: z.number().default(0),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { cursos, articulos, empresas };

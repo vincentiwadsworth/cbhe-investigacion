@@ -103,3 +103,19 @@ collections:
           default: false,
           required: false,
         }
+
+  - name: empresas
+    label: Empresas Afiliadas
+    label_singular: Empresa
+    folder: src/content/empresas
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: nombre, label: Nombre de la Empresa, widget: string }
+      - { name: grupo, label: Grupo Industrial, widget: select, options: [{ label: "Exploración y explotación de hidrocarburos", value: upstream }, { label: "Servicios y suministros especializados en pozo", value: pozo }, { label: "Servicios y suministros especializados en superficie", value: superficie }, { label: "Industria, transporte y distribución de hidrocarburos y energía", value: downstream }, { label: "Servicios auxiliares", value: auxiliares }, { label: "Adherentes", value: adherentes }] }
+      - { name: website, label: Sitio Web, widget: string, required: false }
+      - { name: email, label: Correo de Contacto, widget: string, required: false }
+      - { name: logo, label: Logo, widget: image, required: false }
+      - { name: destacada, label: Destacada en portada, widget: boolean, default: false, required: false }
+      - { name: orden, label: Orden, widget: number, default: 0, required: false, hint: "Menor número = primero. Si hay empate, orden alfabético." }
+      - { name: draft, label: Borrador, widget: boolean, default: false, required: false }
