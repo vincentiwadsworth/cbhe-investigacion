@@ -42,13 +42,15 @@ collections:
           required: false,
           hint: "1-2 líneas para la vista previa en el catálogo",
         }
-      - name: instructors
-        label: Ponentes / Instructores
-        widget: list
-        required: false
-        fields:
-          - { name: name, label: Nombre, widget: string }
-          - { name: bio, label: Biografía, widget: text, required: false }
+      - {
+          name: instructors,
+          label: Ponentes / Instructores,
+          widget: list,
+          required: false,
+          fields:
+            - { name: name, label: Nombre, widget: string }
+            - { name: bio, label: Biografía, widget: text, required: false },
+        }
       - { name: body, label: Contenido completo (opcional si hay Canva), widget: markdown, required: false }
       - {
           name: draft,
