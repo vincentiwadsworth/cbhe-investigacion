@@ -4,5 +4,6 @@ grupo: upstream
 destacada: false
 orden: 0
 website: "https://www.repsol.com"
+logo: "images/empresas/repsol.svg"
 draft: false
 ---
