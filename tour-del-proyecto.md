@@ -8,8 +8,8 @@
 ## 1. ¿De qué se trata el sitio?
 
 Web institucional de la **Cámara Boliviana de Hidrocarburos y Energía**. Agrupa a más de 50
-empresas del sector, tiene 40 años de trayectoria, y sus afiliadas operan el 99% del gas natural
-del país.
+empresas del sector, tiene 40 años de trayectoria, y sus afiliadas participan en la producción del 99% del gas natural
+boliviano.
 
 Secciones:
 
