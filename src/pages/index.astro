@@ -9,6 +9,7 @@ import preciosData from "../../data/prices.json";
 
 const articulos = await getCollection("articulos", ({ data }) => !data.draft);
 const cursos = await getCollection("cursos", ({ data }) => !data.draft);
+const empresas = await getCollection("empresas");
 
 const MESES: Record<string, number> = { Ene:0, Feb:1, Mar:2, Abr:3, May:4, Jun:5, Jul:6, Ago:7, Sep:8, Oct:9, Nov:10, Dic:11 };
 const parseFecha = (d: string) => {
@@ -107,7 +108,7 @@ const modeIcons: Record<string, string> = {
                 </div>
                 <div class="w-px h-12 bg-surface-container-highest"></div>
                 <div>
-                  <p class="text-primary font-bold text-2xl">+50</p>
+                  <p class="text-primary font-bold text-2xl">{empresas.length}</p>
                   <p class="text-on-surface-variant text-sm font-medium">Empresas afiliadas</p>
                 </div>
               </div>
@@ -129,21 +130,32 @@ const modeIcons: Record<string, string> = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {
-            [
-              { icon: "explore", title: "Exploración y producción", desc: "Empresas dedicadas a la búsqueda y extracción de recursos hidrocarburíferos." },
-              { icon: "engineering", title: "Servicios en pozo", desc: "Perforación, terminación y mantenimiento especializado de pozos." },
-              { icon: "factory", title: "Servicios en superficie", desc: "Construcción, ingeniería y operación de facilidades de producción." },
-              { icon: "local-shipping", title: "Industria y transporte", desc: "Refinación, comercialización, ductos y logística especializada." },
-              { icon: "handyman", title: "Servicios auxiliares", desc: "Consultoría, tecnología, provisión de equipos y servicios transversales." },
-            ].map((group) => (
-              <article class="bg-surface rounded-sm p-6 hover:bg-surface-container-highest transition-colors duration-300 group cursor-pointer border border-surface-container-highest/50">
-                <div class="w-12 h-12 bg-surface-container-low rounded-sm flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors">
-                  <Icon name={`material-symbols:${group.icon}`} class="text-primary size-6 group-hover:text-on-primary" />
-                </div>
-                <h3 class="font-headline font-bold text-on-surface mb-2">{group.title}</h3>
-                <p class="text-on-surface-variant text-sm leading-relaxed">{group.desc}</p>
-              </article>
-            ))
+            (() => {
+              const groupSlugs = {
+                "Exploración y producción": "upstream",
+                "Servicios en pozo": "pozo",
+                "Servicios en superficie": "superficie",
+                "Industria y transporte": "downstream",
+                "Servicios auxiliares": "auxiliares",
+              };
+              return [
+                { icon: "explore", title: "Exploración y producción", desc: "Empresas dedicadas a la búsqueda y extracción de recursos hidrocarburíferos." },
+                { icon: "engineering", title: "Servicios en pozo", desc: "Perforación, terminación y mantenimiento especializado de pozos." },
+                { icon: "factory", title: "Servicios en superficie", desc: "Construcción, ingeniería y operación de facilidades de producción." },
+                { icon: "local-shipping", title: "Industria y transporte", desc: "Refinación, comercialización, ductos y logística especializada." },
+                { icon: "handyman", title: "Servicios auxiliares", desc: "Consultoría, tecnología, provisión de equipos y servicios transversales." },
+              ].map((group) => (
+                <a href={`afiliadas#grupo-${groupSlugs[group.title]}`} class="block">
+                  <article class="bg-surface rounded-sm p-6 hover:bg-surface-container-highest transition-colors duration-300 group border border-surface-container-highest/50">
+                    <div class="w-12 h-12 bg-surface-container-low rounded-sm flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors">
+                      <Icon name={`material-symbols:${group.icon}`} class="text-primary size-6 group-hover:text-on-primary" />
+                    </div>
+                    <h3 class="font-headline font-bold text-on-surface mb-2">{group.title}</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">{group.desc}</p>
+                  </article>
+                </a>
+              ));
+            })()
           }
         </div>
       </div>

@@ -3,7 +3,7 @@ import Icon from "./Icon.astro";
 
 export interface Props {
   /** Which page is currently active — determines the highlighted nav link */
-  active?: "inicio" | "quienes-somos" | "capacitacion" | "novedades" | "rse" | "contacto" | "afiliacion";
+  active?: "inicio" | "quienes-somos" | "afiliadas" | "capacitacion" | "novedades" | "rse" | "contacto" | "afiliacion";
 }
 
 const { active } = Astro.props;
@@ -11,6 +11,7 @@ const { active } = Astro.props;
 const links = [
   { href: "", label: "Inicio", key: "inicio" as const },
   { href: "quienes-somos", label: "Quiénes somos", key: "quienes-somos" as const },
+  { href: "afiliadas", label: "Afiliadas", key: "afiliadas" as const },
   { href: "capacitacion", label: "Capacitación", key: "capacitacion" as const },
   { href: "novedades", label: "Novedades", key: "novedades" as const },
   { href: "rse", label: "RSE", key: "rse" as const },

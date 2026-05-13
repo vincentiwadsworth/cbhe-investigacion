@@ -1,8 +1,27 @@
 ---
+import { getCollection } from "astro:content";
 import Icon from "../components/Icon.astro";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+
+const empresas = await getCollection("empresas");
+
+const countByGroup: Record<string, number> = {
+  upstream: empresas.filter((e) => e.data.grupo === "upstream").length,
+  pozo: empresas.filter((e) => e.data.grupo === "pozo").length,
+  superficie: empresas.filter((e) => e.data.grupo === "superficie").length,
+  downstream: empresas.filter((e) => e.data.grupo === "downstream").length,
+  auxiliares: empresas.filter((e) => e.data.grupo === "auxiliares").length,
+};
+
+const grupoCountKey: Record<string, string> = {
+  "Exploración y producción (upstream)": "upstream",
+  "Servicios especializados en pozo": "pozo",
+  "Servicios especializados en superficie": "superficie",
+  "Industria y transporte (midstream/downstream)": "downstream",
+  "Servicios auxiliares y soporte técnico": "auxiliares",
+};
 ---
 
 <Layout
@@ -162,6 +181,9 @@ import Footer from "../components/Footer.astro";
                       <p class="text-on-surface-variant leading-relaxed text-base md:text-lg">
                         {group.desc}
                       </p>
+                      <span class="inline-block mt-4 text-sm font-semibold text-primary bg-primary-container/20 px-3 py-1 rounded-sm">
+                        {countByGroup[grupoCountKey[group.title]]} empresas afiliadas
+                      </span>
                     </div>
                   </div>
                 </article>
