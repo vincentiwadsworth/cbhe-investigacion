@@ -90,20 +90,32 @@ const totalEmpresas = empresas.length;
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {group.items.map((empresa) => (
                   <article class="bg-surface rounded-sm p-4 sm:p-6 border border-surface-container-highest/50 hover:shadow-md transition-shadow">
-                    <h3 class="font-headline font-bold text-on-surface text-base sm:text-lg">{formatName(empresa.data.nombre)}</h3>
-                    <div class="flex flex-wrap gap-3 mt-3">
-                      {empresa.data.website && (
-                        <a href={empresa.data.website} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm text-primary-container hover:text-primary transition-colors">
-                          <Icon name="material-symbols:open-in-new" class="size-4" />
-                          Web
-                        </a>
+                    <div class="flex items-start gap-4">
+                      {empresa.data.logo && (
+                        <img
+                          src={empresa.data.logo}
+                          alt=""
+                          class="w-10 h-10 sm:w-12 sm:h-12 object-contain shrink-0"
+                          loading="lazy"
+                        />
                       )}
-                      {empresa.data.email && (
-                        <a href={`mailto:${empresa.data.email}`} class="inline-flex items-center gap-1 text-sm text-primary-container hover:text-primary transition-colors">
-                          <Icon name="material-symbols:mail" class="size-4" />
-                          Contacto
-                        </a>
-                      )}
+                      <div class="min-w-0">
+                        <h3 class="font-headline font-bold text-on-surface text-base sm:text-lg">{formatName(empresa.data.nombre)}</h3>
+                        <div class="flex flex-wrap gap-3 mt-2">
+                          {empresa.data.website && (
+                            <a href={empresa.data.website} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm text-primary-container hover:text-primary transition-colors">
+                              <Icon name="material-symbols:open-in-new" class="size-4" />
+                              Web
+                            </a>
+                          )}
+                          {empresa.data.email && (
+                            <a href={`mailto:${empresa.data.email}`} class="inline-flex items-center gap-1 text-sm text-primary-container hover:text-primary transition-colors">
+                              <Icon name="material-symbols:mail" class="size-4" />
+                              Contacto
+                            </a>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </article>
                 ))}
