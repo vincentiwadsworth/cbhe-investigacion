@@ -1,196 +1,200 @@
 ---
-import { getCollection } from "astro:content";
 import Icon from "../components/Icon.astro";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 
-const empresas = await getCollection("empresas");
+const historia = [
+  {
+    year: "1986",
+    title: "El origen",
+    desc: "Quince empresas del sector de hidrocarburos fundan la Cámara Nacional de Hidrocarburos en Santa Cruz de la Sierra. Dos años después obtiene su personería jurídica mediante Resolución Suprema N° 203117, consolidándose como institución legalmente reconocida por el Estado boliviano.",
+  },
+  {
+    year: "1994",
+    title: "Crecimiento",
+    desc: "Se incorporan todas las compañías con actividad en las diferentes fases de la industria petrolera. Se aprueba la primera clasificación por grupos y la institución adopta el nombre de Cámara Boliviana de Hidrocarburos, reflejando su alcance nacional.",
+  },
+  {
+    year: "2001",
+    title: "Modernización",
+    desc: "La Cámara reorganiza su estructura en cuatro grupos industriales para responder al crecimiento del sector y a las inversiones realizadas en el país. Se readecúa el Estatuto Orgánico a la nueva realidad energética boliviana.",
+  },
+  {
+    year: "2003",
+    title: "Excelencia",
+    desc: "La CBHE se convierte en la primera institución del sector hidrocarburífero boliviano en implementar un sistema de gestión de calidad ISO 9001, marcando un estándar de excelencia en sus servicios a los afiliados y al público.",
+  },
+  {
+    year: "2007",
+    title: "Compromiso social",
+    desc: "Nace Fundesoc, la Fundación Boliviana para el Desarrollo Social, como brazo de responsabilidad social empresarial de la CBHE. Ese mismo año se define la filosofía ACTUAR, los seis pilares que guían el accionar institucional hasta hoy.",
+  },
+  {
+    year: "2010",
+    title: "Consolidación",
+    desc: "La Cámara Boliviana de Hidrocarburos incorpora el sector Energía a su denominación y misión, transformándose en la CBHE que conocemos. Hoy reúne a casi un centenar de empresas organizadas en cinco grupos que cubren toda la cadena de valor energética.",
+  },
+];
 
-const countByGroup: Record<string, number> = {
-  upstream: empresas.filter((e) => e.data.grupo === "upstream").length,
-  pozo: empresas.filter((e) => e.data.grupo === "pozo").length,
-  superficie: empresas.filter((e) => e.data.grupo === "superficie").length,
-  downstream: empresas.filter((e) => e.data.grupo === "downstream").length,
-  auxiliares: empresas.filter((e) => e.data.grupo === "auxiliares").length,
-};
-
-const grupoCountKey: Record<string, string> = {
-  "Exploración y producción (upstream)": "upstream",
-  "Servicios especializados en pozo": "pozo",
-  "Servicios especializados en superficie": "superficie",
-  "Industria y transporte (midstream/downstream)": "downstream",
-  "Servicios auxiliares y soporte técnico": "auxiliares",
-};
+const actuar = [
+  {
+    letter: "A",
+    icon: "groups",
+    title: "Agrupar",
+    desc: "Reunir activamente a las empresas de toda la cadena de valor del sector energético bajo una representación institucional sólida.",
+  },
+  {
+    letter: "C",
+    icon: "chat",
+    title: "Comunicar",
+    desc: "Difundir información técnica, económica y sectorial de forma transparente y efectiva a los diferentes públicos de interés.",
+  },
+  {
+    letter: "T",
+    icon: "school",
+    title: "Tecnificar",
+    desc: "Impulsar la formación continua, la capacitación especializada y la certificación del talento humano del sector.",
+  },
+  {
+    letter: "U",
+    icon: "gavel",
+    title: "Unificar",
+    desc: "Promover criterios comunes bajo principios comerciales y éticos que fortalezcan la industria y sus estándares.",
+  },
+  {
+    letter: "A",
+    icon: "security",
+    title: "Alentar",
+    desc: "Fomentar programas de salud, seguridad industrial, medioambiente y responsabilidad social empresarial.",
+  },
+  {
+    letter: "R",
+    icon: "fact-check",
+    title: "Representar",
+    desc: "Defender los intereses de la industria energética ante los ámbitos público, privado, nacional e internacional.",
+  },
+];
 ---
 
 <Layout
   title="Quiénes Somos"
-  description="Sobre la Cámara Boliviana de Hidrocarburos y Energía — Representamos la fuerza impulsora del sector energético en Bolivia."
+  description="Desde 1986, la Cámara Boliviana de Hidrocarburos y Energía representa a las empresas del sector energético boliviano. Conozca nuestra historia, misión y filosofía institucional."
 >
   <Navbar active="quienes-somos" />
 
   <main id="main-content">
     <!-- Hero -->
-    <section class="relative bg-linear-to-br from-primary to-primary-container pt-24 sm:pt-28 md:pt-32 pb-36 sm:pb-40 md:pb-48 px-4 sm:px-6 md:px-8 overflow-hidden">
-      <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16">
-        <div class="flex-1 space-y-6 md:space-y-8">
-          <span class="text-primary-fixed-dim font-bold tracking-widest uppercase text-sm">Institucional</span>
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-headline font-extrabold text-on-primary leading-tight tracking-tight">
-            Sobre la Cámara Boliviana de Hidrocarburos y Energía
-          </h1>
-          <p class="text-lg sm:text-xl md:text-2xl text-on-primary-container font-body font-medium leading-relaxed">
-            Integramos energías con liderazgo e innovación desde 1986
-          </p>
-          <p class="text-base sm:text-lg md:text-xl text-on-primary-container font-body leading-relaxed max-w-2xl">
-            Representamos a las empresas que impulsan el crecimiento del sector energético en Bolivia. Juntos trabajamos para garantizar el desarrollo sostenible, eficiente y transparente de los recursos estratégicos del país.
-          </p>
-        </div>
-        <!-- Decorative element -->
-        <div class="flex-1 hidden md:block">
-          <div class="relative w-full aspect-square max-w-md ml-auto">
-            <div class="absolute inset-0 bg-surface/10 backdrop-blur-md rounded-xl border border-surface/20 rotate-3"></div>
-            <div class="absolute inset-4 bg-surface/20 backdrop-blur-xl rounded-xl border border-surface/30 -rotate-2"></div>
-            <div class="absolute inset-8 bg-[url('https://images.unsplash.com/photo-1541888053-1563f1396a92?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center rounded-lg shadow-2xl"></div>
-          </div>
+    <section class="relative bg-linear-to-br from-primary to-primary-container pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6 md:px-8 overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.12]">
+        <img
+          src="images/instalaciones/cbhe-exterior.webp"
+          alt=""
+          class="w-full h-full object-cover"
+          aria-hidden="true"
+        />
+      </div>
+      <div class="max-w-7xl mx-auto relative z-10">
+        <span class="text-primary-fixed-dim font-bold tracking-widest uppercase text-sm">Institucional</span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-headline font-extrabold text-on-primary leading-tight tracking-tight mt-4 max-w-3xl">
+          Representamos la fuerza impulsora del sector energético boliviano
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-on-primary-container font-body leading-relaxed mt-4 md:mt-6 max-w-2xl">
+          Desde 1986, la Cámara Boliviana de Hidrocarburos y Energía integra a las empresas que impulsan el desarrollo energético del país. Casi un centenar de afiliadas trabajan para garantizar un futuro sostenible para Bolivia.
+        </p>
+      </div>
+    </section>
+
+    <!-- Historia -->
+    <section class="py-12 sm:py-16 md:py-24 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-4">Nuestra historia</h2>
+        <p class="text-on-surface-variant font-body text-base md:text-lg mb-10 md:mb-14 max-w-3xl">
+          Cuatro décadas de evolución al servicio del sector energético boliviano. Desde una iniciativa de 15 empresas hasta la institución referente que es hoy.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {historia.map((item) => (
+            <article class="bg-surface-container-low rounded-sm p-6 md:p-8 border border-outline-variant/20 hover:border-primary/20 hover:shadow-md transition-all duration-300">
+              <span class="text-primary font-headline font-extrabold text-3xl md:text-4xl">{item.year}</span>
+              <h3 class="font-headline font-bold text-on-surface text-lg md:text-xl mt-3 mb-3">{item.title}</h3>
+              <p class="text-on-surface-variant font-body text-sm md:text-base leading-relaxed">{item.desc}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- Misión & Visión -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 -mt-24 relative z-20 mb-16 sm:mb-24 md:mb-32">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-        <!-- Misión -->
-        <div class="bg-surface p-12 rounded-xl shadow-lg hover:bg-surface-container-lowest transition-colors duration-300">
-          <div class="w-16 h-16 bg-surface-container-low rounded-lg flex items-center justify-center mb-8">
-            <Icon name="material-symbols:flag" class="text-primary size-8" />
-          </div>
-          <h2 class="text-2xl md:text-3xl font-headline font-bold text-on-surface mb-6">Nuestra misión</h2>
-          <p class="font-body text-on-surface-variant leading-relaxed text-base md:text-lg">
-            Promover el desarrollo eficiente, competitivo y sostenible del sector de
-            hidrocarburos y energía en Bolivia. Representamos y defendemos los intereses de
-            nuestros afiliados a través de la excelencia técnica, el diálogo constructivo y la
-            proposición de políticas públicas basadas en el rigor científico y económico.
-          </p>
-        </div>
-
-        <!-- Visión -->
-        <div class="bg-surface-container-low p-12 rounded-xl hover:bg-surface-container-highest transition-colors duration-300 md:mt-16 shadow-lg">
-          <div class="w-16 h-16 bg-surface-container-lowest rounded-lg flex items-center justify-center mb-8">
-            <Icon name="material-symbols:visibility" class="text-primary size-8" />
-          </div>
-          <h2 class="text-2xl md:text-3xl font-headline font-bold text-on-surface mb-6">Nuestra visión</h2>
-          <p class="font-body text-on-surface-variant leading-relaxed text-base md:text-lg">
-            Ser el referente institucional indiscutible del sector energético boliviano a nivel
-            nacional e internacional. Aspiramos a liderar la transición hacia una matriz
-            energética moderna, consolidando a Bolivia como un actor clave mediante la innovación
-            tecnológica y las mejores prácticas operativas globales.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Estructura Sectorial -->
+    <!-- Misión y Visión -->
     <section class="py-12 sm:py-16 md:py-24 bg-surface-container-lowest">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <div class="mb-12 md:mb-20 max-w-3xl">
-          <h2 class="text-3xl sm:text-4xl font-headline font-extrabold text-on-surface mb-6 tracking-tight">
-            Estructura
-          </h2>
-          <p class="text-lg sm:text-xl text-on-surface-variant leading-relaxed">
-            Estamos organizados en cinco grupos especializados dentro de la industria, lo que refleja la complejidad y exigencia energética de nuestra cadena de valor.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-          <!-- Sidebar navigation -->
-          <div class="md:col-span-4 hidden md:block">
-            <div class="sticky top-32 bg-surface p-8 rounded-xl">
-              <h3 class="text-sm font-bold text-outline uppercase tracking-wider mb-6">
-                Grupos industriales
-              </h3>
-              <ul class="space-y-4">
-                <li class="text-primary font-bold border-l-2 border-primary pl-4 py-1">
-                  Exploración y producción
-                </li>
-                <li class="text-on-surface-variant border-l-2 border-transparent pl-4 py-1">
-                  Servicios en pozo
-                </li>
-                <li class="text-on-surface-variant border-l-2 border-transparent pl-4 py-1">
-                  Servicios en superficie
-                </li>
-                <li class="text-on-surface-variant border-l-2 border-transparent pl-4 py-1">
-                  Industria y transporte
-                </li>
-                <li class="text-on-surface-variant border-l-2 border-transparent pl-4 py-1">
-                  Servicios auxiliares
-                </li>
-              </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div class="bg-surface p-8 md:p-12 rounded-sm hover:bg-surface-container-lowest transition-colors duration-300 border border-outline-variant/20 hover:border-primary/20 hover:shadow-md">
+            <div class="w-14 h-14 bg-primary-container rounded-sm flex items-center justify-center mb-8">
+              <Icon name="material-symbols:flag" class="text-on-primary-container size-7" />
             </div>
+            <h2 class="text-2xl md:text-3xl font-headline font-bold text-on-surface mb-5">Nuestra misión</h2>
+            <p class="font-body text-on-surface-variant leading-relaxed text-base md:text-lg">
+              Promover el desarrollo eficiente, competitivo y sostenible del sector de hidrocarburos y energía en Bolivia. Representamos y defendemos los intereses de nuestros afiliados a través de la excelencia técnica, el diálogo constructivo y la proposición de políticas públicas basadas en el rigor científico y económico.
+            </p>
           </div>
 
-          <!-- Main content -->
-          <div class="md:col-span-8 space-y-8 md:space-y-12">
-            {
-              [
-                {
-                  icon: "landscape",
-                  bgClass: "bg-primary-container",
-                  textClass: "text-on-primary",
-                  title: "Exploración y producción (upstream)",
-                  desc: "Reúne a las empresas operadoras, cuya actividad está centrada en la búsqueda de nuevos yacimientos y la extracción eficiente de hidrocarburos. Este trabajo se realiza con tecnología y técnicas de vanguardia, con el objetivo de asegurar la reposición de reservas y maximizar la recuperación de los hidrocarburos que se encuentran en el subsuelo."
-                },
-                {
-                  icon: "precision-manufacturing",
-                  bgClass: "bg-secondary-container",
-                  textClass: "text-on-secondary-container",
-                  title: "Servicios especializados en pozo",
-                  desc: "Proveedores de servicios críticos durante las fases de perforación, terminación e intervención de pozos. Incluye perfilaje, cementación, estimulación y fluidos de perforación, garantizando la integridad estructural y operativa bajo estándares internacionales."
-                },
-                {
-                  icon: "factory",
-                  bgClass: "bg-tertiary-container",
-                  textClass: "text-on-tertiary-container",
-                  title: "Servicios especializados en superficie",
-                  desc: "Compañías enfocadas en el diseño, construcción, operación y mantenimiento de facilidades de producción (facilities). Desde plantas separadoras hasta sistemas de compresión, asegurando el procesamiento inicial seguro del gas y líquidos."
-                },
-                {
-                  icon: "route",
-                  bgClass: "bg-surface-variant",
-                  textClass: "text-on-surface-variant",
-                  title: "Industria y transporte (midstream/downstream)",
-                  desc: "Reúne a empresas dedicadas a la gestión de la red de ductos (gasoductos y oleoductos), logística de distribución, y los procesos de industrialización o refinación. Estas son actividades esenciales para conectar, de manera eficiente, la producción con los mercados de consumo local y de exportación."
-                },
-                {
-                  icon: "support-agent",
-                  bgClass: "bg-surface-dim",
-                  textClass: "text-on-surface",
-                  title: "Servicios auxiliares y soporte técnico",
-                  desc: "Entidades que proveen consultoría técnica, legal, ambiental, auditoría, logística de campamentos y tecnología de la información. Este grupo es fundamental para el soporte integral y el cumplimiento regulatorio de la industria."
-                }
-              ].map((group) => (
-                <article class="group bg-surface-container-low rounded-xl p-8 hover:bg-surface-container-highest transition-all duration-300 shadow-sm hover:shadow-lg">
-                  <div class="flex items-start gap-6">
-                    <div class={`w-12 h-12 shrink-0 ${group.bgClass} rounded-lg flex items-center justify-center`}>
-                      <Icon name={`material-symbols:${group.icon}`} class={`${group.textClass} size-6`} />
-                    </div>
-                    <div>
-                      <h3 class="text-2xl font-bold text-on-surface mb-4 group-hover:text-primary transition-colors">
-                        {group.title}
-                      </h3>
-                      <p class="text-on-surface-variant leading-relaxed text-base md:text-lg">
-                        {group.desc}
-                      </p>
-                      <span class="inline-block mt-4 text-sm font-semibold text-primary bg-primary-container/20 px-3 py-1 rounded-sm">
-                        {countByGroup[grupoCountKey[group.title]]} empresas afiliadas
-                      </span>
-                    </div>
-                  </div>
-                </article>
-              ))
-            }
+          <div class="bg-surface p-8 md:p-12 rounded-sm hover:bg-surface-container-lowest transition-colors duration-300 border border-outline-variant/20 hover:border-primary/20 hover:shadow-md">
+            <div class="w-14 h-14 bg-primary-container rounded-sm flex items-center justify-center mb-8">
+              <Icon name="material-symbols:visibility" class="text-on-primary-container size-7" />
+            </div>
+            <h2 class="text-2xl md:text-3xl font-headline font-bold text-on-surface mb-5">Nuestra visión</h2>
+            <p class="font-body text-on-surface-variant leading-relaxed text-base md:text-lg">
+              Ser el referente institucional indiscutible del sector energético boliviano a nivel nacional e internacional. Aspiramos a liderar la transición hacia una matriz energética moderna, consolidando a Bolivia como un actor clave mediante la innovación tecnológica y las mejores prácticas operativas globales.
+            </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Filosofía ACTUAR -->
+    <section class="py-12 sm:py-16 md:py-24 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-4">Nuestra filosofía: ACTUAR</h2>
+        <p class="text-on-surface-variant font-body text-base md:text-lg mb-10 md:mb-14 max-w-3xl">
+          Seis pilares que reflejan el accionar y el comportamiento de la institución en la dinámica de la industria energética. Cada letra representa un compromiso concreto con nuestros afiliados y con Bolivia.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {actuar.map((item) => (
+            <div class="group bg-surface-container-low rounded-sm p-6 md:p-8 border border-outline-variant/20 hover:border-primary/20 hover:shadow-md transition-all duration-300">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-primary-container shrink-0 rounded-sm flex items-center justify-center">
+                  <Icon name={`material-symbols:${item.icon}`} class="text-on-primary-container size-5" />
+                </div>
+                <div class="min-w-0">
+                  <div class="flex items-baseline gap-2 mb-1">
+                    <span class="text-primary font-headline font-extrabold text-xl">{item.letter}</span>
+                    <h3 class="font-headline font-bold text-on-surface text-base md:text-lg">{item.title}</h3>
+                  </div>
+                  <p class="text-on-surface-variant font-body text-sm md:text-base leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Cierre CTA -->
+    <section class="py-12 sm:py-16 md:py-20 bg-surface-container-lowest">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 text-center">
+        <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-4">Conozca a quienes representamos</h2>
+        <p class="text-on-surface-variant font-body text-base md:text-lg mb-8 max-w-xl mx-auto">
+          Casi un centenar de empresas organizadas en cinco grupos industriales. Explore el directorio completo de nuestras afiliadas.
+        </p>
+        <a
+          href="afiliadas"
+          class="inline-flex items-center gap-2 bg-primary-container text-on-primary-container px-8 py-4 rounded-sm font-medium hover:opacity-90 transition-opacity"
+        >
+          Ver empresas afiliadas
+          <Icon name="material-symbols:arrow-forward" class="size-5" />
+        </a>
       </div>
     </section>
   </main>
