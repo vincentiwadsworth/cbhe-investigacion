@@ -7,6 +7,29 @@ import Layout from "../layouts/Layout.astro";
 
 const empresas = await getCollection("empresas", ({ data }) => !data.draft);
 
+function formatName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/(?:^|\s|-|\()\S/g, (c) => c.toUpperCase())
+    .replace(/\bS\.\s*A\.\s*S?\.?(\s*Sucursal)?/gi, (m) => m.toUpperCase().replace(/\bS\b/g, 'S').replace(/\bA\b/g, 'A'))
+    .replace(/\bS\.\s*A\./gi, 'S.A.')
+    .replace(/\bS\.\s*R\.\s*L\./gi, 'S.R.L.')
+    .replace(/\bLtda\.?/gi, 'Ltda.')
+    .replace(/\bE\s*&\s*P\b/gi, 'E&P')
+    .replace(/\bYpf\b/gi, 'YPF')
+    .replace(/\bPae\b/gi, 'PAE')
+    .replace(/\bGp\b/gi, 'GP')
+    .replace(/\bBpe\b/gi, 'BPE')
+    .replace(/\bPpo\b/gi, 'PPO')
+    .replace(/\bItc\b/gi, 'ITC')
+    .replace(/\bC\.?\s*R\.?\s*F\.?\b/gi, 'C.R.F.')
+    .replace(/\bIa\s+Asociados\b/gi, 'IA Asociados')
+    .replace(/\( /g, '(')
+    .replace(/ \)/g, ')')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 const GROUPS = [
   { id: "upstream", label: "Exploración y explotación de hidrocarburos" },
   { id: "pozo", label: "Servicios y suministros especializados en pozo" },
@@ -67,7 +90,7 @@ const totalEmpresas = empresas.length;
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {group.items.map((empresa) => (
                   <article class="bg-surface rounded-sm p-4 sm:p-6 border border-surface-container-highest/50 hover:shadow-md transition-shadow">
-                    <h3 class="font-headline font-bold text-on-surface text-base sm:text-lg">{empresa.data.nombre}</h3>
+                    <h3 class="font-headline font-bold text-on-surface text-base sm:text-lg">{formatName(empresa.data.nombre)}</h3>
                     <div class="flex flex-wrap gap-3 mt-3">
                       {empresa.data.website && (
                         <a href={empresa.data.website} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm text-primary-container hover:text-primary transition-colors">
