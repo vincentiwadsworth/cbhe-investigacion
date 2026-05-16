@@ -38,7 +38,8 @@ export function useAllGlobalData() {
       const { data, error } = await insforge.database
         .from('fuel_prices_global')
         .select('*')
-        .order('fecha', { ascending: true });
+        .order('fecha', { ascending: false })
+        .limit(10000);
 
       if (error) throw error;
       return data || [];
@@ -55,7 +56,8 @@ export function useAllRegionalData() {
       const { data, error } = await insforge.database
         .from('fuel_prices_regional')
         .select('*')
-        .order('fecha', { ascending: true });
+        .order('fecha', { ascending: false })
+        .limit(10000);
 
       if (error) throw error;
       return data || [];
