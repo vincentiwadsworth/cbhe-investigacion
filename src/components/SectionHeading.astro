@@ -37,7 +37,7 @@ const colors =
     : { heading: "text-primary", desc: "text-on-surface-variant" };
 ---
 
-<div class:list={[align === "center" && "text-center"]}>
+<div class:list={["mb-8 md:mb-12", align === "center" && "text-center"]}>
   <h2 class:list={["font-headline text-2xl md:text-3xl font-bold mb-4", colors.heading]}>
     {title}
   </h2>
@@ -46,4 +46,5 @@ const colors =
       {description}
     </p>
   )}
+  <slot name="description" />
 </div>

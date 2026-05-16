@@ -3,8 +3,6 @@ import { getCollection } from "astro:content";
 import Icon from "../components/Icon.astro";
 import Section from "../components/Section.astro";
 import SectionHeading from "../components/SectionHeading.astro";
-import CtaBanner from "../components/CtaBanner.astro";
-import SubpageHero from "../components/SubpageHero.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 
 const cursos = await getCollection("cursos", ({ data }) => !data.draft);
@@ -204,9 +202,7 @@ const modeIcons: Record<string, string> = {
 
   <!-- Course Grid -->
   <Section id="catalogo" bg="surface" scrollMargin>
-    <div class="mb-8 md:mb-12">
-      <SectionHeading title="Próximas capacitaciones" description="Formación diseñada para los desafíos actuales del sector." />
-    </div>
+    <SectionHeading title="Próximas capacitaciones" description="Formación diseñada para los desafíos actuales del sector." />
 
     <div id="cursos-grid" data-load-more="3" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {cursos.map((curso) => (
