@@ -1,0 +1,49 @@
+---
+/**
+ * SectionHeading — Standardised h2 + description for content sections.
+ *
+ * @prop title         - Heading text (required).
+ * @prop description   - Description paragraph below the heading. Omit to hide.
+ * @prop variant       - Color variant matching the parent section background.
+ *                       "default" for surface/surface-container-low, "inverse" for inverse-surface.
+ * @prop align         - Text alignment: "left" (default) or "center".
+ * @prop maxW          - Max-width class for the description (default: "max-w-3xl").
+ *
+ * Renders:
+ *   <div [align]>
+ *     <h2>{title}</h2>
+ *     <p>{description}</p>   (if provided)
+ *   </div>
+ */
+export interface Props {
+  title: string;
+  description?: string;
+  variant?: "default" | "inverse";
+  align?: "left" | "center";
+  maxW?: string;
+}
+
+const {
+  title,
+  description,
+  variant = "default",
+  align = "left",
+  maxW = "max-w-3xl",
+} = Astro.props;
+
+const colors =
+  variant === "inverse"
+    ? { heading: "text-inverse-on-surface", desc: "text-inverse-on-surface/80" }
+    : { heading: "text-primary", desc: "text-on-surface-variant" };
+---
+
+<div class:list={[align === "center" && "text-center"]}>
+  <h2 class:list={["font-headline text-2xl md:text-3xl font-bold mb-4", colors.heading]}>
+    {title}
+  </h2>
+  {description && (
+    <p class:list={["font-body text-base md:text-lg leading-relaxed", colors.desc, maxW, align === "center" && "mx-auto"]}>
+      {description}
+    </p>
+  )}
+</div>

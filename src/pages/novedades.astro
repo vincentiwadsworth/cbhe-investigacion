@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import Icon from "../components/Icon.astro";
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
+import Section from "../components/Section.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 
 const articulos = await getCollection("articulos", ({ data }) => !data.draft);
 
@@ -19,70 +19,54 @@ const featured = ordenados.find((a) => a.data.featured);
 const grid = ordenados.filter((a) => !a.data.featured);
 ---
 
-<Layout
+<PageLayout
   title="Novedades"
   description="Novedades y publicaciones — Un espacio para las noticias, eventos y análisis del sector energético boliviano."
+  active="novedades"
+  mainClass="bg-surface"
 >
-  <Navbar active="novedades" />
+  <SubpageHero
+    label="Novedades"
+    title="Novedades y publicaciones"
+    subtitle="Un espacio para las noticias, eventos y análisis del sector energético boliviano."
+    bgImage="images/instalaciones/cbhe-auditorio.jpg"
+    pt="pt-20 sm:pt-24 md:pt-28"
+    pb="pb-24 sm:pb-28 md:pb-32"
+    titleMaxW="max-w-3xl"
+  />
 
-  <!-- Hero -->
-  <section class="relative bg-linear-to-br from-primary to-primary-container pt-20 sm:pt-24 md:pt-28 pb-24 sm:pb-28 md:pb-32 px-4 sm:px-6 md:px-8 overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.12]">
-      <img
-        src="images/instalaciones/cbhe-auditorio.jpg"
-        alt=""
-        class="w-full h-full object-cover"
-        aria-hidden="true"
-      />
-    </div>
-    <div class="max-w-7xl mx-auto relative z-10">
-      <span class="text-primary-fixed-dim font-bold tracking-widest uppercase text-sm">Novedades</span>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-headline font-extrabold text-on-primary leading-tight tracking-tight mt-4 max-w-3xl">
-        Novedades y publicaciones
-      </h1>
-      <p class="text-base sm:text-lg md:text-xl text-on-primary-container font-body leading-relaxed mt-4 md:mt-6 max-w-2xl">
-        Un espacio para las noticias, eventos y análisis del sector energético boliviano.
-      </p>
-    </div>
-  </section>
-
-  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pb-16 sm:pb-20 md:pb-24 bg-surface">
-    <!-- Contenido Principal -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pb-16 sm:pb-20 md:pb-24">
     <div class="space-y-12">
-      {
-        featured && (
-          <!-- Noticia Destacada -->
-          <article class="bg-surface-container-low rounded-lg overflow-hidden flex flex-col md:flex-row group transition-all duration-300 border border-transparent hover:border-primary/30">
-            {featured.data.image && (
-              <div class="md:w-1/2 min-h-[300px] bg-cover bg-center" style={`background-image: url('${featured.data.image}')`}></div>
-            )}
-            <div class="p-8 md:w-1/2 flex flex-col justify-center">
-              <span class="text-xs font-semibold text-primary uppercase tracking-wider font-label mb-4">
-                {featured.data.category}
+      {featured && (
+        <article class="bg-surface-container-low rounded-lg overflow-hidden flex flex-col md:flex-row group transition-all duration-300 border border-transparent hover:border-primary/30">
+          {featured.data.image && (
+            <div class="md:w-1/2 min-h-[300px] bg-cover bg-center" style={`background-image: url('${featured.data.image}')`}></div>
+          )}
+          <div class="p-8 md:w-1/2 flex flex-col justify-center">
+            <span class="text-xs font-semibold text-primary uppercase tracking-wider font-label mb-4">
+              {featured.data.category}
+            </span>
+            <h2 class="text-3xl leading-snug font-bold text-on-surface mb-4 font-headline group-hover:text-primary transition-colors">
+              {featured.data.title}
+            </h2>
+            <p class="text-base text-on-surface-variant leading-relaxed font-body mb-6">
+              {featured.data.excerpt}
+            </p>
+            <div class="mt-auto flex items-center justify-between text-sm text-on-surface-variant">
+              <span class="flex items-center gap-2">
+                <Icon name="material-symbols:calendar-today" class="size-4" />
+                {featured.data.date}
               </span>
-              <h2 class="text-3xl leading-snug font-bold text-on-surface mb-4 font-headline group-hover:text-primary transition-colors">
-                {featured.data.title}
-              </h2>
-              <p class="text-base text-on-surface-variant leading-relaxed font-body mb-6">
-                {featured.data.excerpt}
-              </p>
-              <div class="mt-auto flex items-center justify-between text-sm text-on-surface-variant">
-                <span class="flex items-center gap-2">
-                  <Icon name="material-symbols:calendar-today" class="size-4" />
-                  {featured.data.date}
-                </span>
-                <a href={`novedades/${featured.id}`} class="text-primary font-medium hover:underline inline-flex items-center gap-1">
-                  Leer más
-                  <Icon name="material-symbols:arrow-forward" class="size-4" />
-                </a>
-              </div>
+              <a href={`novedades/${featured.id}`} class="text-primary font-medium hover:underline inline-flex items-center gap-1">
+                Leer más
+                <Icon name="material-symbols:arrow-forward" class="size-4" />
+              </a>
             </div>
-          </article>
-        )
-      }
+          </div>
+        </article>
+      )}
 
-      <!-- Grid de Noticias -->
-      <div id="novedades-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div id="novedades-grid" data-load-more="4">
         {grid.map((articulo) => (
           <article data-load-more-item class="bg-surface-container-low p-6 rounded-lg transition-all duration-300 border border-transparent hover:border-primary/30 flex flex-col">
             {articulo.data.image && (
@@ -107,53 +91,17 @@ const grid = ordenados.filter((a) => !a.data.featured);
         ))}
       </div>
 
-      <div id="novedades-load-more-wrapper" class="text-center pt-8">
-        <button id="novedades-load-more-btn" class="bg-surface-container-high text-primary px-6 py-3 rounded-md font-medium hover:bg-surface-container hover:border-primary/30 transition-all min-h-[44px] border border-transparent inline-flex items-center gap-2">
-          <span id="novedades-load-more-text">Cargar más noticias</span>
+      <div data-load-more-wrapper class="text-center pt-8">
+        <button data-load-more-btn class="bg-surface-container-high text-primary px-6 py-3 rounded-md font-medium hover:bg-surface-container hover:border-primary/30 transition-all min-h-[44px] border border-transparent inline-flex items-center gap-2">
+          <span data-load-more-text>Cargar más noticias</span>
           <Icon name="material-symbols:expand-more" class="size-4" />
         </button>
       </div>
     </div>
-
-  </main>
-
-  <Footer />
+  </div>
 
   <script>
-    (function () {
-      const BATCH = 4
-      const grid = document.getElementById("novedades-grid")
-      const btn = document.getElementById("novedades-load-more-btn")
-      const label = document.getElementById("novedades-load-more-text")
-      if (!grid || !btn) return
-
-      const items = grid.querySelectorAll("[data-load-more-item]")
-      if (items.length <= BATCH) {
-        btn.parentElement!.remove()
-        return
-      }
-
-      let shown = BATCH
-      items.forEach((el, i) => {
-        if (i >= BATCH) el.classList.add("hidden")
-      })
-
-      const updateLabel = () => {
-        const left = items.length - shown
-        if (label) label.textContent = `Cargar más noticias (${left})`
-      }
-      updateLabel()
-
-      btn.addEventListener("click", () => {
-        const next = Math.min(shown + BATCH, items.length)
-        for (let i = shown; i < next; i++) items[i].classList.remove("hidden")
-        shown = next
-        if (shown >= items.length) {
-          btn.parentElement!.remove()
-          return
-        }
-        updateLabel()
-      })
-    })()
+    import { initLoadMore } from "../scripts/load-more";
+    initLoadMore();
   </script>
-</Layout>
+</PageLayout>

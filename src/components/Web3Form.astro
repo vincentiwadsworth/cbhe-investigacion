@@ -1,0 +1,49 @@
+---
+import Icon from "./Icon.astro";
+
+/**
+ * Web3Form — Reusable <form> wrapper with Web3Forms hidden inputs.
+ *
+ * Renders the <form> element with action, method, and all hidden fields
+ * (access_key, redirect, subject, from_name). The actual form fields
+ * and submit button go in the default <slot />.
+ *
+ * @prop subject     - Email subject line (required).
+ * @prop fromName    - Email "from" name (required).
+ * @prop formClass   - Extra classes for the <form> element (default: "space-y-6").
+ * @prop redirectPath - Override redirect path (default: "/gracias").
+ *
+ * @slot default    - Form fields, select menus, textareas, and submit button.
+ */
+export interface Props {
+  subject: string;
+  fromName: string;
+  formClass?: string;
+  redirectPath?: string;
+}
+
+const {
+  subject,
+  fromName,
+  formClass = "space-y-6",
+  redirectPath = "/gracias",
+} = Astro.props;
+
+const accessKey = import.meta.env.WEB3FORMS_KEY;
+const redirectUrl = new URL(
+  `${import.meta.env.BASE_URL}${redirectPath}`,
+  Astro.site,
+).href;
+---
+
+<form
+  class={formClass}
+  action="https://api.web3forms.com/submit"
+  method="POST"
+>
+  <input type="hidden" name="access_key" value={accessKey} />
+  <input type="hidden" name="redirect" value={redirectUrl} />
+  <input type="hidden" name="subject" value={subject} />
+  <input type="hidden" name="from_name" value={fromName} />
+  <slot />
+</form>

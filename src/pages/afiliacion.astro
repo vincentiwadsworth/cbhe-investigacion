@@ -1,8 +1,10 @@
 ---
 import Icon from "../components/Icon.astro";
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
-import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 
 const requisitos = [
   {
@@ -43,118 +45,93 @@ const requisitos = [
 ];
 ---
 
-<Layout
+<PageLayout
   title="Afiliación"
   description="Requisitos para afiliarse a la Cámara Boliviana de Hidrocarburos y Energía. Conozca el proceso de ingreso y forme parte de la institución líder del sector energético."
+  active="afiliacion"
 >
-  <Navbar active="afiliacion" />
-
-  <main id="main-content">
-    <!-- Hero -->
-    <header class="relative bg-inverse-surface overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20 md:py-24">
-        <div class="max-w-3xl">
-          <p class="text-primary-fixed-dim font-semibold text-sm tracking-wider uppercase mb-4">
-            Afiliación
-          </p>
-          <h1 class="text-inverse-on-surface font-headline font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
-            Requisitos de afiliación
-          </h1>
-          <p class="text-inverse-on-surface/80 font-body text-base md:text-lg leading-relaxed max-w-2xl">
-            Para ser miembro Activo de la CBHE se requiere cumplir con los siguientes requisitos establecidos en nuestro Estatuto.
-            Conózcalos antes de iniciar su proceso de afiliación.
-          </p>
-        </div>
-      </div>
-    </header>
-
-    <!-- Requisitos -->
-    <section class="py-12 sm:py-16 md:py-24 bg-surface">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <div class="mb-10 md:mb-16">
-          <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-4">
-            Requisitos para ser miembro activo
-          </h2>
-          <p class="text-on-surface-variant font-body text-base md:text-lg max-w-3xl">
-            La CBHE exige el cumplimiento de cada uno de los siguientes puntos para garantizar
-            la seriedad y el compromiso de sus empresas afiliadas con el sector energético boliviano.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {
-            requisitos.map((req) => (
-              <article class="bg-surface-container-low rounded-lg p-8 border border-outline-variant/50 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 group flex flex-col items-start h-full">
-                <span
-                  class="text-xs font-bold text-primary-container mb-4 tracking-wider uppercase bg-primary-container/10 px-3 py-1 rounded-md"
-                >
-                  Requisito {req.letra}
-                </span>
-                <div class="w-14 h-14 bg-primary-container rounded-lg flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                  <Icon
-                    name={`material-symbols:${req.icono}`}
-                    class="text-on-primary size-7"
-                  />
-                </div>
-                <h3 class="font-headline font-bold text-lg text-on-surface mb-3">
-                  {req.titulo}
-                </h3>
-                <p class="text-on-surface-variant text-sm leading-relaxed">
-                  {req.descripcion}
-                </p>
-              </article>
-            ))
-          }
-        </div>
-
-        <!-- Nota informativa -->
-        <div class="mt-12 bg-surface-container-low rounded-lg border-l-4 border-primary-container p-6 flex items-start gap-4">
-          <div class="w-8 h-8 bg-primary-container rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-            <Icon name="material-symbols:task-alt" class="text-on-primary size-5" />
-          </div>
-          <div>
-            <h4 class="font-headline font-bold text-on-surface mb-1">Proceso de revisión</h4>
-            <p class="text-on-surface-variant text-sm leading-relaxed">
-              Una vez presentada la solicitud con la documentación completa, el Directorio evaluará
-              su incorporación en la sesión más próxima. La decisión requiere el voto favorable de al
-              menos dos tercios de los directores. Nuestro equipo de afiliaciones le acompañará durante
-              todo el proceso.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-12 sm:py-16 md:py-24 bg-inverse-surface">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
-        <Icon name="material-symbols:verified" class="text-primary-fixed size-10 sm:size-12 mb-6 mx-auto" />
-        <h2 class="text-inverse-on-surface font-headline text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-          ¿Listo para afiliarse?
-        </h2>
-        <p class="text-inverse-on-surface/80 font-body text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-          Si su empresa cumple con los requisitos, complete el formulario de afiliación y nuestro
-          equipo se pondrá en contacto a la brevedad para guiarle en los siguientes pasos.
+  <!-- Hero: unique dark variant, not SubpageHero -->
+  <header class="relative bg-inverse-surface overflow-hidden">
+    <div class="absolute inset-0 bg-primary/20"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20 md:py-24">
+      <div class="max-w-3xl">
+        <p class="text-primary-fixed-dim font-semibold text-sm tracking-wider uppercase mb-4">
+          Afiliación
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="../#afiliacion"
-            class="bg-inverse-on-surface text-inverse-surface rounded-md px-8 py-4 font-bold hover:bg-surface-bright hover:shadow-md transition-all min-h-[44px] inline-flex items-center gap-2"
-          >
-            Completar formulario de afiliación
-            <Icon name="material-symbols:arrow-forward" class="size-5" />
-          </a>
-          <a
-            href="contacto"
-            class="border-2 border-inverse-on-surface/40 text-inverse-on-surface rounded-md px-8 py-4 font-semibold hover:bg-inverse-on-surface/10 transition-all min-h-[44px]"
-          >
-            Hablar con el equipo
-          </a>
-        </div>
+        <h1 class="text-inverse-on-surface font-headline font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
+          Requisitos de afiliación
+        </h1>
+        <p class="text-inverse-on-surface/80 font-body text-base md:text-lg leading-relaxed max-w-2xl">
+          Para ser miembro Activo de la CBHE se requiere cumplir con los siguientes requisitos establecidos en nuestro Estatuto.
+          Conózcalos antes de iniciar su proceso de afiliación.
+        </p>
       </div>
-    </section>
-  </main>
+    </div>
+  </header>
 
-  <Footer />
-</Layout>
+  <!-- Requisitos -->
+  <Section bg="surface">
+    <SectionHeading
+      title="Requisitos para ser miembro activo"
+      description="La CBHE exige el cumplimiento de cada uno de los siguientes puntos para garantizar la seriedad y el compromiso de sus empresas afiliadas con el sector energético boliviano."
+    />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {requisitos.map((req) => (
+        <article class="bg-surface-container-low rounded-lg p-8 border border-outline-variant/50 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 group flex flex-col items-start h-full">
+          <span class="text-xs font-bold text-primary-container mb-4 tracking-wider uppercase bg-primary-container/10 px-3 py-1 rounded-md">
+            Requisito {req.letra}
+          </span>
+          <div class="w-14 h-14 bg-primary-container rounded-lg flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+            <Icon name={`material-symbols:${req.icono}`} class="text-on-primary size-7" />
+          </div>
+          <h3 class="font-headline font-bold text-lg text-on-surface mb-3">
+            {req.titulo}
+          </h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">
+            {req.descripcion}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <!-- Nota informativa -->
+    <div class="mt-12 bg-surface-container-low rounded-lg border-l-4 border-primary-container p-6 flex items-start gap-4">
+      <div class="w-8 h-8 bg-primary-container rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+        <Icon name="material-symbols:task-alt" class="text-on-primary size-5" />
+      </div>
+      <div>
+        <h4 class="font-headline font-bold text-on-surface mb-1">Proceso de revisión</h4>
+        <p class="text-on-surface-variant text-sm leading-relaxed">
+          Una vez presentada la solicitud con la documentación completa, el Directorio evaluará
+          su incorporación en la sesión más próxima. La decisión requiere el voto favorable de al
+          menos dos tercios de los directores. Nuestro equipo de afiliaciones le acompañará durante
+          todo el proceso.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- CTA -->
+  <CtaBanner
+    icon="verified"
+    title="¿Listo para afiliarse?"
+    description="Si su empresa cumple con los requisitos, complete el formulario de afiliación y nuestro equipo se pondrá en contacto a la brevedad para guiarle en los siguientes pasos."
+    variant="dark"
+  >
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="../#afiliacion"
+        class="bg-inverse-on-surface text-inverse-surface rounded-md px-8 py-4 font-bold hover:bg-surface-bright hover:shadow-md transition-all min-h-[44px] inline-flex items-center gap-2"
+      >
+        Completar formulario de afiliación
+        <Icon name="material-symbols:arrow-forward" class="size-5" />
+      </a>
+      <a
+        href="contacto"
+        class="border-2 border-inverse-on-surface/40 text-inverse-on-surface rounded-md px-8 py-4 font-semibold hover:bg-inverse-on-surface/10 transition-all min-h-[44px]"
+      >
+        Hablar con el equipo
+      </a>
+    </div>
+  </CtaBanner>
+</PageLayout>

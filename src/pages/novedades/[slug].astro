@@ -1,9 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Icon from "../../components/Icon.astro";
-import Layout from "../../layouts/Layout.astro";
-import Navbar from "../../components/Navbar.astro";
-import Footer from "../../components/Footer.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
 
 export async function getStaticPaths() {
   const articulos = await getCollection("articulos", ({ data }) => !data.draft);
@@ -28,80 +26,76 @@ const [dia, mes, año] = articulo.data.date.split(" ");
 const isoDate = `${año}-${MESES[mes]}-${dia.padStart(2, "0")}`;
 ---
 
-<Layout
+<PageLayout
   title={articulo.data.title}
   description={articulo.data.excerpt}
   image={articulo.data.image}
   currentPath={`novedades/${slug}`}
   ogType="article"
   datePublished={isoDate}
+  active="novedades"
+  mainClass="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24 bg-surface"
 >
-  <Navbar active="novedades" />
+  <!-- Breadcrumb visual -->
+  <nav class="mb-8 text-sm text-on-surface-variant" aria-label="Navegación">
+    <a href="" class="hover:text-primary hover:underline hover:underline-offset-4 transition-colors">Inicio</a>
+    <span class="mx-2" aria-hidden="true">/</span>
+    <a href="novedades" class="hover:text-primary hover:underline hover:underline-offset-4 transition-colors">Novedades</a>
+    <span class="mx-2" aria-hidden="true">/</span>
+    <span class="text-on-surface">{articulo.data.title}</span>
+  </nav>
 
-  <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24 bg-surface">
-    <!-- Breadcrumb visual -->
-    <nav class="mb-8 text-sm text-on-surface-variant" aria-label="Navegación">
-      <a href="" class="hover:text-primary hover:underline hover:underline-offset-4 transition-colors">Inicio</a>
-      <span class="mx-2" aria-hidden="true">/</span>
-      <a href="novedades" class="hover:text-primary hover:underline hover:underline-offset-4 transition-colors">Novedades</a>
-      <span class="mx-2" aria-hidden="true">/</span>
-      <span class="text-on-surface">{articulo.data.title}</span>
-    </nav>
+  <!-- Category + Date -->
+  <div class="flex flex-wrap items-center gap-3 mb-6">
+    <span class="text-caption font-semibold text-primary uppercase tracking-wider bg-primary-container/10 px-3 py-1 rounded-full">
+      {articulo.data.category}
+    </span>
+    <span class="flex items-center gap-1.5 text-body-sm text-on-surface-variant">
+      <Icon name="material-symbols:calendar-today" class="size-4" />
+      {articulo.data.date}
+    </span>
+  </div>
 
-    <!-- Category + Date -->
-    <div class="flex flex-wrap items-center gap-3 mb-6">
-      <span class="text-caption font-semibold text-primary uppercase tracking-wider bg-primary-container/10 px-3 py-1 rounded-full">
-        {articulo.data.category}
-      </span>
-      <span class="flex items-center gap-1.5 text-body-sm text-on-surface-variant">
-        <Icon name="material-symbols:calendar-today" class="size-4" />
-        {articulo.data.date}
-      </span>
-    </div>
+  <!-- Title -->
+  <h1 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-on-surface leading-tight tracking-tight mb-6">
+    {articulo.data.title}
+  </h1>
 
-    <!-- Title -->
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-on-surface leading-tight tracking-tight mb-6">
-      {articulo.data.title}
-    </h1>
+  <!-- Excerpt -->
+  <p class="text-lg text-on-surface-variant leading-relaxed mb-10 font-body">
+    {articulo.data.excerpt}
+  </p>
 
-    <!-- Excerpt -->
-    <p class="text-lg text-on-surface-variant leading-relaxed mb-10 font-body">
-      {articulo.data.excerpt}
-    </p>
+  <!-- Hero image -->
+  {articulo.data.image && (
+    <figure class="mb-12 rounded-xl overflow-hidden">
+      <img
+        src={articulo.data.image}
+        alt={articulo.data.title}
+        class="w-full h-auto object-cover rounded-xl"
+        loading="lazy"
+      />
+    </figure>
+  )}
 
-    <!-- Hero image -->
-    {articulo.data.image && (
-      <figure class="mb-12 rounded-xl overflow-hidden">
-        <img
-          src={articulo.data.image}
-          alt={articulo.data.title}
-          class="w-full h-auto object-cover rounded-xl"
-          loading="lazy"
-        />
-      </figure>
-    )}
+  <!-- Article body -->
+  <article class="prose prose-lg max-w-none
+    prose-headings:font-headline prose-headings:text-on-surface prose-headings:font-bold
+    prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+    prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+    prose-p:text-on-surface-variant prose-p:leading-relaxed prose-p:mb-5
+    prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+    prose-strong:text-on-surface prose-strong:font-semibold
+    prose-ul:text-on-surface-variant prose-li:marker:text-primary
+  ">
+    <Content />
+  </article>
 
-    <!-- Article body -->
-    <article class="prose prose-lg max-w-none
-      prose-headings:font-headline prose-headings:text-on-surface prose-headings:font-bold
-      prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-      prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-      prose-p:text-on-surface-variant prose-p:leading-relaxed prose-p:mb-5
-      prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-      prose-strong:text-on-surface prose-strong:font-semibold
-      prose-ul:text-on-surface-variant prose-li:marker:text-primary
-    ">
-      <Content />
-    </article>
-
-    <!-- Back link -->
-    <div class="mt-16 pt-8 border-t border-outline-variant/30">
-      <a href="novedades" class="inline-flex items-center gap-2 text-primary font-medium hover:underline hover:underline-offset-4">
-        <Icon name="material-symbols:arrow-forward" class="size-4 rotate-180" />
-        Volver a novedades
-      </a>
-    </div>
-  </main>
-
-  <Footer />
-</Layout>
+  <!-- Back link -->
+  <div class="mt-16 pt-8 border-t border-outline-variant/30">
+    <a href="novedades" class="inline-flex items-center gap-2 text-primary font-medium hover:underline hover:underline-offset-4">
+      <Icon name="material-symbols:arrow-forward" class="size-4 rotate-180" />
+      Volver a novedades
+    </a>
+  </div>
+</PageLayout>
