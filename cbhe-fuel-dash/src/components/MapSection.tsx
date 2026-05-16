@@ -26,31 +26,17 @@ export default function MapSection() {
     return Array.from(yearSet).sort((a, b) => b - a);
   }, [regionalData]);
 
-  // Filtered regional comparison for current product tab
+  // Filtered regional comparison for current product tab and year
   const filteredComparison = useMemo(() => {
     if (!regionalData) return [];
-    let comparison = getRegionalComparison(regionalData, productTab);
+    let data = regionalData;
 
-    // Apply year filter if selected
+    // Apply year filter first
     if (selectedYear !== null) {
-      const yearData = new Map<string, typeof comparison[0]>();
-      for (const item of comparison) {
-        // Re-fetch from regionalData filtered by year
-        const itemYear = new Date(
-          regionalData.find(
-            (d) =>
-              d.pais === item.pais &&
-              d.producto === item.producto
-          )?.fecha ?? ''
-        ).getFullYear();
-        if (itemYear === selectedYear) {
-          yearData.set(item.pais, item);
-        }
-      }
-      comparison = Array.from(yearData.values());
+      data = data.filter((d) => new Date(d.fecha).getFullYear() === selectedYear);
     }
 
-    return comparison;
+    return getRegionalComparison(data, productTab);
   }, [regionalData, productTab, selectedYear]);
 
   return (
@@ -120,8 +106,11 @@ export default function MapSection() {
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* FuelMap still uses Zustand internally — PR 2 refactors to accept props */}
-          <FuelMap />
+          <FuelMap
+            productGroup={productTab}
+            selectedYear={selectedYear}
+            regionalData={regionalData ?? []}
+          />
           <CountryRanking
             productGroup={productTab}
             selectedYear={selectedYear}
