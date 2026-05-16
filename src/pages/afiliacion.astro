@@ -51,17 +51,17 @@ const requisitos = [
 
   <main id="main-content">
     <!-- Hero -->
-    <header class="relative bg-[#01406c] overflow-hidden">
+    <header class="relative bg-inverse-surface overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20 md:py-24">
         <div class="max-w-3xl">
           <p class="text-primary-fixed-dim font-semibold text-sm tracking-wider uppercase mb-4">
             Afiliación
           </p>
-          <h1 class="text-white font-headline font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
+          <h1 class="text-inverse-on-surface font-headline font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
             Requisitos de afiliación
           </h1>
-          <p class="text-white/80 font-body text-base md:text-lg leading-relaxed max-w-2xl">
+          <p class="text-inverse-on-surface/80 font-body text-base md:text-lg leading-relaxed max-w-2xl">
             Para ser miembro Activo de la CBHE se requiere cumplir con los siguientes requisitos establecidos en nuestro Estatuto.
             Conózcalos antes de iniciar su proceso de afiliación.
           </p>
@@ -85,13 +85,13 @@ const requisitos = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {
             requisitos.map((req) => (
-              <article class="bg-surface-container-low rounded-sm p-8 border border-surface-container-highest/50 shadow-sm hover:shadow-md transition-shadow group flex flex-col items-start h-full">
+              <article class="bg-surface-container-low rounded-lg p-8 border border-outline-variant/50 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 group flex flex-col items-start h-full">
                 <span
-                  class="text-xs font-bold text-primary-container mb-4 tracking-wider uppercase bg-primary-container/10 px-3 py-1 rounded-sm"
+                  class="text-xs font-bold text-primary-container mb-4 tracking-wider uppercase bg-primary-container/10 px-3 py-1 rounded-md"
                 >
                   Requisito {req.letra}
                 </span>
-                <div class="w-14 h-14 bg-primary-container rounded-sm flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                <div class="w-14 h-14 bg-primary-container rounded-lg flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
                   <Icon
                     name={`material-symbols:${req.icono}`}
                     class="text-on-primary size-7"
@@ -109,8 +109,8 @@ const requisitos = [
         </div>
 
         <!-- Nota informativa -->
-        <div class="mt-12 bg-surface-container-low rounded-sm border-l-4 border-primary-container p-6 flex items-start gap-4">
-          <div class="w-8 h-8 bg-primary-container rounded-sm flex items-center justify-center shrink-0 mt-0.5">
+        <div class="mt-12 bg-surface-container-low rounded-lg border-l-4 border-primary-container p-6 flex items-start gap-4">
+          <div class="w-8 h-8 bg-primary-container rounded-lg flex items-center justify-center shrink-0 mt-0.5">
             <Icon name="material-symbols:task-alt" class="text-on-primary size-5" />
           </div>
           <div>
@@ -127,27 +127,27 @@ const requisitos = [
     </section>
 
     <!-- CTA -->
-    <section class="py-12 sm:py-16 md:py-24 bg-[#01406c]">
+    <section class="py-12 sm:py-16 md:py-24 bg-inverse-surface">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
         <Icon name="material-symbols:verified" class="text-primary-fixed size-10 sm:size-12 mb-6 mx-auto" />
-        <h2 class="text-white font-headline text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="text-inverse-on-surface font-headline text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
           ¿Listo para afiliarse?
         </h2>
-        <p class="text-white/80 font-body text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p class="text-inverse-on-surface/80 font-body text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
           Si su empresa cumple con los requisitos, complete el formulario de afiliación y nuestro
           equipo se pondrá en contacto a la brevedad para guiarle en los siguientes pasos.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="../#afiliacion"
-            class="bg-primary-container text-on-primary rounded-sm px-8 py-4 font-bold hover:opacity-90 transition-all hover:scale-[1.02] inline-flex items-center gap-2"
+            class="bg-inverse-on-surface text-inverse-surface rounded-md px-8 py-4 font-bold hover:bg-surface-bright hover:shadow-md transition-all min-h-[44px] inline-flex items-center gap-2"
           >
             Completar formulario de afiliación
             <Icon name="material-symbols:arrow-forward" class="size-5" />
           </a>
           <a
             href="contacto"
-            class="border-2 border-white/40 text-white rounded-sm px-8 py-4 font-semibold hover:bg-white/10 transition-colors"
+            class="border-2 border-inverse-on-surface/40 text-inverse-on-surface rounded-md px-8 py-4 font-semibold hover:bg-inverse-on-surface/10 transition-all min-h-[44px]"
           >
             Hablar con el equipo
           </a>

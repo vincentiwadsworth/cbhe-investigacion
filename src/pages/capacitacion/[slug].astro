@@ -36,25 +36,25 @@ const modeIcons: Record<string, string> = {
   <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24">
     <!-- Breadcrumb -->
     <nav class="mb-8 text-sm text-on-surface-variant" aria-label="Navegación">
-      <a href="" class="hover:text-primary transition-colors">Inicio</a>
+      <a href="" class="hover:text-primary hover:underline hover:underline-offset-4 transition-colors">Inicio</a>
       <span class="mx-2" aria-hidden="true">/</span>
-      <a href="capacitacion" class="hover:text-primary transition-colors">Capacitación</a>
+      <a href="capacitacion" class="hover:text-primary hover:underline hover:underline-offset-4 transition-colors">Capacitación</a>
       <span class="mx-2" aria-hidden="true">/</span>
       <span class="text-on-surface">{curso.data.title}</span>
     </nav>
 
     <!-- Hero image -->
     {curso.data.image ? (
-      <figure class="mb-10 rounded-lg overflow-hidden">
+      <figure class="mb-10 rounded-xl overflow-hidden">
         <img
           src={curso.data.image}
           alt={curso.data.title}
-          class="w-full h-auto object-cover rounded-lg"
+          class="w-full h-auto object-cover rounded-xl"
           loading="lazy"
         />
       </figure>
     ) : (
-      <div class="mb-10 rounded-lg overflow-hidden bg-primary-container aspect-video flex items-center justify-center">
+      <div class="mb-10 rounded-xl overflow-hidden bg-primary-container aspect-video flex items-center justify-center">
         <Icon name="material-symbols:school" class="size-24 text-primary opacity-30" />
       </div>
     )}
@@ -122,7 +122,7 @@ const modeIcons: Record<string, string> = {
           href={curso.data.canvaLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 bg-primary-container text-on-primary px-6 py-3 rounded-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
+          class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-md font-semibold hover:bg-primary/90 hover:shadow-md transition-all min-h-[44px] whitespace-nowrap"
         >
           <Icon name="material-symbols:palette" class="size-5" />
           Ver en Canva
@@ -170,7 +170,7 @@ const modeIcons: Record<string, string> = {
             href={curso.data.canvaLink}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 bg-surface-container-high text-primary px-8 py-4 rounded-sm font-semibold hover:bg-surface-variant transition-colors"
+            class="inline-flex items-center gap-2 bg-surface-container-high text-primary px-8 py-4 rounded-md font-semibold hover:bg-surface-container hover:border-primary/30 transition-all min-h-[44px]"
           >
             <Icon name="material-symbols:palette" class="size-5" />
             Ver arte completo en Canva
@@ -180,7 +180,7 @@ const modeIcons: Record<string, string> = {
           href="https://wa.me/59178500177"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 bg-primary-container text-on-primary px-8 py-4 rounded-sm font-semibold hover:opacity-90 transition-opacity"
+          class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-md font-semibold hover:bg-primary/90 hover:shadow-md transition-all min-h-[44px]"
         >
           <Icon name="material-symbols:chat" class="size-5" />
           Consultar por WhatsApp
@@ -189,8 +189,8 @@ const modeIcons: Record<string, string> = {
     </div>
 
     <!-- Back link -->
-    <div class="mt-12 pt-8 border-t border-outline-variant/15">
-      <a href="capacitacion" class="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+    <div class="mt-12 pt-8 border-t border-outline-variant/30">
+      <a href="capacitacion" class="inline-flex items-center gap-2 text-primary font-medium hover:underline hover:underline-offset-4">
         <Icon name="material-symbols:arrow-forward" class="size-4 rotate-180" />
         Volver a capacitación
       </a>

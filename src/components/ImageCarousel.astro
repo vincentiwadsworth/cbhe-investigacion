@@ -23,7 +23,7 @@ const totalSlides = images.length;
   -->
   <div class="carousel-grid grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
     {images.map((img) => (
-      <div class="aspect-[4/3] overflow-hidden rounded-sm bg-surface-container-low shadow-sm">
+      <div class="aspect-[4/3] overflow-hidden rounded-lg bg-surface-container-low shadow-sm">
         <img
           src={img.src}
           alt={img.alt}
@@ -38,7 +38,7 @@ const totalSlides = images.length;
   <!--
     Interactive carousel viewport — hidden until JS adds .js-loaded.
   -->
-  <div class="carousel-viewport hidden relative overflow-hidden rounded-sm bg-surface-container-low shadow-sm">
+  <div class="carousel-viewport hidden relative overflow-hidden rounded-xl bg-surface-container-low shadow-sm">
     <div
       class="carousel-track flex transition-transform duration-500 ease-out will-change-transform"
       style="transform: translateX(0)"
