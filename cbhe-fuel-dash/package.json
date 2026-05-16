@@ -12,6 +12,7 @@
   "dependencies": {
     "@insforge/sdk": "^1.2.9",
     "@tanstack/react-query": "^5.100.10",
+    "@vnedyalk0v/react19-simple-maps": "^2.0.7",
     "autoprefixer": "^10.5.0",
     "date-fns": "^4.1.0",
     "postcss": "^8.5.14",

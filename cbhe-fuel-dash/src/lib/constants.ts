@@ -21,7 +21,7 @@ export const COUNTRIES = [
 
 // Mapa de productos: categoría → nombres locales por país
 export const PRODUCT_GROUPS: Record<string, string[]> = {
-  'Gasolina Regular': ['Gasolina Regular', 'Gasolina Comum', 'Magna', 'Gasolina 93'],
+  'Gasolina Regular': ['Gasolina Regular', 'Gasolina Comum', 'Magna', 'Gasolina 93', 'Gasolina'],
   'Gasolina Premium': ['Gasolina Premium', 'Gasolina Aditivada', 'Premium', 'Gasolina 97'],
   'Diésel': ['Diésel', 'Diésel S10'],
   'Kerosene': ['Kerosene'],
