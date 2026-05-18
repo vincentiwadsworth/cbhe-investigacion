@@ -30,6 +30,7 @@ See `_shared/skill-resolver.md` for the full resolution protocol.
 | Postgres performance, query optimization | supabase-postgres-best-practices | ~/.agents/skills/supabase-postgres-best-practices/SKILL.md |
 | review my UI, check accessibility, audit design | web-design-guidelines | ~/.agents/skills/web-design-guidelines/SKILL.md |
 | improve accessibility, a11y audit, WCAG compliance | accessibility | ~/.agents/skills/accessibility/SKILL.md |
+| convertir imagen a SVG, raster to vector, SVG from logo, favicon SVG, PNG to SVG, vectorize | raster-to-svg | ~/.config/opencode/skills/raster-to-svg/SKILL.md |
 
 ## Project Skills
 
@@ -193,6 +194,13 @@ Pre-digested rules per skill. Delegators copy matching blocks into sub-agent pro
 ### publish-to-pages
 - Handles PPTX, PDF, HTML → GitHub Pages URL
 - Creates repo, converts files, enables Pages, returns live URL
+
+### raster-to-svg
+- Only two packages needed on Windows: `pip install vtracer resvg_python` — NO cairosvg, NO img2vector, NO svglib (all require Cairo C lib absent on Windows)
+- Crop with PIL `Image.crop()`, trace with `vtracer.convert_image_to_svg_py(input_path, output_path, colormode='binary', filter_speckle=8)`
+- Render SVG→PNG with `resvg_python.svg_to_png()` — returns `list[int]`, wrap with `bytes()`. Import is `resvg_python` not `resvg`
+- For favicons: binary mode mandatory (color mode = 30KB+). Transparent source → flatten to white background first
+- Reusable script at `assets/raster_to_svg.py`: `python raster_to_svg.py logo.png --crop 0,0,200,166 --icons`
 
 ### branch-pr / issue-creation
 - Agent Teams Lite workflow: issue-first → branch → PR
