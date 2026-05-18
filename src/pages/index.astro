@@ -110,7 +110,7 @@ const gruposHome = [
             </p>
           </Fragment>
         </SectionHeading>
-        <a href="quienes-somos" class="inline-flex items-center text-primary-container font-semibold hover:underline hover:underline-offset-4 decoration-primary-container transition-colors">
+        <a href="quienes-somos" class="inline-flex items-center text-primary font-semibold hover:underline hover:underline-offset-4 transition-colors">
           Conocer nuestra misión
           <Icon name="material-symbols:arrow-forward" class="size-4 ml-2" />
         </a>
@@ -258,12 +258,12 @@ const gruposHome = [
             </div>
           )}
           <div class="p-6 flex flex-col items-start">
-            <span class="text-xs font-semibold text-primary-container mb-2 tracking-wide uppercase">{articulo.data.category}</span>
+            <span class="text-xs font-semibold text-primary mb-2 tracking-wide uppercase">{articulo.data.category}</span>
             <h3 class="font-headline font-bold text-xl text-on-surface mb-3 line-clamp-2">{articulo.data.title}</h3>
             <p class="text-sm text-on-surface-variant mb-4 line-clamp-3">{articulo.data.excerpt}</p>
             <div class="mt-auto flex items-center justify-between w-full">
               <span class="text-xs text-on-surface-variant">{articulo.data.date}</span>
-              <a href={`novedades/${articulo.id}`} class="text-sm font-semibold text-primary hover:text-primary-container transition-colors">Leer más</a>
+              <a href={`novedades/${articulo.id}`} class="text-sm font-semibold text-primary hover:text-on-primary-container transition-colors">Leer más</a>
             </div>
           </div>
         </article>
@@ -295,12 +295,12 @@ const gruposHome = [
             <h3 class="font-headline font-bold text-xl text-on-surface mb-2">{curso.data.title}</h3>
             <p class="text-sm text-on-surface-variant mb-4 line-clamp-3">{curso.data.description}</p>
             {curso.data.canvaLink ? (
-              <a href={curso.data.canvaLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary-container font-semibold hover:text-primary hover:underline hover:underline-offset-4 transition-colors mt-auto">
+              <a href={curso.data.canvaLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary font-semibold hover:text-on-primary-container hover:underline hover:underline-offset-4 transition-colors mt-auto">
                 Ver más
                 <Icon name="material-symbols:open-in-new" class="size-4 ml-2" />
               </a>
             ) : (
-              <a href={`capacitacion/${curso.id}`} class="inline-flex items-center text-primary-container font-semibold hover:text-primary hover:underline hover:underline-offset-4 transition-colors mt-auto">
+              <a href={`capacitacion/${curso.id}`} class="inline-flex items-center text-primary font-semibold hover:text-on-primary-container hover:underline hover:underline-offset-4 transition-colors mt-auto">
                 Más información
                 <Icon name="material-symbols:arrow-forward" class="size-4 ml-2" />
               </a>
