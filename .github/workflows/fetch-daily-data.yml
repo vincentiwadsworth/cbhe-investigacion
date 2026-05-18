@@ -20,7 +20,7 @@ jobs:
           echo "::group::fetch-exchange-rates"
           response=$(curl -sS -w "\n%{http_code}" \
             -X POST \
-            "${{ vars.INSFORGE_URL }}/functions/v1/fetch-exchange-rates" \
+            "${{ vars.INSFORGE_URL }}/fetch-exchange-rates" \
             -H "Authorization: Bearer ${{ secrets.INSFORGE_API_KEY }}" \
             -H "Content-Type: application/json")
           http_code=$(echo "$response" | tail -1)
@@ -42,7 +42,7 @@ jobs:
           echo "::group::fetch-global-benchmarks (mode=$mode)"
           response=$(curl -sS -w "\n%{http_code}" \
             -X POST \
-            "${{ vars.INSFORGE_URL }}/functions/v1/fetch-global-benchmarks?mode=${mode}" \
+            "${{ vars.INSFORGE_URL }}/fetch-global-benchmarks?mode=${mode}" \
             -H "Authorization: Bearer ${{ secrets.INSFORGE_API_KEY }}" \
             -H "Content-Type: application/json")
           http_code=$(echo "$response" | tail -1)
