@@ -67,8 +67,12 @@ if (currentPath) {
     {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonicalUrl} />
     <base href={baseHref} />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="alternate icon" href="favicon.ico" type="image/x-icon" sizes="32x32" />
+    <!-- Favicon stack -->
+    <link rel="icon" href="favicon-cbhe.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="site.webmanifest" />
     <link rel="preconnect" href="https://lh3.googleusercontent.com" />
     <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="preconnect" href="https://api.web3forms.com" />
