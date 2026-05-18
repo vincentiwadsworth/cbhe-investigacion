@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Self-hosted fonts — Latin subset only (Bolivia-targeted) */
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/inter/latin-700.css";
+@import "@fontsource/inter/latin-800.css";
+
+/*
+ * Design tokens — CBHE institutional palette v2
+ * Generated from seed #01406c via HCT (Material Design 3 color system).
+ * Zero pure white (#ffffff) as background — off-whites only.
+ * Tailwind v4 maps --color-* to bg-*, text-*, border-*, etc.
+ */
+@theme {
+  /* ===== Primary (seed: #01406c — CBHE institutional navy) ===== */
+  --color-primary: #01406c;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #d0e4ff;
+  --color-on-primary-container: #001d35;
+  --color-primary-fixed: #d0e4ff;
+  --color-primary-fixed-dim: #9dcafe;
+  --color-on-primary-fixed: #001d35;
+  --color-on-primary-fixed-variant: #003257;
+  --color-inverse-primary: #82afe1;
+
+  /* ===== Secondary (neutral-blue complement) ===== */
+  --color-secondary: #565f6b;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #dbe3f1;
+  --color-on-secondary-container: #141c26;
+
+  /* ===== Tertiary (warm-mauve accent — use sparingly) ===== */
+  --color-tertiary: #6a5779;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #f1daff;
+  --color-on-tertiary-container: #241432;
+
+  /* ===== Error ===== */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #410002;
+
+  /* ===== Success ===== */
+  --color-success: #296b2a;
+  --color-success-container: #acf4a2;
+
+  /* ===== Surface (off-whites — ZERO pure white backgrounds) ===== */
+  --color-background: #f5f3f4;
+  --color-on-background: #1b1b1d;
+  --color-surface: #f5f3f4;
+  --color-surface-bright: #fafbfc;
+  --color-surface-dim: #c8c6c7;
+  --color-surface-container: #e4e2e3;
+  --color-surface-container-low: #eae7e9;
+  --color-surface-container-high: #dbd9db;
+  --color-surface-container-highest: #c8c6c7;
+  --color-surface-variant: #d5e3ff;
+  --color-surface-tint: #00639a;
+  /* surface-container-lowest REMOVED — was #ffffff, violates zero-white rule */
+
+  /* ===== On Surface ===== */
+  --color-on-surface: #1b1b1d;
+  --color-on-surface-variant: #44474c;
+
+  /* ===== Inverse (dark backgrounds — hero, footer, CTA) ===== */
+  --color-inverse-surface: #01406c;
+  --color-inverse-on-surface: #e9f1ff;
+
+  /* ===== Outline ===== */
+  --color-outline: #74777c;
+  --color-outline-variant: #c4c6cc;
+
+  /* ===== Shadows (blue-tinted, never pure black) ===== */
+  --shadow-sm: 0 1px 3px rgba(1,64,108,0.06), 0 1px 2px rgba(1,64,108,0.04);
+  --shadow-md: 0 4px 12px rgba(1,64,108,0.08), 0 2px 4px rgba(1,64,108,0.05);
+  --shadow-lg: 0 12px 32px rgba(1,64,108,0.12), 0 4px 8px rgba(1,64,108,0.06);
+
+  /* ===== Typography ===== */
+  --font-family-headline: "Inter", sans-serif;
+  --font-family-body: "Inter", sans-serif;
+  --font-family-label: "Inter", sans-serif;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.25rem;
+
+  /* ===== Border radius (8px scale — warm, institutional) ===== */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+}
+
+/*
+ * Base layer — applied globally
+ */
+@layer base {
+  html {
+    font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  body {
+    @apply bg-background text-on-background antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary-container text-on-primary-container;
+  }
+
+  /* Focus ring — visible for keyboard users */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* Respect OS-level motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Text balance for headings — prevents single-word orphans on mobile */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* Icon utility — ensures astro-icon SVGs match text size */
+[data-icon] {
+  display: inline-block;
+  vertical-align: -0.125em;
+}

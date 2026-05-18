@@ -1,0 +1,27 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+---
+
+<PageLayout
+  title="Gracias"
+  description="Su solicitud ha sido enviada correctamente."
+  noindex={true}
+>
+  <div class="min-h-[60vh] flex items-center justify-center px-8">
+    <div class="text-center max-w-xl">
+      <h1 class="text-4xl font-headline font-bold text-on-surface mb-4">
+        ¡Gracias por su interés!
+      </h1>
+      <p class="text-lg text-on-surface-variant mb-8">
+        Hemos recibido su mensaje correctamente. Nuestro equipo se pondrá en
+        contacto a la brevedad.
+      </p>
+      <a
+        href=""
+        class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-3 rounded-md font-semibold hover:bg-primary/90 hover:shadow-md transition-all min-h-[44px]"
+      >
+        Volver al inicio
+      </a>
+    </div>
+  </div>
+</PageLayout>

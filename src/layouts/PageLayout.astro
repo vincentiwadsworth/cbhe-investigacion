@@ -1,0 +1,66 @@
+---
+import Layout from "./Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+export interface Props {
+  /** SEO — Título de la página (se pasa a Layout) */
+  title: string;
+  /** SEO — Meta descripción */
+  description?: string;
+  /** SEO — Imagen OG */
+  image?: string;
+  /** SEO — Path relativo SIN base para breadcrumb JSON-LD */
+  currentPath?: string;
+  /** SEO — Si true, agrega meta noindex */
+  noindex?: boolean;
+  /** SEO — Tipo OG (default: "website") */
+  ogType?: string;
+  /** SEO — Fecha publicación para Article JSON-LD */
+  datePublished?: string;
+  /** SEO — Fecha modificación para Article JSON-LD */
+  dateModified?: string;
+  /** SEO — Autor para Article JSON-LD */
+  author?: string;
+
+  /** Navbar — Página activa (resalta el link correspondiente) */
+  active?: "inicio" | "quienes-somos" | "afiliadas" | "capacitacion" | "novedades" | "rse" | "contacto" | "afiliacion";
+
+  /** Clases extra para <main> (ej: "max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24 bg-surface") */
+  mainClass?: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  currentPath,
+  noindex,
+  ogType,
+  datePublished,
+  dateModified,
+  author,
+  active,
+  mainClass,
+} = Astro.props;
+---
+
+<Layout
+  title={title}
+  description={description}
+  image={image}
+  currentPath={currentPath}
+  noindex={noindex}
+  ogType={ogType}
+  datePublished={datePublished}
+  dateModified={dateModified}
+  author={author}
+>
+  <Navbar active={active} />
+
+  <main id="main-content" class={mainClass}>
+    <slot />
+  </main>
+
+  <Footer />
+</Layout>

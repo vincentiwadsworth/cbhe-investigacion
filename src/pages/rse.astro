@@ -1,0 +1,190 @@
+---
+import Icon from "../components/Icon.astro";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+---
+
+<PageLayout
+  title="RSE"
+  description="Fundesoc, el brazo social de la CBHE, impulsa el desarrollo sostenible en Bolivia desde 2007. Conozca nuestros programas de Responsabilidad Social Empresarial."
+  active="rse"
+  currentPath="rse"
+>
+  <SubpageHero
+    title="Transformamos vidas con energía y creatividad"
+    subtitle="La Fundación Boliviana para el Desarrollo Social (Fundesoc) es el brazo social de la CBHE. Desde 2007, impulsa procesos sostenibles de alto impacto social y económico para mejorar la calidad de vida de la comunidad boliviana."
+    bgImage="images/rse/comunidad-5.jpg"
+    bgImageOpacity="0.15"
+  />
+
+  <!-- Dos áreas, un propósito -->
+  <Section bg="surface">
+    <SectionHeading title="Dos áreas, un propósito" description="Fundesoc trabaja en dos grandes frentes que se complementan para lograr un impacto integral en las comunidades bolivianas." />
+
+    <!-- Medios de Vida -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12 md:mb-16">
+      <div class="order-1 md:order-1">
+        <div class="aspect-[4/3] overflow-hidden rounded-lg shadow-sm">
+          <img src="images/rse/comunidad-5.jpg" alt="Mujeres emprendedoras con productos de yuca del proyecto Bocaina de Fundesoc" class="w-full h-full object-cover" />
+        </div>
+      </div>
+      <div class="order-2 md:order-2">
+        <h3 class="font-bold text-on-surface text-xl md:text-2xl mb-3">Medios de Vida</h3>
+        <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">
+          Impulsamos la producción agropecuaria, el acceso al agua potable, la construcción de viviendas dignas y el emprendedurismo comunitario. Acompañamos a las comunidades rurales y urbanas en su camino hacia la autogestión.
+        </p>
+      </div>
+    </div>
+
+    <!-- Desarrollo Humano -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="order-1 md:order-2">
+        <div class="aspect-[4/3] overflow-hidden rounded-lg shadow-sm">
+          <img src="images/rse/comunidad-4.jpg" alt="Jóvenes estudiantes trabajando en equipo en programa educativo de Fundesoc" class="w-full h-full object-cover" />
+        </div>
+      </div>
+      <div class="order-2 md:order-1">
+        <h3 class="font-bold text-on-surface text-xl md:text-2xl mb-3">Desarrollo Humano</h3>
+        <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">
+          Fortalecemos las capacidades de niños, jóvenes y familias mediante educación, prevención de riesgos psicosociales, salud comunitaria y fortalecimiento organizativo. Creemos en el poder de las personas para transformar su realidad.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Nacimos del compromiso de la CBHE con Bolivia -->
+  <Section bg="surface-container-low">
+    <h2 class="text-primary font-headline text-2xl md:text-3xl font-bold mb-8 md:mb-12">
+      Nacimos del compromiso de la CBHE con Bolivia
+    </h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-end">
+      <!-- Quote -->
+      <div class="lg:col-span-1">
+        <blockquote class="bg-surface-container-low rounded-lg border-l-4 border-primary p-6 md:p-8">
+          <p class="italic text-on-surface-variant text-lg md:text-xl leading-relaxed">
+            "La labor de Fundesoc se realiza gracias al financiamiento y contribuciones de diferentes personas e instituciones locales, nacionales e internacionales con quienes compartimos objetivos y principios."
+          </p>
+          <footer class="not-italic font-semibold text-on-surface mt-4">
+            — María José Montero, Directora Ejecutiva
+          </footer>
+        </blockquote>
+      </div>
+
+      <!-- Content + Stats -->
+      <div class="lg:col-span-2">
+        <div class="space-y-6">
+          <p class="text-on-surface-variant font-body text-base md:text-lg leading-relaxed">
+            En 2007, la Cámara Boliviana de Hidrocarburos y Energía creó Fundesoc como su brazo de Responsabilidad Social Empresarial. Esta decisión respondió al pilar "Alentar programas de HSE y RSE" de su filosofía ACTUAR, que refleja el accionar y el comportamiento de la institución en la dinámica de la industria energética.
+          </p>
+          <p class="text-on-surface-variant font-body text-base md:text-lg leading-relaxed">
+            Desde entonces, Fundesoc canaliza el compromiso del sector energético boliviano con el desarrollo del país, trabajando en alianza con empresas, organizaciones locales e internacionales, y entidades públicas para maximizar el impacto de cada proyecto.
+          </p>
+        </div>
+
+        <!-- Stats grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+          <div class="bg-surface-container-low rounded-lg p-4 text-center">
+            <p class="text-primary font-headline font-extrabold text-3xl md:text-4xl">184</p>
+            <p class="text-on-surface-variant text-xs md:text-sm">Comunidades</p>
+          </div>
+          <div class="bg-surface-container-low rounded-lg p-4 text-center">
+            <p class="text-primary font-headline font-extrabold text-3xl md:text-4xl">177</p>
+            <p class="text-on-surface-variant text-xs md:text-sm">Barrios urbanos</p>
+          </div>
+          <div class="bg-surface-container-low rounded-lg p-4 text-center">
+            <p class="text-primary font-headline font-extrabold text-3xl md:text-4xl">43.400</p>
+            <p class="text-on-surface-variant text-xs md:text-sm">Beneficiarios</p>
+          </div>
+          <div class="bg-surface-container-low rounded-lg p-4 text-center">
+            <p class="text-primary font-headline font-extrabold text-3xl md:text-4xl">27</p>
+            <p class="text-on-surface-variant text-xs md:text-sm">Municipios</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Conozca más sobre Fundesoc -->
+  <Section bg="surface" narrow>
+    <SectionHeading title="Conozca más sobre Fundesoc" description="Explore los proyectos, noticias y recursos disponibles en el sitio oficial de Fundesoc." />
+
+    <div class="space-y-3">
+      <a
+        href="https://fundesoc.org.bo"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex items-center justify-between bg-surface rounded-lg px-5 py-4 border border-outline-variant/30 hover:border-primary/30 hover:bg-surface-container-low transition-all duration-300 min-h-[44px]"
+      >
+        <div>
+          <span class="font-semibold text-on-surface text-base">Visitar sitio web</span>
+          <span class="text-on-surface-variant text-sm ml-2">— fundesoc.org.bo</span>
+        </div>
+        <Icon name="material-symbols:arrow-forward" class="size-5 text-primary shrink-0 group-hover:translate-x-1 transition-transform" decorative />
+      </a>
+
+      <a
+        href="https://fundesoc.org.bo/index.php?Itemid=108&catid=13&id=74%3Afundesoc-logra-sinergias-para-el-desarrollo-sostenible&option=com_content&view=article"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex items-center justify-between bg-surface rounded-lg px-5 py-4 border border-outline-variant/30 hover:border-primary/30 hover:bg-surface-container-low transition-all duration-300 min-h-[44px]"
+      >
+        <div>
+          <span class="font-semibold text-on-surface text-base">Conocer proyectos</span>
+          <span class="text-on-surface-variant text-sm ml-2">— Logros e impacto por gestión</span>
+        </div>
+        <Icon name="material-symbols:arrow-forward" class="size-5 text-primary shrink-0 group-hover:translate-x-1 transition-transform" decorative />
+      </a>
+
+      <a
+        href="https://fundesoc.org.bo/index.php?option=com_content&view=article&id=22&Itemid=128"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex items-center justify-between bg-surface rounded-lg px-5 py-4 border border-outline-variant/30 hover:border-primary/30 hover:bg-surface-container-low transition-all duration-300 min-h-[44px]"
+      >
+        <div>
+          <span class="font-semibold text-on-surface text-base">Hacer una donación</span>
+          <span class="text-on-surface-variant text-sm ml-2">— Cada aporte transforma vidas</span>
+        </div>
+        <Icon name="material-symbols:arrow-forward" class="size-5 text-primary shrink-0 group-hover:translate-x-1 transition-transform" decorative />
+      </a>
+    </div>
+  </Section>
+
+  <!-- Fundesoc Social Bar -->
+  <section class="bg-primary-container py-10 sm:py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center">
+      <p class="text-on-primary-container font-headline text-lg md:text-xl font-semibold mb-6">
+        Siga a Fundesoc en redes sociales
+      </p>
+      <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+        <a href="https://www.facebook.com/people/FUNDESOC/100083073687717/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 group">
+          <div class="w-12 h-12 rounded-full bg-on-primary-container/20 group-hover:bg-on-primary-container/30 flex items-center justify-center transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-on-primary-container"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+          </div>
+          <span class="text-on-primary-container text-sm font-medium group-hover:underline">Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/fundesoc/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 group">
+          <div class="w-12 h-12 rounded-full bg-on-primary-container/20 group-hover:bg-on-primary-container/30 flex items-center justify-center transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-on-primary-container"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </div>
+          <span class="text-on-primary-container text-sm font-medium group-hover:underline">Instagram</span>
+        </a>
+        <a href="https://www.youtube.com/channel/UCVBss9DG0oxdinuhZIvp9PQ" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 group">
+          <div class="w-12 h-12 rounded-full bg-on-primary-container/20 group-hover:bg-on-primary-container/30 flex items-center justify-center transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-on-primary-container"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </div>
+          <span class="text-on-primary-container text-sm font-medium group-hover:underline">YouTube</span>
+        </a>
+        <a href="https://www.linkedin.com/company/fundesocbolivia/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 group">
+          <div class="w-12 h-12 rounded-full bg-on-primary-container/20 group-hover:bg-on-primary-container/30 flex items-center justify-center transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-on-primary-container"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </div>
+          <span class="text-on-primary-container text-sm font-medium group-hover:underline">LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

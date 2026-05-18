@@ -1,0 +1,83 @@
+---
+/**
+ * FormInput — Reusable form field component (input, select, or textarea).
+ *
+ * Renders a <label> + field pair with consistent MD3 styling.
+ * Does NOT include a wrapper <div> — the parent controls layout (grid, etc.).
+ *
+ * @prop id           - HTML id and name attribute (required).
+ * @prop label        - Visible label text (required).
+ * @prop type         - Field type: "text" | "email" | "tel" | "select" | "textarea" (default: "text").
+ * @prop required     - Whether the field is required (default: false).
+ * @prop placeholder  - Placeholder text.
+ * @prop autocomplete - HTML autocomplete attribute value.
+ * @prop options      - Options for type="select". Each { value, label }.
+ * @prop rows         - Row count for type="textarea" (default: 4).
+ */
+export interface Props {
+  id: string;
+  label: string;
+  type?: "text" | "email" | "tel" | "select" | "textarea";
+  required?: boolean;
+  placeholder?: string;
+  autocomplete?: string;
+  options?: { value: string; label: string }[];
+  rows?: number;
+}
+
+const {
+  id,
+  label,
+  type = "text",
+  required = false,
+  placeholder,
+  autocomplete,
+  options,
+  rows = 4,
+} = Astro.props;
+
+const inputClass =
+  "w-full bg-surface border border-outline-variant rounded-md focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 py-2.5 text-on-surface";
+---
+
+<div>
+  <label class="block text-sm font-semibold text-on-surface mb-2" for={id}>
+    {label}
+    {required && <span class="text-error" aria-hidden="true">*</span>}
+  </label>
+
+  {type === "select" ? (
+    <select
+      class={inputClass}
+      id={id}
+      name={id}
+      required={required}
+      aria-required={required || undefined}
+    >
+      {options?.map((opt) => (
+        <option value={opt.value}>{opt.label}</option>
+      ))}
+    </select>
+  ) : type === "textarea" ? (
+    <textarea
+      class={inputClass}
+      id={id}
+      name={id}
+      rows={rows}
+      placeholder={placeholder}
+      required={required}
+      aria-required={required || undefined}
+    />
+  ) : (
+    <input
+      class={inputClass}
+      id={id}
+      name={id}
+      type={type}
+      placeholder={placeholder}
+      autocomplete={autocomplete}
+      required={required}
+      aria-required={required || undefined}
+    />
+  )}
+</div>

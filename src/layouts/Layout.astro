@@ -1,0 +1,164 @@
+---
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  /** Path relativo SIN base — ej: "quienes-somos" o "novedades/proyecto-x1" */
+  currentPath?: string;
+  noindex?: boolean;
+  ogType?: string;
+  /** Article JSON-LD: fecha de publicación */
+  datePublished?: string;
+  /** Article JSON-LD: fecha de modificación */
+  dateModified?: string;
+  /** Article JSON-LD: autor */
+  author?: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  currentPath,
+  noindex,
+  ogType = "website",
+  datePublished,
+  dateModified,
+  author = "CBHE",
+} = Astro.props;
+
+const baseHref = import.meta.env.BASE_URL === '/'
+  ? import.meta.env.SITE
+  : `${import.meta.env.SITE}${import.meta.env.BASE_URL}/`;
+
+// Canonical URL: Astro.url ya incluye site + base + path
+const canonicalUrl = Astro.url.href;
+
+// Open Graph: absolute URL for images (required by social platforms)
+const ogImageUrl = new URL(image || 'og-default.png', baseHref).href;
+
+// Breadcrumb: infer from currentPath segments
+const breadcrumbSegments: { name: string; href: string }[] = [];
+if (currentPath) {
+  const segments = currentPath.split("/").filter(Boolean);
+  let acc = "";
+  for (const seg of segments) {
+    acc += `/${seg}`;
+    // prettier names
+    const nameMap: Record<string, string> = {
+      "novedades": "Novedades",
+      "capacitacion": "Capacitación",
+    };
+    const name = nameMap[seg] ?? seg.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    breadcrumbSegments.push({ name, href: acc });
+  }
+}
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00507e" />
+    <meta name="color-scheme" content="light" />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <link rel="canonical" href={canonicalUrl} />
+    <base href={baseHref} />
+    <!-- Favicon stack -->
+    <link rel="icon" href="favicon-cbhe.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preconnect" href="https://lh3.googleusercontent.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://api.web3forms.com" />
+    {description && <meta name="description" content={description} />}
+    <!-- Open Graph -->
+    <meta property="og:title" content={`${title} | CBHE`} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="CBHE" />
+    <meta property="og:locale" content="es_BO" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@CBHEnergia" />
+    <meta name="twitter:title" content={`${title} | CBHE`} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageUrl} />
+    <title>{title} | CBHE</title>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "CBHE — Cámara Boliviana de Hidrocarburos y Energía",
+          "url": baseHref,
+          "logo": new URL("logo-cbhe.webp", baseHref).href,
+          "sameAs": [
+            "https://www.facebook.com/CBHEnergia",
+            "https://www.linkedin.com/company/c%C3%A1mara-boliviana-de-hidrocarburos-y-energ%C3%ADa",
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "cbhe@cbhe.org.bo",
+            "contactType": "customer service",
+          },
+        },
+        {
+          "@type": "WebSite",
+          "name": "CBHE",
+          "url": baseHref,
+          "description": description || "Cámara Boliviana de Hidrocarburos y Energía — Integramos energías con liderazgo e innovación.",
+          "inLanguage": "es-BO",
+        },
+        ...(breadcrumbSegments.length > 0 ? [{
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": baseHref },
+            ...breadcrumbSegments.map((seg, i) => ({
+              "@type": "ListItem",
+              "position": i + 2,
+              "name": seg.name,
+              "item": new URL(seg.href.replace(/^\//, ""), baseHref).href,
+            })),
+          ],
+        }] : []),
+        ...(image ? [{
+          "@type": "ImageObject",
+          "url": ogImageUrl,
+          "caption": title,
+        }] : []),
+        ...(datePublished ? [{
+          "@type": "Article",
+          "headline": title,
+          "description": description,
+          "image": ogImageUrl,
+          "author": { "@type": "Organization", "name": author },
+          "datePublished": datePublished,
+          ...(dateModified ? { "dateModified": dateModified } : {}),
+          "publisher": {
+            "@type": "Organization",
+            "name": "CBHE — Cámara Boliviana de Hidrocarburos y Energía",
+            "logo": { "@type": "ImageObject", "url": new URL("logo-cbhe.webp", baseHref).href },
+          },
+        }] : []),
+      ],
+    })} />
+  </head>
+  <body>
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-on-primary focus:px-4 focus:py-2 focus:rounded-sm"
+    >
+      Saltar al contenido principal
+    </a>
+    <slot />
+  </body>
+</html>

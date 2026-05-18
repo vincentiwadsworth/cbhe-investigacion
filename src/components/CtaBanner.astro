@@ -1,0 +1,69 @@
+---
+import Icon from "./Icon.astro";
+
+/**
+ * CtaBanner — Centred call-to-action banner section.
+ *
+ * DESIGN RULE: Zero gradients. Uses solid background colours only.
+ *
+ * @prop variant       - "light" (bg-surface-container-low) or "dark" (bg-inverse-surface).
+ * @prop icon          - Material Symbols icon name above the title. Omit for no icon.
+ * @prop title         - Banner heading (h2). Required.
+ * @prop description   - Description paragraph. Omit to hide.
+ * @prop maxWidth      - Max-width class for the content area (default: "max-w-3xl").
+ * @prop py            - Padding-Y responsive classes (default: "py-12 sm:py-16 md:py-24").
+ *
+ * @slot default       - CTA buttons, links, or custom content below the description.
+ */
+export interface Props {
+  variant?: "light" | "dark";
+  icon?: string;
+  title: string;
+  description?: string;
+  maxWidth?: string;
+  py?: string;
+}
+
+const {
+  variant = "light",
+  icon,
+  title,
+  description,
+  maxWidth = "max-w-3xl",
+  py = "py-12 sm:py-16 md:py-24",
+} = Astro.props;
+
+const styles = {
+  light: {
+    bg: "bg-surface-container-low",
+    iconColor: "text-primary",
+    titleColor: "text-primary",
+    descColor: "text-on-surface-variant",
+  },
+  dark: {
+    bg: "bg-inverse-surface",
+    iconColor: "text-primary-fixed",
+    titleColor: "text-inverse-on-surface",
+    descColor: "text-inverse-on-surface/80",
+  },
+}[variant];
+
+const iconSizeClass = variant === "dark" ? "size-10 sm:size-12" : "size-8";
+---
+
+<section class:list={[styles.bg, py]}>
+  <div class:list={[maxWidth, "mx-auto px-4 sm:px-6 md:px-8 text-center"]}>
+    {icon && (
+      <Icon name={`material-symbols:${icon}`} class:list={["mb-6 mx-auto block", styles.iconColor, iconSizeClass]} />
+    )}
+    <h2 class:list={["font-headline text-2xl md:text-3xl font-bold mb-4", styles.titleColor]}>
+      {title}
+    </h2>
+    {description && (
+      <p class:list={["font-body text-base md:text-lg leading-relaxed mb-8 max-w-2xl mx-auto", styles.descColor]}>
+        {description}
+      </p>
+    )}
+    <slot />
+  </div>
+</section>

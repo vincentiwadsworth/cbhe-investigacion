@@ -1,0 +1,33 @@
+name: Update Financial Data
+
+on:
+  schedule:
+    - cron: "0 12 * * 1-5"   # 08:00 BOT
+    - cron: "0 16 * * 1-5"   # 12:00 BOT
+    - cron: "0 22 * * 1-5"   # 18:00 BOT
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install httpx beautifulsoup4 yfinance
+
+      - name: Fetch prices
+        run: python scripts/fetch_prices.py
+
+      - name: Commit updated data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update financial data"
+          file_pattern: data/prices.json

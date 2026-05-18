@@ -1,0 +1,116 @@
+---
+import Icon from "../components/Icon.astro";
+import Section from "../components/Section.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+---
+
+<PageLayout
+  title="Aviso Legal y Términos de Uso"
+  description="Aviso legal, identificación institucional y términos de uso del sitio web de la Cámara Boliviana de Hidrocarburos y Energía."
+  currentPath="terminos"
+>
+  <SubpageHero
+    label="Legal"
+    title="Aviso Legal y Términos de Uso"
+    subtitle="Identificación institucional y condiciones de uso del sitio web de la Cámara Boliviana de Hidrocarburos y Energía."
+  />
+
+  <Section bg="surface">
+    <div class="max-w-3xl">
+      <p class="text-on-surface-variant text-sm flex items-center gap-2 mb-10">
+        <Icon name="material-symbols:calendar-today" class="size-4" />
+        Última actualización: mayo 2026
+      </p>
+
+      <!-- 1. Identificación -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">1. Identificación del titular</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-4">
+          En cumplimiento con el marco jurídico del Estado Plurinacional de Bolivia, se informa que el presente sitio web es titularidad de:
+        </p>
+        <ul class="space-y-1.5 text-sm text-on-surface-variant">
+          <li><strong class="text-on-surface">Denominación:</strong> Cámara Boliviana de Hidrocarburos y Energía (CBHE)</li>
+          <li><strong class="text-on-surface">Naturaleza:</strong> Asociación empresarial sin fines de lucro</li>
+          <li><strong class="text-on-surface">Fundación:</strong> 1986</li>
+          <li><strong class="text-on-surface">Dirección:</strong> Radial 17 1/2 y 6to. Anillo, Zona Oeste, Santa Cruz — Bolivia</li>
+          <li><strong class="text-on-surface">Casilla postal:</strong> P.O. Box 3920</li>
+          <li><strong class="text-on-surface">Correo electrónico:</strong> <a href="mailto:cbhe@cbhe.org.bo" class="text-primary hover:underline">cbhe@cbhe.org.bo</a></li>
+          <li><strong class="text-on-surface">Sitio web:</strong> <a href="https://vincentiwadsworth.github.io/cbhe-web/" class="text-primary hover:underline">cbhe-web.pages.dev</a></li>
+        </ul>
+      </div>
+
+      <!-- 2. Aceptación -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">2. Aceptación de los términos</h2>
+        <p class="text-on-surface-variant leading-relaxed">
+          Al acceder y utilizar el sitio web de CBHE, usted acepta cumplir con estos términos y condiciones de uso. Si no está de acuerdo con alguno de estos términos, le recomendamos no utilizar este sitio.
+        </p>
+      </div>
+
+      <!-- 3. Propiedad intelectual -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">3. Propiedad intelectual</h2>
+        <p class="text-on-surface-variant leading-relaxed">
+          Todo el contenido de este sitio web —incluyendo textos, imágenes, logotipos, gráficos, íconos y código fuente— es propiedad de CBHE o de sus respectivos titulares y está protegido por las leyes de propiedad intelectual aplicables en Bolivia (Ley N° 1322 de Derecho de Autor y normas conexas). Queda prohibida la reproducción, distribución o modificación del contenido sin autorización previa por escrito de CBHE.
+        </p>
+      </div>
+
+      <!-- 4. Uso del sitio -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">4. Uso del sitio</h2>
+        <p class="text-on-surface-variant leading-relaxed">
+          Usted se compromete a utilizar este sitio web de manera lícita, ética y respetuosa, absteniéndose de cualquier actividad que pueda dañar, inutilizar o sobrecargar el sitio, así como de intentar acceder a áreas restringidas sin autorización.
+        </p>
+      </div>
+
+      <!-- 5. Exactitud -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">5. Exactitud de la información</h2>
+        <p class="text-on-surface-variant leading-relaxed">
+          CBHE se esfuerza por mantener la información del sitio actualizada y precisa. Sin embargo, no garantizamos la exactitud, integridad o actualidad de los contenidos publicados. Los datos de precios de commodities provienen de fuentes externas y pueden tener un desfase. El uso de la información del sitio es bajo su propio riesgo.
+        </p>
+      </div>
+
+      <!-- 6. Privacidad -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">6. Privacidad y protección de datos</h2>
+        <p class="text-on-surface-variant leading-relaxed">
+          El tratamiento de sus datos personales se rige por nuestra <a href="privacidad" class="text-primary hover:underline">Política de Privacidad</a>, la cual forma parte integral de estos términos. Le recomendamos leerla detenidamente antes de proporcionarnos cualquier información personal.
+        </p>
+      </div>
+
+      <!-- 7. Enlaces a terceros -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">7. Enlaces a terceros</h2>
+        <p class="text-on-surface-variant leading-relaxed">
+          Este sitio puede contener enlaces a sitios web de terceros (redes sociales, plataformas de capacitación, entidades gubernamentales, etc.). CBHE no se responsabiliza por el contenido, las políticas de privacidad ni las prácticas de dichos sitios.
+        </p>
+      </div>
+
+      <!-- 8. Limitación -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">8. Limitación de responsabilidad</h2>
+        <p class="text-on-surface-variant leading-relaxed">
+          CBHE no será responsable por daños directos, indirectos, incidentales o consecuentes que resulten del uso o la imposibilidad de uso de este sitio web, incluyendo pero no limitándose a la pérdida de datos o interrupción del servicio.
+        </p>
+      </div>
+
+      <!-- 9. Legislación -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">9. Legislación aplicable y jurisdicción</h2>
+        <p class="text-on-surface-variant leading-relaxed">
+          Estos términos se rigen por las leyes del Estado Plurinacional de Bolivia. Cualquier controversia derivada del uso de este sitio será sometida a la jurisdicción de los tribunales competentes de la ciudad de Santa Cruz de la Sierra, Bolivia.
+        </p>
+      </div>
+
+      <!-- 10. Modificaciones -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-headline font-bold text-on-surface mb-4">10. Modificaciones</h2>
+        <p class="text-on-surface-variant leading-relaxed">
+          CBHE se reserva el derecho de modificar estos términos en cualquier momento. Los cambios entrarán en vigor desde su publicación en esta página. Se recomienda revisar periódicamente los términos.
+        </p>
+      </div>
+    </div>
+  </Section>
+</PageLayout>

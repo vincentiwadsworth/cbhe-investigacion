@@ -1,0 +1,122 @@
+---
+import { getCollection } from "astro:content";
+import Icon from "../components/Icon.astro";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+
+const empresas = await getCollection("empresas", ({ data }) => !data.draft);
+
+function formatName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/(?:^|\s|-|\()\S/g, (c) => c.toUpperCase())
+    .replace(/\bS\.\s*A\.\s*S?\.?(\s*Sucursal)?/gi, (m) => m.toUpperCase().replace(/\bS\b/g, 'S').replace(/\bA\b/g, 'A'))
+    .replace(/\bS\.\s*A\./gi, 'S.A.')
+    .replace(/\bS\.\s*R\.\s*L\./gi, 'S.R.L.')
+    .replace(/\bLtda\.?/gi, 'Ltda.')
+    .replace(/\bE\s*&\s*P\b/gi, 'E&P')
+    .replace(/\bYpf\b/gi, 'YPF')
+    .replace(/\bPae\b/gi, 'PAE')
+    .replace(/\bGp\b/gi, 'GP')
+    .replace(/\bBpe\b/gi, 'BPE')
+    .replace(/\bPpo\b/gi, 'PPO')
+    .replace(/\bItc\b/gi, 'ITC')
+    .replace(/\bC\.?\s*R\.?\s*F\.?\b/gi, 'C.R.F.')
+    .replace(/\bIa\s+Asociados\b/gi, 'IA Asociados')
+    .replace(/\( /g, '(')
+    .replace(/ \)/g, ')')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const GROUPS = [
+  { id: "upstream", label: "Exploración y explotación de hidrocarburos" },
+  { id: "pozo", label: "Servicios y suministros especializados en pozo" },
+  { id: "superficie", label: "Servicios y suministros especializados en superficie" },
+  { id: "downstream", label: "Industria, transporte y distribución de hidrocarburos y energía" },
+  { id: "auxiliares", label: "Servicios auxiliares" },
+  { id: "adherentes", label: "Adherentes" },
+];
+
+const grouped = GROUPS
+  .map((group) => ({
+    ...group,
+    items: empresas
+      .filter((e) => e.data.grupo === group.id)
+      .sort((a, b) => {
+        if (a.data.orden !== b.data.orden) return a.data.orden - b.data.orden;
+        return a.data.nombre.localeCompare(b.data.nombre);
+      }),
+  }))
+  .filter((group) => group.items.length > 0);
+
+const totalEmpresas = empresas.length;
+const subtitleText = `${totalEmpresas} empresas que integran la cadena de valor del sector energético boliviano`;
+---
+
+<PageLayout
+  title="Afiliadas"
+  description="Directorio de empresas afiliadas a la CBHE — Más de 50 empresas que integran la cadena de valor del sector hidrocarburífero y energético en Bolivia."
+  active="afiliadas"
+>
+  <SubpageHero
+    label="Directorio"
+    title="Nuestras afiliadas"
+    subtitle={subtitleText}
+    pt="pt-20 sm:pt-24 md:pt-28"
+    pb="pb-24 sm:pb-28 md:pb-32"
+    titleMaxW="max-w-3xl"
+    subtitleSize="large"
+  />
+
+  <Section bg="surface">
+    {grouped.map((group) => (
+      <details id={`grupo-${group.id}`} open class="scroll-mt-24 mb-4 group/detail border border-outline-variant/50 rounded-lg overflow-hidden">
+        <summary class="list-none cursor-pointer flex items-center justify-between bg-surface-container-low px-6 py-4 min-h-[44px] hover:bg-surface-container transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="font-headline font-bold text-on-surface text-base sm:text-lg">{group.label}</span>
+            <span class="inline-flex items-center text-xs font-semibold text-on-primary-container bg-primary-container rounded-md px-2.5 py-1">{group.items.length} empresas</span>
+          </div>
+          <Icon name="material-symbols:expand-more" class="size-6 text-on-surface-variant transition-transform duration-200 group-open/detail:rotate-180" />
+        </summary>
+        <div class="p-4 sm:p-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {group.items.map((empresa) => (
+              <article class="bg-surface rounded-lg p-4 sm:p-6 border border-outline-variant/50 hover:shadow-md hover:border-primary/30 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                  {empresa.data.logo && (
+                    <img
+                      src={empresa.data.logo}
+                      alt=""
+                      class="w-10 h-10 sm:w-12 sm:h-12 object-contain shrink-0"
+                      loading="lazy"
+                    />
+                  )}
+                  <div class="min-w-0">
+                    <h3 class="font-headline font-bold text-on-surface text-base sm:text-lg">{formatName(empresa.data.nombre)}</h3>
+                    <div class="flex flex-wrap gap-3 mt-2">
+                      {empresa.data.website && (
+                        <a href={empresa.data.website} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm text-primary hover:text-on-primary-container transition-colors">
+                          <Icon name="material-symbols:open-in-new" class="size-4" />
+                          Web
+                        </a>
+                      )}
+                      {empresa.data.email && (
+                        <a href={`mailto:${empresa.data.email}`} class="inline-flex items-center gap-1 text-sm text-primary hover:text-on-primary-container transition-colors">
+                          <Icon name="material-symbols:mail" class="size-4" />
+                          Contacto
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </details>
+    ))}
+  </Section>
+</PageLayout>

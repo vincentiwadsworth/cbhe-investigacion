@@ -1,0 +1,18 @@
+---
+import { Icon as AstroIcon } from "astro-icon/components";
+
+export interface Props {
+  name: string;
+  class?: string;
+  /** Set to false only if the icon conveys semantic meaning (rare) */
+  decorative?: boolean;
+}
+
+const { name, class: className, decorative = true } = Astro.props;
+---
+
+<AstroIcon
+  name={name}
+  class={className}
+  aria-hidden={decorative ? "true" : undefined}
+/>

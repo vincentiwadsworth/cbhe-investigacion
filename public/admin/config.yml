@@ -1,0 +1,122 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+app_title: CBHE — Contenido
+site_url: https://cbhe.org.bo
+
+backend:
+  name: github
+  repo: vincentiwadsworth/cbhe-web
+  branch: main
+  skip_ci: true
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: cursos
+    label: Cursos
+    label_singular: Curso
+    folder: src/content/cursos
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Título, widget: string }
+      - {
+          name: category,
+          label: Categoría,
+          widget: select,
+          options: ["Curso", "Certificación"],
+        }
+      - {
+          name: modality,
+          label: Modalidad,
+          widget: select,
+          options: ["Virtual", "Presencial", "Híbrido"],
+        }
+      - { name: image, label: Imagen (opcional, si no hay Canva), widget: image, required: false }
+      - { name: startDate, label: "Fecha de inicio", widget: string, hint: "Formato: 9 Jun 2026 (día, mes abreviado en 3 letras, año). El orden en la web es automático por esta fecha." }
+      - { name: price, label: Precio / Inversión, widget: string, hint: "Ej: 950 Bs. (750 Bs. lanzamiento hasta 22 de mayo)" }
+      - { name: registrationDeadline, label: Fecha límite inscripción, widget: string, required: false, hint: "Solo si hay precio de lanzamiento" }
+      - { name: canvaLink, label: Link a Canva, widget: string, required: false, hint: "URL del diseño en Canva con toda la info del curso" }
+      - {
+          name: description,
+          label: Descripción breve (para tarjeta),
+          widget: text,
+          required: false,
+          hint: "1-2 líneas para la vista previa en el catálogo",
+        }
+      - name: instructors
+        label: Ponentes / Instructores
+        widget: list
+        required: false
+        fields:
+          - { name: name, label: Nombre, widget: string }
+          - { name: bio, label: Biografía, widget: text, required: false }
+      - { name: body, label: Contenido completo (opcional si hay Canva), widget: markdown, required: false }
+      - {
+          name: draft,
+          label: Borrador,
+          widget: boolean,
+          default: false,
+          required: false,
+        }
+
+  - name: articulos
+    label: Artículos
+    label_singular: Artículo
+    folder: src/content/articulos
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Título, widget: string }
+      - {
+          name: category,
+          label: Categoría,
+          widget: select,
+          options:
+            [
+              "Noticias",
+              "Análisis",
+              "Eventos",
+              "Capacitación",
+            ],
+        }
+      - { name: excerpt, label: Extracto, widget: text }
+      - { name: date, label: Fecha, widget: string }
+      - {
+          name: image,
+          label: Imagen,
+          widget: image,
+          required: false,
+        }
+      - {
+          name: featured,
+          label: Destacado en portada,
+          widget: boolean,
+          default: false,
+          required: false,
+        }
+      - { name: body, label: Contenido completo, widget: markdown }
+      - {
+          name: draft,
+          label: Borrador,
+          widget: boolean,
+          default: false,
+          required: false,
+        }
+
+  - name: empresas
+    label: Empresas Afiliadas
+    label_singular: Empresa
+    folder: src/content/empresas
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: nombre, label: Nombre de la Empresa, widget: string }
+      - { name: grupo, label: Grupo Industrial, widget: select, options: [{ label: "Exploración y explotación de hidrocarburos", value: "upstream" }, { label: "Servicios y suministros especializados en pozo", value: "pozo" }, { label: "Servicios y suministros especializados en superficie", value: "superficie" }, { label: "Industria, transporte y distribución de hidrocarburos y energía", value: "downstream" }, { label: "Servicios auxiliares", value: "auxiliares" }, { label: "Adherentes", value: "adherentes" }] }
+      - { name: website, label: Sitio Web, widget: string, required: false }
+      - { name: email, label: Correo de Contacto, widget: string, required: false }
+      - { name: logo, label: Logo, widget: image, required: false }
+      - { name: destacada, label: Destacada en portada, widget: boolean, default: false, required: false }
+      - { name: orden, label: Orden, widget: number, default: 0, required: false, hint: "Menor número = primero. Si hay empate, orden alfabético." }
+      - { name: draft, label: Borrador, widget: boolean, default: false, required: false }

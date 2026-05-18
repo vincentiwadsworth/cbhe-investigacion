@@ -1,0 +1,167 @@
+---
+import Icon from "../components/Icon.astro";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import SubpageHero from "../components/SubpageHero.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import Web3Form from "../components/Web3Form.astro";
+import FormInput from "../components/FormInput.astro";
+---
+
+<PageLayout
+  title="Contacto"
+  description="Póngase en contacto con la Cámara Boliviana de Hidrocarburos y Energía — Dirección, teléfono, correo y formulario de consultas."
+  active="contacto"
+>
+  <SubpageHero
+    label="Contacto"
+    title="Estamos para servirle"
+    subtitle="Comuníquese con nuestro equipo. Atenderemos su consulta con la mayor brevedad posible."
+  />
+
+  <!-- Contact info + form -->
+  <Section bg="surface">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
+      <!-- Contact info column -->
+      <div>
+        <SectionHeading title="Información de contacto" description="Visítenos en nuestras oficinas o comuníquese por cualquiera de los siguientes medios." />
+
+        <div class="space-y-8 mt-8 md:mt-10">
+          <!-- Dirección -->
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-surface-container-low rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <Icon name="material-symbols:location-on" class="text-primary size-5" />
+            </div>
+            <div>
+              <h3 class="font-bold text-on-surface">Dirección</h3>
+              <p class="text-on-surface-variant text-sm mt-1">Radial 17 1/2 y 6to. Anillo — Zona Oeste</p>
+              <p class="text-on-surface-variant text-sm">Santa Cruz — Bolivia</p>
+            </div>
+          </div>
+
+          <!-- Teléfono / Fax -->
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-surface-container-low rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <Icon name="material-symbols:call" class="text-primary size-5" />
+            </div>
+            <div>
+              <h3 class="font-bold text-on-surface">Teléfono / fax</h3>
+              <p class="text-on-surface-variant text-sm mt-1">Fax: (591-3) 3577868</p>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-surface-container-low rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <Icon name="material-symbols:mail" class="text-primary size-5" />
+            </div>
+            <div>
+              <h3 class="font-bold text-on-surface">Correo electrónico</h3>
+              <a
+                href="mailto:cbhe@cbhe.org.bo"
+                class="text-primary hover:text-on-primary-container transition-colors text-sm mt-1 block"
+              >
+                cbhe@cbhe.org.bo
+              </a>
+            </div>
+          </div>
+
+          <!-- Redes Sociales -->
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-surface-container-low rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <Icon name="material-symbols:language" class="text-primary size-5" />
+            </div>
+            <div>
+              <h3 class="font-bold text-on-surface">Redes sociales</h3>
+              <div class="flex flex-wrap gap-3 mt-2">
+                <a
+                  href="https://www.facebook.com/CBHEnergia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors text-sm"
+                >
+                  <Icon name="material-symbols:open-in-new" class="size-3.5" />
+                  Facebook
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/c%C3%A1mara-boliviana-de-hidrocarburos-y-energ%C3%ADa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors text-sm"
+                >
+                  <Icon name="material-symbols:open-in-new" class="size-3.5" />
+                  LinkedIn
+                </a>
+                <a
+                  href="https://www.instagram.com/cbhecapacitacion/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors text-sm"
+                >
+                  <Icon name="material-symbols:open-in-new" class="size-3.5" />
+                  Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Maps -->
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-surface-container-low rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <Icon name="material-symbols:map" class="text-primary size-5" />
+            </div>
+            <div>
+              <h3 class="font-bold text-on-surface">Ubicación</h3>
+              <a
+                href="https://maps.app.goo.gl/qJ3b6GpF3rRKcyM77"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-primary hover:text-on-primary-container transition-colors text-sm mt-1"
+              >
+                Ver en Google Maps
+                <Icon name="material-symbols:open-in-new" class="size-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form column -->
+      <div>
+        <SectionHeading title="Envíenos un mensaje" description="Complete el formulario y le responderemos a la brevedad." />
+
+        <div class="bg-surface-bright p-8 rounded-lg shadow-md border border-outline-variant/30 mt-8 md:mt-10">
+          <Web3Form subject="Nuevo mensaje de contacto — CBHE" fromName="Formulario de Contacto CBHE">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormInput id="name" label="Nombre" required autocomplete="name" placeholder="Su nombre completo" />
+              <FormInput id="email" label="Correo Electrónico" type="email" required autocomplete="email" placeholder="email@ejemplo.com" />
+            </div>
+            <FormInput id="asunto" label="Asunto" placeholder="Motivo de su consulta" />
+            <FormInput id="message" label="Mensaje" type="textarea" required rows={5} placeholder="Describa su consulta o solicitud…" />
+            <button class="w-full bg-primary text-on-primary rounded-md py-4 font-bold hover:bg-primary/90 hover:shadow-md transition-all min-h-[44px] disabled:opacity-50 flex items-center justify-center gap-2" type="submit">
+              Enviar mensaje
+              <Icon name="material-symbols:send" class="size-5" />
+            </button>
+          </Web3Form>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Map -->
+  <Section bg="surface-container-low">
+    <SectionHeading title="Visítenos" description="Nuestras oficinas están ubicadas en la Radial 17 1/2 y 6to. Anillo, Zona Oeste, Santa Cruz de la Sierra." align="center" />
+    <div class="aspect-video w-full rounded-lg overflow-hidden shadow-sm border border-outline-variant mt-8">
+      <iframe
+        src="https://maps.google.com/maps?q=C%C3%A1mara+Boliviana+de+Hidrocarburos+y+Energ%C3%ADa,+Santa+Cruz+de+la+Sierra,+Bolivia&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación de la CBHE en Santa Cruz de la Sierra">
+      </iframe>
+    </div>
+  </Section>
+</PageLayout>

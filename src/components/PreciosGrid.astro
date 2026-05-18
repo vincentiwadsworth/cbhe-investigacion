@@ -1,0 +1,82 @@
+---
+interface Commodity {
+  price: number;
+  unit: string;
+  label: string;
+}
+
+interface PricesData {
+  updated: string;
+  usd_bob: { buy: number; sell: number };
+  commodities: {
+    WTI: Commodity;
+    BRENT: Commodity;
+    HENRY_HUB: Commodity;
+    TTF: Commodity;
+  };
+}
+
+interface Props {
+  data: PricesData;
+}
+
+const { data } = Astro.props;
+const { commodities, usd_bob } = data;
+
+const updatedDate = new Date(data.updated);
+const fmtDate = new Intl.DateTimeFormat("es-BO", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+  timeZone: "America/La_Paz",
+});
+
+const fmtPrice = (p: number) => p.toFixed(2);
+
+const items = [
+  commodities.WTI,
+  commodities.BRENT,
+  commodities.HENRY_HUB,
+  commodities.TTF,
+];
+---
+
+<section class="bg-inverse-surface py-8 sm:py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+      {items.map((item) => (
+        <div class="p-4 flex flex-col items-center text-center">
+          <p class="text-inverse-on-surface/70 text-xs uppercase tracking-wide">{item.label}</p>
+          <p class="text-inverse-on-surface font-extrabold text-xl sm:text-2xl lg:text-3xl tabular-nums tracking-tight">
+            {fmtPrice(item.price)}
+          </p>
+          <p class="text-inverse-on-surface/70 text-xs sm:text-sm">{item.unit}</p>
+        </div>
+      ))}
+
+      <div class="p-4 flex flex-col items-center text-center">
+        <p class="text-inverse-on-surface/70 text-xs uppercase tracking-wide">USD/BOB BCB</p>
+        <div>
+          <p class="text-inverse-on-surface font-extrabold text-lg sm:text-xl lg:text-2xl tabular-nums tracking-tight">
+            {fmtPrice(usd_bob.buy)}
+            <span class="text-inverse-on-surface/70 text-xs">Compra</span>
+          </p>
+        </div>
+        <div class="border-t border-inverse-on-surface/20 my-2 w-full"></div>
+        <div>
+          <p class="text-inverse-on-surface font-extrabold text-lg sm:text-xl lg:text-2xl tabular-nums tracking-tight">
+            {fmtPrice(usd_bob.sell)}
+            <span class="text-inverse-on-surface/70 text-xs">Venta</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-inverse-on-surface/70 text-xs text-center mt-4 sm:mt-6">
+      Actualizado {fmtDate.format(updatedDate)}
+    </p>
+  </div>
+</section>
