@@ -1,10 +1,11 @@
 import { useMemo } from 'react';
 import {
   useAllRegionalData,
+  useExchangeRate,
   getLatestPricesByCountry,
   getPriceChangesByCountry,
 } from '../hooks/useDashboardData';
-import { BCB_EXCHANGE_RATE, PRODUCT_GROUPS } from '../lib/constants';
+import { FALLBACK_EXCHANGE_RATE, PRODUCT_GROUPS } from '../lib/constants';
 import { formatBOB, formatUSD, computeUSD, getTrend } from '../utils/format';
 
 // Products to show as cards
@@ -45,6 +46,22 @@ function VariationBadge({ label, changePercent }: VariationBadgeProps) {
 
 export default function HeroSection() {
   const { data: regionalData } = useAllRegionalData();
+  const { data: exchangeRateData } = useExchangeRate();
+
+  // Prefer DB rate (paralelo > oficial), fallback to hardcoded
+  const effectiveRate = exchangeRateData?.tasa_paralelo
+    ?? exchangeRateData?.tasa_oficial
+    ?? FALLBACK_EXCHANGE_RATE.rate;
+
+  const effectiveDate = exchangeRateData?.fecha
+    ?? FALLBACK_EXCHANGE_RATE.date;
+
+  // Rate label: indicate paralelo vs oficial vs fallback
+  const rateLabel = exchangeRateData?.tasa_paralelo
+    ? 'paralelo'
+    : exchangeRateData?.tasa_oficial
+      ? 'oficial'
+      : '';
 
   // Latest prices per product group for Bolivia
   const latestPrices = useMemo(() => {
@@ -122,7 +139,7 @@ export default function HeroSection() {
     : null;
 
   // BCB date formatted
-  const bcbDateFormatted = new Date(BCB_EXCHANGE_RATE.date).toLocaleDateString('es-BO', {
+  const bcbDateFormatted = new Date(effectiveDate).toLocaleDateString('es-BO', {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
@@ -144,7 +161,7 @@ export default function HeroSection() {
             )}
           </div>
           <div className="text-sm text-amber-400 font-medium bg-slate-800/60 rounded-lg px-3 py-1.5">
-            Tipo de cambio: Bs {BCB_EXCHANGE_RATE.rate.toFixed(2)}/$us ({bcbDateFormatted})
+            Tipo de cambio{rateLabel ? ` (${rateLabel})` : ''}: Bs {effectiveRate.toFixed(2)}/$us ({bcbDateFormatted})
           </div>
         </div>
 
@@ -196,12 +213,7 @@ export default function HeroSection() {
           })}
         </div>
 
-        {/* Footer line */}
-        <div className="mt-6 text-center md:text-left border-t border-slate-700/50 pt-4">
-          <p className="text-xs text-slate-500">
-            Observatorio de Precios de Combustibles — CBHE
-          </p>
-        </div>
+
       </div>
     </section>
   );

@@ -1,0 +1,56 @@
+name: Fetch Daily Data
+
+on:
+  schedule:
+    # Every day at 08:00 UTC (04:00 BOT)
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    inputs:
+      benchmarks_mode:
+        description: 'Benchmarks fetch mode (incremental/backfill)'
+        default: 'incremental'
+        type: string
+
+jobs:
+  fetch-exchange-rates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch exchange rates (BCB + DolarApi)
+        run: |
+          echo "::group::fetch-exchange-rates"
+          response=$(curl -sS -w "\n%{http_code}" \
+            -X POST \
+            "${{ vars.INSFORGE_URL }}/functions/v1/fetch-exchange-rates" \
+            -H "Authorization: Bearer ${{ secrets.INSFORGE_API_KEY }}" \
+            -H "Content-Type: application/json")
+          http_code=$(echo "$response" | tail -1)
+          body=$(echo "$response" | sed '$d')
+          echo "$body"
+          echo "::endgroup::"
+          if [ "$http_code" -ge 400 ]; then
+            echo "::error::fetch-exchange-rates returned HTTP $http_code"
+            exit 1
+          fi
+          echo "Exchange rates: HTTP $http_code"
+
+  fetch-global-benchmarks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch WTI + Brent from EIA
+        run: |
+          mode="${{ inputs.benchmarks_mode || 'incremental' }}"
+          echo "::group::fetch-global-benchmarks (mode=$mode)"
+          response=$(curl -sS -w "\n%{http_code}" \
+            -X POST \
+            "${{ vars.INSFORGE_URL }}/functions/v1/fetch-global-benchmarks?mode=${mode}" \
+            -H "Authorization: Bearer ${{ secrets.INSFORGE_API_KEY }}" \
+            -H "Content-Type: application/json")
+          http_code=$(echo "$response" | tail -1)
+          body=$(echo "$response" | sed '$d')
+          echo "$body"
+          echo "::endgroup::"
+          if [ "$http_code" -ge 400 ]; then
+            echo "::error::fetch-global-benchmarks returned HTTP $http_code"
+            exit 1
+          fi
+          echo "Benchmarks: HTTP $http_code"

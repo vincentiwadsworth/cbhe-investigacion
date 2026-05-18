@@ -317,6 +317,43 @@ export function useProductionData() {
   });
 }
 
+export interface ExchangeRate {
+  id: number;
+  fecha: string;
+  pais: string;
+  moneda: string;
+  tasa_oficial: number | null;
+  tasa_paralelo: number | null;
+  fuente: string;
+  data_source: string | null;
+  frecuencia: string | null;
+  created_at: string;
+}
+
+/**
+ * Fetches the latest Bolivia exchange rate (oficial + paralelo).
+ * Uses tasa_paralelo as the displayed rate when available,
+ * falls back to tasa_oficial.
+ * Cached 6 hours (rate changes daily at most).
+ */
+export function useExchangeRate() {
+  return useQuery<ExchangeRate | null>({
+    queryKey: ['latestExchangeRate'],
+    queryFn: async () => {
+      const { data, error } = await insforge.database
+        .from('exchange_rates')
+        .select('*')
+        .eq('pais', 'Bolivia')
+        .order('fecha', { ascending: false })
+        .limit(1);
+
+      if (error) throw error;
+      return data?.[0] ?? null;
+    },
+    staleTime: 6 * 60 * 60 * 1000, // 6 hours
+  });
+}
+
 /** Fetches drilling activity data. Cached 24h. */
 export function useDrillingData() {
   return useQuery<DrillingRecord[]>({

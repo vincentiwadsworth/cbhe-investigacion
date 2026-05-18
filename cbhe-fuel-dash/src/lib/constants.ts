@@ -1,10 +1,13 @@
-// Tipo de cambio referencial del Banco Central de Bolivia
-// Actualizar manualmente — fuente: bcb.gob.bo
-export const BCB_EXCHANGE_RATE = {
+// Fallback exchange rate if DB fetch fails
+// Updated manually — source: bcb.gob.bo
+export const FALLBACK_EXCHANGE_RATE = {
   rate: 10.25,
   date: '2026-05-15',
   source: 'Banco Central de Bolivia',
 };
+
+/** @deprecated Use useExchangeRate() hook instead */
+export const BCB_EXCHANGE_RATE = FALLBACK_EXCHANGE_RATE;
 
 // Países con datos disponibles en la DB
 export const COUNTRIES = [
