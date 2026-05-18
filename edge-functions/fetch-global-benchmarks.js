@@ -210,7 +210,7 @@ function transformRecords(rawRecords) {
 // ── Batch Upsert ─────────────────────────────────────────────────────────────
 
 /**
- * Upserts records into `fuel_prices_global` in batches of ≤ BATCH_SIZE.
+ * Upserts records into `crude_benchmarks` in batches of ≤ BATCH_SIZE.
  */
 async function batchUpsert(records) {
   var totalInserted = 0;
@@ -221,7 +221,7 @@ async function batchUpsert(records) {
 
     try {
       var result = await client.database
-        .from('fuel_prices_global')
+        .from('crude_benchmarks')
         .upsert(batch, { onConflict: 'fecha,tipo' });
 
       if (result.error) {
@@ -252,7 +252,7 @@ async function batchUpsert(records) {
 // ── Ingestion Log ────────────────────────────────────────────────────────────
 
 /**
- * Writes a summary entry to the `ingestion_log` table.
+ * Writes a summary entry to the `_etl_runs` table.
  */
 async function writeIngestionLog(stats) {
   try {
@@ -277,16 +277,16 @@ async function writeIngestionLog(stats) {
     };
 
     var result = await client.database
-      .from('ingestion_log')
+      .from('_etl_runs')
       .insert([logEntry]);
 
     if (result.error) {
-      console.error('[DB] Failed to write ingestion_log: ' + JSON.stringify(result.error));
+      console.error('[DB] Failed to write _etl_runs: ' + JSON.stringify(result.error));
     } else {
       console.log('[DB] Ingestion log written');
     }
   } catch (err) {
-    console.error('[DB] Exception writing ingestion_log: ' + err.message);
+    console.error('[DB] Exception writing _etl_runs: ' + err.message);
   }
 }
 

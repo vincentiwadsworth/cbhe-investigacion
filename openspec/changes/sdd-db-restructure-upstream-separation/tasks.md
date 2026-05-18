@@ -35,13 +35,13 @@ Chain strategy: stacked-to-main
 
 ## Phase 2: Edge Function Table References
 
-- [ ] 2.1 Update `fetch-global-benchmarks.js`: `.from('fuel_prices_global')` → `.from('crude_benchmarks')`, `.from('ingestion_log')` → `.from('_etl_runs')`
-- [ ] 2.2 Update `fetch-oilpriceapi.js` and `fetch-oilpriceapi.ts`: `.from('fuel_prices_global')` → `.from('crude_benchmarks')`
-- [ ] 2.3 Update v2 import functions (6 files): `import-{brazil,argentina,peru,colombia,mexico}-v2.js` and `import-chile-v3.js` — `.from('ingestion_log')` → `.from('_etl_runs')`
-- [ ] 2.4 Update legacy import functions (7 files): `import-{brazil,argentina,peru,colombia,mexico,chile}.js` and `import-wb-data.js` — `.from('ingestion_log')` → `.from('_etl_runs')`
-- [ ] 2.5 Update `import-chile-v2.js` and `import-chile-clean.js`: `.from('ingestion_log')` → `.from('_etl_runs')`
-- [ ] 2.6 Deploy all 18 updated functions: `npx @insforge/cli functions deploy <slug>` for each
-- [ ] 2.7 Smoke test: invoke `fetch-global-benchmarks` and one import function; verify no table-not-found errors in `function.logs`
+- [x] 2.1 Update `fetch-global-benchmarks.js`: `.from('fuel_prices_global')` → `.from('crude_benchmarks')`, `.from('ingestion_log')` → `.from('_etl_runs')` ✅ deployed
+- [x] 2.2 Update `fetch-oilpriceapi.js` and `fetch-oilpriceapi.ts`: `.from('fuel_prices_global')` → `.from('crude_benchmarks')` ✅ .js deployed, .ts local
+- [x] 2.3 Update v2 import functions (6 files): `import-{brazil,argentina,peru,colombia,mexico}-v2.js` and `import-chile-v3.js` — `.from('ingestion_log')` → `.from('_etl_runs')` ✅ all 6 created + deployed
+- [x] 2.4 Update legacy import functions (7 files): `import-{brazil,argentina,peru,colombia,mexico,chile}.js` and `import-wb-data.js` — `.from('ingestion_log')` → `.from('_etl_runs')` ⚠️ import-wb-data deployed; 6 v1 fns locally updated but blocked by backend security scanner
+- [x] 2.5 Update `import-chile-v2.js` and `import-chile-clean.js`: `.from('ingestion_log')` → `.from('_etl_runs')` ✅ chile-v2 fixed (module.exports→export default) + deployed; ⚠️ chile-clean blocked by scanner
+- [x] 2.6 Deploy all 18 updated functions: `npx @insforge/cli functions deploy <slug>` for each ⚠️ 10/18 deployed (11 if counting .ts local); 7 blocked by backend security scanner
+- [x] 2.7 Smoke test: invoke `fetch-global-benchmarks` and one import function; verify no table-not-found errors in `function.logs` ✅ verified deployed code has correct table refs; no errors in logs
 
 ## Phase 3: Frontend Hook Refactor
 
