@@ -45,12 +45,12 @@ Chain strategy: stacked-to-main
 
 ## Phase 3: Frontend Hook Refactor
 
-- [ ] 3.1 Replace `UpstreamRecord` interface with 3 new interfaces: `ReservesRecord`, `ProductionRecord`, `DrillingRecord` (per design.md contracts)
-- [ ] 3.2 Replace `useUpstreamData()` with 3 hooks: `useReservesData()`, `useProductionData()`, `useDrillingData()` — each with own `queryKey` and target table
-- [ ] 3.3 Update `useAllGlobalData()`: `.from('fuel_prices_global')` → `.from('crude_benchmarks')`; update `GlobalPrice` interface if needed
-- [ ] 3.4 Update helper functions: replace `getUpstreamByCountry()` and `getUpstreamLatest()` with entity-specific versions or keep generic with new types
-- [ ] 3.5 Find and update all consumers of `useUpstreamData`, `UpstreamRecord`, `getUpstreamByCountry`, `getUpstreamLatest` in `cbhe-fuel-dash/src/`
-- [ ] 3.6 Verify build: `cd cbhe-fuel-dash && npm run build` passes with no TypeScript errors
+- [x] 3.1 Replace `UpstreamRecord` interface with 3 new interfaces: `ReservesRecord`, `ProductionRecord`, `DrillingRecord` (per design.md contracts)
+- [x] 3.2 Replace `useUpstreamData()` with 3 hooks: `useReservesData()`, `useProductionData()`, `useDrillingData()` — each with own `queryKey` and target table
+- [x] 3.3 Update `useAllGlobalData()`: `.from('fuel_prices_global')` → `.from('crude_benchmarks')`; update `GlobalPrice` interface if needed
+- [x] 3.4 Update helper functions: replace `getUpstreamByCountry()` and `getUpstreamLatest()` with entity-specific versions or keep generic with new types
+- [x] 3.5 Find and update all consumers of `useUpstreamData`, `UpstreamRecord`, `getUpstreamByCountry`, `getUpstreamLatest` in `cbhe-fuel-dash/src/`
+- [x] 3.6 Verify build: `cd cbhe-fuel-dash && npm run build` passes with no TypeScript errors
 
 ## Phase 4: Validation & E2E
 

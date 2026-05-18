@@ -36,7 +36,7 @@ export function useAllGlobalData() {
     queryKey: ['allGlobalPrices'],
     queryFn: async () => {
       const { data, error } = await insforge.database
-        .from('fuel_prices_global')
+        .from('crude_benchmarks')
         .select('*')
         .order('fecha', { ascending: false })
         .limit(10000);
@@ -209,4 +209,128 @@ export function getRegionalComparison(
   }
 
   return Array.from(countryLatest.values()).sort((a, b) => a.precio_usd - b.precio_usd);
+}
+
+// ── Upstream (E&P) — Domain-entity hooks ──────────────────────
+
+export interface ReservesRecord {
+  id: number;
+  pais: string;
+  codigo_pais: string;
+  anio: number;
+  reservas_petroleo_bbl: number | null;
+  reservas_gas_tcf: number | null;
+  fuente: string | null;
+  notas: string | null;
+}
+
+export interface ProductionRecord {
+  id: number;
+  pais: string;
+  codigo_pais: string;
+  anio: number;
+  produccion_petroleo_kbbld: number | null;
+  produccion_gas_bcm: number | null;
+  fuente: string | null;
+  notas: string | null;
+}
+
+export interface DrillingRecord {
+  id: number;
+  pais: string;
+  codigo_pais: string;
+  anio: number;
+  rigs_activos_prom: number | null;
+  fuente: string | null;
+  notas: string | null;
+}
+
+/** Generic constraint: entity rows must have pais + anio for filtering. */
+interface HasCountryYear {
+  pais: string;
+  anio: number;
+}
+
+/**
+ * Filters data by country and sorts by year ascending.
+ * Works with any entity that has pais + anio fields.
+ */
+export function filterByCountry<T extends HasCountryYear>(
+  data: T[],
+  country: string
+): T[] {
+  return data
+    .filter((d) => d.pais === country)
+    .sort((a, b) => a.anio - b.anio);
+}
+
+/**
+ * Returns a Map of country → latest (max year) record.
+ * Works with any entity that has pais + anio fields.
+ */
+export function getLatestByCountry<T extends HasCountryYear>(
+  data: T[]
+): Map<string, T> {
+  const latest = new Map<string, T>();
+  for (const row of data) {
+    const existing = latest.get(row.pais);
+    if (!existing || row.anio > existing.anio) {
+      latest.set(row.pais, row);
+    }
+  }
+  return latest;
+}
+
+/** Fetches hydrocarbon reserves data. Cached 24h. */
+export function useReservesData() {
+  return useQuery<ReservesRecord[]>({
+    queryKey: ['reservesAnnual'],
+    queryFn: async () => {
+      const { data, error } = await insforge.database
+        .from('reserves_annual')
+        .select('*')
+        .order('anio', { ascending: true })
+        .limit(5000);
+
+      if (error) throw error;
+      return (data || []) as ReservesRecord[];
+    },
+    staleTime: 24 * 60 * 60 * 1000,
+  });
+}
+
+/** Fetches production data. Cached 24h. */
+export function useProductionData() {
+  return useQuery<ProductionRecord[]>({
+    queryKey: ['productionAnnual'],
+    queryFn: async () => {
+      const { data, error } = await insforge.database
+        .from('production_annual')
+        .select('*')
+        .order('anio', { ascending: true })
+        .limit(5000);
+
+      if (error) throw error;
+      return (data || []) as ProductionRecord[];
+    },
+    staleTime: 24 * 60 * 60 * 1000,
+  });
+}
+
+/** Fetches drilling activity data. Cached 24h. */
+export function useDrillingData() {
+  return useQuery<DrillingRecord[]>({
+    queryKey: ['drillingActivity'],
+    queryFn: async () => {
+      const { data, error } = await insforge.database
+        .from('drilling_activity')
+        .select('*')
+        .order('anio', { ascending: true })
+        .limit(5000);
+
+      if (error) throw error;
+      return (data || []) as DrillingRecord[];
+    },
+    staleTime: 24 * 60 * 60 * 1000,
+  });
 }

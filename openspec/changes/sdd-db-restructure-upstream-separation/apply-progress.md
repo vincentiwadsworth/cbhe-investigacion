@@ -80,6 +80,45 @@ but data has overlapping entity types (50 rows have both reserves+production,
 
 ### Remaining Tasks
 
-- [ ] 3.1–3.6: Frontend refactor (PR 3)
+- [ ] 4.1–4.5: Validation & E2E
+- [ ] 5.1–5.3: Cleanup (7-day window)
+
+---
+
+## PR 3: Frontend Refactor — COMPLETED ✅
+
+**Date**: 2026-05-18 | **Commit**: (pending)
+
+### Completed Tasks
+
+- [x] **3.1** Replaced `UpstreamRecord` with 3 domain-entity interfaces: `ReservesRecord`, `ProductionRecord`, `DrillingRecord` — exact field signatures per design.md contracts
+- [x] **3.2** Replaced `useUpstreamData()` with 3 independent hooks: `useReservesData()` → `reserves_annual`, `useProductionData()` → `production_annual`, `useDrillingData()` → `drilling_activity` — each with own `queryKey`
+- [x] **3.3** Updated `useAllGlobalData()`: `.from('fuel_prices_global')` → `.from('crude_benchmarks')`. `GlobalPrice` interface unchanged (columns match)
+- [x] **3.4** Replaced `getUpstreamByCountry()` and `getUpstreamLatest()` with generic polymorphic helpers: `filterByCountry<T>(data, country)` and `getLatestByCountry<T>(data)` — work with any entity having `pais` + `anio`
+- [x] **3.5** Updated `UpstreamSection.tsx`: imports 3 new hooks + generic helpers; refactored metrics (reserves/production/drilling from correct data sources); charts use appropriate entity data
+- [x] **3.6** `npm run build` passes: zero TypeScript errors, zero ESLint errors, Vite production bundle built successfully
+
+### Files Changed
+
+| File | Action | Description |
+|------|--------|-------------|
+| `cbhe-fuel-dash/src/hooks/useDashboardData.ts` | Modified | Replaced `UpstreamRecord` + `useUpstreamData` + old helpers with 3 interfaces, 3 hooks, and 2 generic polymorphic helpers. Updated `useAllGlobalData` table ref. |
+| `cbhe-fuel-dash/src/components/UpstreamSection.tsx` | Modified | Refactored to use 3 domain hooks; charts and metrics now pull from correct entity-specific data arrays. |
+
+### Verification
+
+| Check | Result |
+|-------|--------|
+| `tsc -b` | ✅ Zero errors |
+| `vite build` | ✅ 898 modules, 1.54s |
+| `grep upstream_annual\|UpstreamRecord\|useUpstreamData` | ✅ Zero matches in `src/` |
+| `grep fuel_prices_global\|ingestion_log` | ✅ Zero matches in `src/` |
+
+### Deviations
+
+None — implementation matches design.md exactly.
+
+### Remaining Tasks
+
 - [ ] 4.1–4.5: Validation & E2E
 - [ ] 5.1–5.3: Cleanup (7-day window)
